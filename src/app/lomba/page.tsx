@@ -63,7 +63,7 @@ export default function CompetitionPage() {
           >
             <AnimatedTitle
               title="Informasi Lomba"
-              subtitle="Ketahui semua informasi mengenai NBPC 2025"
+              subtitle=""
               textColor="text-white"
               align="center"
               size="xl"
