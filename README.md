@@ -1,24 +1,91 @@
-# NBPC-UNISNU
+<div align="center">
+  
+# 🚀 NBPC-UNISNU 🚀
 
-Website resmi untuk National Business Plan Competition (NBPC) Universitas Islam Nahdlatul Ulama (UNISNU) Jepara.
+<img src="public/images/logo.png" alt="NBPC Logo" width="180"/>
 
-## Teknologi
+### Website Resmi National Business Plan Competition
 
-- Next.js
-- React
-- Tailwind CSS
-- Framer Motion
+[![Next.js](https://img.shields.io/badge/Next.js-black?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
+[![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://reactjs.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![Framer Motion](https://img.shields.io/badge/Framer_Motion-0055FF?style=for-the-badge&logo=framer&logoColor=white)](https://www.framer.com/motion/)
 
-## Fitur
+</div>
 
-- Halaman beranda dengan animasi interaktif
-- Halaman lomba dengan detail kategori dan timeline pendaftaran
-- Halaman tentang dengan informasi tim dan organisasi
-- UI/UX yang modern dan responsif
+---
 
-## Pengembangan
+## 📋 Tentang Proyek
+
+Website resmi untuk **National Business Plan Competition (NBPC)** Universitas Islam Nahdlatul Ulama (UNISNU) Jepara. Platform ini didesain untuk memberikan pengalaman terbaik bagi peserta lomba, dengan tampilan yang modern dan fitur interaktif.
+
+<div align="center">
+  
+  > 💡 *"Mendorong Inovasi dan Kewirausahaan Mahasiswa Indonesia"*
+
+</div>
+
+## ✨ Fitur Utama
+
+<table>
+  <tr>
+    <td>
+      <h3>🏠 Halaman Beranda</h3>
+      <ul>
+        <li>Hero section dengan animasi dinamis</li>
+        <li>Timeline acara dengan visualisasi menarik</li>
+        <li>Sponsor dan testimonial peserta</li>
+      </ul>
+    </td>
+    <td>
+      <h3>🏆 Halaman Lomba</h3>
+      <ul>
+        <li>Detail kategori lomba dengan popup interaktif</li>
+        <li>Timeline pendaftaran dengan progress visual</li>
+        <li>FAQ dan panduan peserta</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <h3>👥 Halaman Tentang</h3>
+      <ul>
+        <li>Profil tim penyelenggara dengan popup detail</li>
+        <li>Sejarah dan visi NBPC</li>
+        <li>Galeri kegiatan tahun sebelumnya</li>
+      </ul>
+    </td>
+    <td>
+      <h3>✅ Lainnya</h3>
+      <ul>
+        <li>UI/UX yang modern dan responsif</li>
+        <li>Performa yang dioptimalkan</li>
+        <li>Animasi halus dengan Framer Motion</li>
+      </ul>
+    </td>
+  </tr>
+</table>
+
+<!-- Tambahkan screenshot website di sini -->
+<!-- <div align="center">
+  <img src="path/to/screenshot1.png" alt="Screenshot 1" width="400"/>
+  <img src="path/to/screenshot2.png" alt="Screenshot 2" width="400"/>
+</div> -->
+
+## 🧰 Teknologi
+
+- **Framework**: Next.js 15
+- **Frontend**: React, Tailwind CSS
+- **Animasi**: Framer Motion
+- **Deployment**: Vercel
+
+## 🚀 Memulai Pengembangan
 
 ```bash
+# Clone repository
+git clone https://github.com/A-wisnu/NBPC-UNISNU.git
+cd NBPC-UNISNU
+
 # Install dependencies
 npm install
 
@@ -26,37 +93,35 @@ npm install
 npm run dev
 ```
 
-## Getting Started
+Buka [http://localhost:3000](http://localhost:3000) di browser Anda untuk melihat hasilnya.
 
-First, run the development server:
+## 📝 Struktur Proyek
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```
+NBPC-UNISNU/
+├── public/             # File statis (gambar, icon)
+├── src/
+│   ├── app/            # Halaman utama (Next.js App Router)
+│   │   ├── lomba/      # Halaman kompetisi
+│   │   ├── tentang/    # Halaman tentang
+│   │   └── daftar/     # Halaman pendaftaran
+│   ├── components/     # Komponen React
+│   └── styles/         # CSS dan styling
+└── ...
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 👨‍💻 Tim Pengembang
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Website ini dikembangkan oleh tim IT NBPC UNISNU Jepara.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+<div align="center">
+  
+  <p>© 2023 NBPC UNISNU. Hak Cipta Dilindungi.</p>
+  
+  <a href="https://github.com/A-wisnu/NBPC-UNISNU">
+    <img src="https://img.shields.io/github/stars/A-wisnu/NBPC-UNISNU?style=social" alt="GitHub stars" />
+  </a>
+  
+</div>
