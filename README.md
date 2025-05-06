@@ -1,4 +1,30 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# NBPC-UNISNU
+
+Website resmi untuk National Business Plan Competition (NBPC) Universitas Islam Nahdlatul Ulama (UNISNU) Jepara.
+
+## Teknologi
+
+- Next.js
+- React
+- Tailwind CSS
+- Framer Motion
+
+## Fitur
+
+- Halaman beranda dengan animasi interaktif
+- Halaman lomba dengan detail kategori dan timeline pendaftaran
+- Halaman tentang dengan informasi tim dan organisasi
+- UI/UX yang modern dan responsif
+
+## Pengembangan
+
+```bash
+# Install dependencies
+npm install
+
+# Jalankan server pengembangan
+npm run dev
+```
 
 ## Getting Started
 

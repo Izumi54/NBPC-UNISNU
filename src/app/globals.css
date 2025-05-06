@@ -1,26 +1,86 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --primary-blue: #4F46E5;
+  --primary-purple: #8B5CF6;
+  --light-gray: #F5F5F5;
+  --dark-gray: #333333;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  body {
+    @apply bg-white text-dark-gray;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  .bg-white {
+    background-color: #FFFFFF;
+  }
+  .bg-gray-100 {
+    background-color: #F3F4F6;
+  }
+  .bg-light-gray {
+    background-color: #F5F5F5;
+  }
+  .text-dark-gray {
+    color: #333333;
+  }
+  .text-white {
+    color: #FFFFFF;
+  }
+  .text-primary-blue {
+    color: #4F46E5;
+  }
+  .text-primary-purple {
+    color: #8B5CF6;
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply max-w-container mx-auto px-6;
+  }
+  
+  .section {
+    @apply py-section;
+  }
+  
+  .gradient-bg {
+    @apply bg-gradient-primary;
+  }
+  
+  .btn {
+    @apply px-6 py-3 rounded-lg font-medium transition-all duration-300;
+  }
+  
+  .btn-primary {
+    @apply btn gradient-bg text-white shadow-soft hover:shadow-md;
+  }
+  
+  .btn-outline {
+    @apply btn border-2 border-white text-white hover:bg-white hover:text-primary-blue;
+  }
+
+  .heading-xl {
+    @apply text-5xl font-bold;
+  }
+
+  .heading-lg {
+    @apply text-4xl font-bold;
+  }
+
+  .heading-md {
+    @apply text-3xl font-bold;
+  }
+
+  .heading-sm {
+    @apply text-2xl font-bold;
+  }
+
+  .card {
+    @apply bg-white rounded-lg shadow-soft p-6;
+  }
 }
