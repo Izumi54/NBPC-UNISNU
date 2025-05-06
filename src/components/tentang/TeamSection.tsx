@@ -484,18 +484,18 @@ const TeamSection = () => {
                           className="w-full h-full object-cover"
                         />
                       ) : (
-                        <Image 
-                          src={division.leader.image} 
-                          alt={division.leader.name} 
-                          fill 
-                          style={{ objectFit: 'cover' }}
-                        />
+                      <Image 
+                        src={division.leader.image} 
+                        alt={division.leader.name} 
+                        fill 
+                        style={{ objectFit: 'cover' }}
+                      />
                       )}
                     </div>
                     <div>
                       <h4 className="font-bold text-gray-800 text-lg">{division.leader.name}</h4>
                       <p className="text-blue-600">{division.leader.role}</p>
-                    </div>
+                  </div>
                   </motion.div>
                 </motion.div>
 
@@ -560,7 +560,7 @@ const TeamSection = () => {
             className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4"
             onClick={closePopup}
           >
-            <motion.div
+                <motion.div 
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
@@ -629,7 +629,7 @@ const TeamSection = () => {
                 </div>
               </div>
             </motion.div>
-          </motion.div>
+        </motion.div>
         )}
       </AnimatePresence>
     </section>

@@ -845,24 +845,24 @@ export default function CompetitionPage() {
             ></motion.div>
             
             <motion.div 
-              className="relative w-full max-w-5xl bg-white rounded-2xl shadow-2xl overflow-hidden z-10"
+              className="relative w-full max-w-5xl max-h-[90vh] bg-white rounded-2xl shadow-2xl overflow-hidden z-10"
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               transition={{ type: "spring", stiffness: 300, damping: 25 }}
             >
-              <div className="absolute top-4 right-4">
+              <div className="absolute top-4 right-4 z-20">
                 <button 
                   onClick={closeCategoryDetail}
-                  className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-gray-700 hover:bg-gray-100 transition-colors"
+                  className="w-10 h-10 rounded-full bg-white/90 shadow-md backdrop-blur-md flex items-center justify-center text-gray-700 hover:bg-gray-100 transition-colors"
                 >
                   <FiX size={24} />
                 </button>
               </div>
               
-              <div className="flex flex-col lg:flex-row h-full max-h-[80vh]">
+              <div className="flex flex-col lg:flex-row max-h-[90vh] overflow-auto">
                 {/* Left Panel - Colored sidebar */}
-                <div className={`lg:w-1/3 bg-gradient-to-br ${categories[activeCategory].color} text-white p-8 relative flex flex-col`}>
+                <div className={`lg:w-1/3 bg-gradient-to-br ${categories[activeCategory].color} text-white p-5 sm:p-8 relative flex flex-col`}>
                   <div className="absolute inset-0 bg-black/10"></div>
                   <div className="absolute inset-0 overflow-hidden">
                     <motion.div 
@@ -884,11 +884,11 @@ export default function CompetitionPage() {
                   
                   <div className="relative z-10 flex-1 flex flex-col justify-between">
                     <div>
-                      <div className="mb-6 flex items-center">
-                        <div className="w-16 h-16 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center mr-4">
+                      <div className="mb-6 flex flex-col sm:flex-row sm:items-center">
+                        <div className="w-16 h-16 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center mb-3 sm:mb-0 sm:mr-4">
                           <span className="text-4xl">{categories[activeCategory].icon}</span>
                         </div>
-                        <h2 className="text-3xl font-bold">{categories[activeCategory].title}</h2>
+                        <h2 className="text-2xl sm:text-3xl font-bold">{categories[activeCategory].title}</h2>
                       </div>
                       
                       <div className="mb-8">
@@ -903,7 +903,7 @@ export default function CompetitionPage() {
                               className="flex items-start"
                             >
                               <FiCheck className="mr-2 mt-1 flex-shrink-0" />
-                              <span>{example}</span>
+                              <span className="text-sm sm:text-base">{example}</span>
                             </motion.li>
                           ))}
                         </ul>
@@ -917,7 +917,9 @@ export default function CompetitionPage() {
                       className="mt-auto"
                     >
                       <a 
-                        href="#daftar" 
+                        href="https://s.id/LinkPendaftaranNBPC" 
+                        target="_blank"
+                        rel="noopener noreferrer"
                         onClick={closeCategoryDetail}
                         className="inline-flex items-center justify-center w-full py-3 px-6 bg-white text-blue-600 rounded-lg font-medium hover:bg-blue-50 transition-colors group"
                       >
@@ -929,75 +931,77 @@ export default function CompetitionPage() {
                 </div>
                 
                 {/* Right Panel - Content */}
-                <div className="lg:w-2/3 p-8 overflow-y-auto">
+                <div className="lg:w-2/3 p-5 sm:p-8 overflow-y-auto">
                   <div className="max-w-2xl mx-auto">
-                    <h3 className="text-2xl font-bold mb-4 text-gray-900">Tentang Kategori {categories[activeCategory].title}</h3>
+                    <h3 className="text-xl sm:text-2xl font-bold mb-4 text-gray-900 mt-2 lg:mt-0">Tentang Kategori {categories[activeCategory].title}</h3>
                     
-                    <div className="prose prose-lg text-gray-600 mb-8">
+                    <div className="prose prose-sm sm:prose-base lg:prose-lg text-gray-600 mb-6 sm:mb-8">
                       <p>{categories[activeCategory].fullDescription}</p>
                     </div>
                     
-                    <div className="mb-8">
-                      <h4 className="text-xl font-semibold mb-4 text-gray-800">Kriteria Penilaian:</h4>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="mb-6 sm:mb-8">
+                      <h4 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-gray-800">Kriteria Penilaian:</h4>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
                         {categories[activeCategory].criteria.map((criterion, idx) => (
                           <motion.div 
                             key={idx}
                             initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.1 * idx, duration: 0.4 }}
-                            className={`p-4 rounded-lg ${categories[activeCategory].bgColor} flex items-start`}
+                            className={`p-3 sm:p-4 rounded-lg ${categories[activeCategory].bgColor} flex items-start`}
                           >
-                            <div className={`w-8 h-8 rounded-full bg-gradient-to-r ${categories[activeCategory].color} flex-shrink-0 flex items-center justify-center text-white mr-3`}>
-                              <span className="font-bold">{idx + 1}</span>
+                            <div className={`w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-gradient-to-r ${categories[activeCategory].color} flex-shrink-0 flex items-center justify-center text-white mr-3`}>
+                              <span className="text-xs sm:text-sm font-bold">{idx + 1}</span>
                             </div>
                             <div>
-                              <p className="font-medium text-gray-800">{criterion}</p>
+                              <p className="text-sm sm:text-base font-medium text-gray-800">{criterion}</p>
                             </div>
                           </motion.div>
                         ))}
                       </div>
                     </div>
                     
-                    <div className="mb-8">
-                      <h4 className="text-xl font-semibold mb-4 text-gray-800">Tips Sukses:</h4>
-                      <div className="p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border border-blue-100">
-                        <ul className="space-y-3">
+                    <div className="mb-6 sm:mb-8">
+                      <h4 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-gray-800">Tips Sukses:</h4>
+                      <div className="p-4 sm:p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border border-blue-100">
+                        <ul className="space-y-2 sm:space-y-3">
                           <li className="flex items-start">
-                            <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-blue-100 text-blue-600 font-bold flex-shrink-0 mr-3">1</span>
-                            <p>Fokuslah pada masalah nyata yang ingin diselesaikan oleh bisnis Anda</p>
+                            <span className="inline-flex items-center justify-center w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-blue-100 text-blue-600 font-bold flex-shrink-0 mr-2 sm:mr-3">1</span>
+                            <p className="text-sm sm:text-base">Fokuslah pada masalah nyata yang ingin diselesaikan oleh bisnis Anda</p>
                           </li>
                           <li className="flex items-start">
-                            <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-blue-100 text-blue-600 font-bold flex-shrink-0 mr-3">2</span>
-                            <p>Lakukan riset pasar yang mendalam dan validasi ide Anda</p>
+                            <span className="inline-flex items-center justify-center w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-blue-100 text-blue-600 font-bold flex-shrink-0 mr-2 sm:mr-3">2</span>
+                            <p className="text-sm sm:text-base">Lakukan riset pasar yang mendalam dan validasi ide Anda</p>
                           </li>
                           <li className="flex items-start">
-                            <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-blue-100 text-blue-600 font-bold flex-shrink-0 mr-3">3</span>
-                            <p>Buatlah model bisnis yang jelas dan berkelanjutan</p>
+                            <span className="inline-flex items-center justify-center w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-blue-100 text-blue-600 font-bold flex-shrink-0 mr-2 sm:mr-3">3</span>
+                            <p className="text-sm sm:text-base">Buatlah model bisnis yang jelas dan berkelanjutan</p>
                           </li>
                           <li className="flex items-start">
-                            <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-blue-100 text-blue-600 font-bold flex-shrink-0 mr-3">4</span>
-                            <p>Tunjukkan bagaimana bisnis Anda memiliki keunggulan kompetitif</p>
+                            <span className="inline-flex items-center justify-center w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-blue-100 text-blue-600 font-bold flex-shrink-0 mr-2 sm:mr-3">4</span>
+                            <p className="text-sm sm:text-base">Tunjukkan bagaimana bisnis Anda memiliki keunggulan kompetitif</p>
                           </li>
                           <li className="flex items-start">
-                            <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-blue-100 text-blue-600 font-bold flex-shrink-0 mr-3">5</span>
-                            <p>Persiapkan presentasi yang meyakinkan dan jawaban untuk pertanyaan juri</p>
+                            <span className="inline-flex items-center justify-center w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-blue-100 text-blue-600 font-bold flex-shrink-0 mr-2 sm:mr-3">5</span>
+                            <p className="text-sm sm:text-base">Persiapkan presentasi yang meyakinkan dan jawaban untuk pertanyaan juri</p>
                           </li>
                         </ul>
                       </div>
                     </div>
                     
-                    <div className="flex flex-col sm:flex-row gap-4 justify-end mt-10">
+                    <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 sm:justify-end mt-6 sm:mt-10">
                       <button 
                         onClick={closeCategoryDetail}
-                        className="px-6 py-3 border border-gray-200 rounded-lg text-gray-600 hover:bg-gray-50 transition-colors"
+                        className="px-6 py-3 border border-gray-200 rounded-lg text-gray-600 hover:bg-gray-50 transition-colors text-sm sm:text-base"
                       >
                         Tutup
                       </button>
                       <a 
-                        href="#daftar"
+                        href="https://s.id/LinkPendaftaranNBPC"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         onClick={closeCategoryDetail}
-                        className={`px-6 py-3 rounded-lg text-white bg-gradient-to-r ${categories[activeCategory].color} hover:shadow-lg transition-shadow`}
+                        className={`px-6 py-3 rounded-lg text-white bg-gradient-to-r ${categories[activeCategory].color} hover:shadow-lg transition-shadow text-sm sm:text-base`}
                       >
                         Daftar Sekarang
                       </a>
