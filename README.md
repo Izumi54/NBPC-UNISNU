@@ -118,7 +118,7 @@ Website ini dikembangkan oleh tim IT NBPC UNISNU Jepara.
 
 <div align="center">
   
-  <p>© 2023 NBPC UNISNU. Hak Cipta Dilindungi.</p>
+  <p>© 2025 NBPC UNISNU. Hak Cipta Dilindungi.</p>
   
   <a href="https://github.com/A-wisnu/NBPC-UNISNU">
     <img src="https://img.shields.io/github/stars/A-wisnu/NBPC-UNISNU?style=social" alt="GitHub stars" />
