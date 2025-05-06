@@ -2,13 +2,14 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiInfo, FiAward, FiHelpCircle, FiPlus, FiMinus } from 'react-icons/fi';
+import { FiInfo, FiAward, FiHelpCircle, FiPlus, FiMinus, FiX, FiCheck, FiArrowRight } from 'react-icons/fi';
 import AnimatedTitle from '@/components/animations/AnimatedTitle';
 import AnimatedCard from '@/components/animations/AnimatedCard';
 import FadeInSection from '@/components/animations/FadeInSection';
 
 export default function CompetitionPage() {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
+  const [activeCategory, setActiveCategory] = useState<number | null>(null);
 
   const toggleFaq = (index: number) => {
     if (openFaqIndex === index) {
@@ -16,6 +17,14 @@ export default function CompetitionPage() {
     } else {
       setOpenFaqIndex(index);
     }
+  };
+
+  const openCategoryDetail = (index: number) => {
+    setActiveCategory(index);
+  };
+
+  const closeCategoryDetail = () => {
+    setActiveCategory(null);
   };
 
   const faqs = [
@@ -42,6 +51,147 @@ export default function CompetitionPage() {
     {
       question: 'Apakah boleh mengikutsertakan ide bisnis yang sudah berjalan?',
       answer: 'Ya, peserta boleh mengikutsertakan bisnis yang sudah berjalan dengan syarat bisnis tersebut belum beroperasi lebih dari 1 tahun dan pendapatan tahunan belum melebihi Rp 50 juta.'
+    }
+  ];
+
+  const categories = [
+    {
+      title: 'Teknologi Digital',
+      description: 'Ide bisnis berbasis teknologi seperti aplikasi, platform, atau solusi digital',
+      color: 'from-blue-500 to-blue-600',
+      bgColor: 'bg-blue-50',
+      icon: '💻',
+      fullDescription: 'Kategori Teknologi Digital mencakup berbagai inovasi berbasis teknologi yang bertujuan untuk menyelesaikan masalah atau meningkatkan efisiensi melalui solusi digital.',
+      examples: [
+        'Aplikasi mobile untuk manajemen bisnis kecil',
+        'Platform e-learning dengan teknologi AI',
+        'Solusi IoT untuk Smart City',
+        'Platform fintech untuk inklusi keuangan',
+        'Aplikasi berbasis blockchain untuk supply chain'
+      ],
+      criteria: [
+        'Inovasi teknologi yang digunakan',
+        'Kemampuan untuk menyelesaikan masalah nyata',
+        'Potensi skalabilitas dan pertumbuhan',
+        'Keunggulan kompetitif dibanding solusi yang ada',
+        'Kelayakan teknis implementasi'
+      ],
+      image: '/public/images/categories/tech.jpg'
+    },
+    {
+      title: 'Sosial & Lingkungan',
+      description: 'Bisnis dengan dampak sosial atau lingkungan yang positif dan berkelanjutan',
+      color: 'from-green-500 to-green-600',
+      bgColor: 'bg-green-50',
+      icon: '🌱',
+      fullDescription: 'Kategori Sosial & Lingkungan fokus pada bisnis yang memberikan dampak positif pada masyarakat dan lingkungan sekitar, dengan model bisnis yang berkelanjutan.',
+      examples: [
+        'Bank sampah digital dengan sistem reward',
+        'Bisnis daur ulang plastik menjadi produk bernilai tinggi',
+        'Platform crowdfunding untuk proyek lingkungan',
+        'Bisnis sosial untuk pemberdayaan masyarakat prasejahtera',
+        'Solusi energi terbarukan untuk daerah terpencil'
+      ],
+      criteria: [
+        'Besaran dampak sosial/lingkungan yang dihasilkan',
+        'Keberlanjutan model bisnis',
+        'Inovasi dalam pendekatan penyelesaian masalah',
+        'Potensi untuk meningkatkan kualitas hidup masyarakat',
+        'Keterlibatan komunitas lokal'
+      ],
+      image: '/public/images/categories/social.jpg'
+    },
+    {
+      title: 'Produk & Jasa',
+      description: 'Pengembangan produk fisik atau jasa inovatif dengan nilai tambah',
+      color: 'from-yellow-500 to-yellow-600',
+      bgColor: 'bg-yellow-50',
+      icon: '🛍️',
+      fullDescription: 'Kategori Produk & Jasa mencakup inovasi dalam pembuatan produk fisik atau penyediaan jasa yang menawarkan nilai tambah bagi konsumen.',
+      examples: [
+        'Produk ramah lingkungan dengan desain inovatif',
+        'Jasa konsultasi dengan pendekatan unik',
+        'Produk kesehatan dengan teknologi terkini',
+        'Jasa personal yang memanfaatkan teknologi',
+        'Produk lokal dengan standar internasional'
+      ],
+      criteria: [
+        'Keunikan nilai proposisi produk/jasa',
+        'Potensi pasar dan permintaan konsumen',
+        'Tingkat inovasi dan kreativitas',
+        'Strategi pemasaran dan distribusi',
+        'Kelayakan produksi atau penyediaan layanan'
+      ],
+      image: '/public/images/categories/product.jpg'
+    },
+    {
+      title: 'Kreatif & Budaya',
+      description: 'Bisnis di sektor ekonomi kreatif dan kearifan lokal',
+      color: 'from-red-500 to-red-600',
+      bgColor: 'bg-red-50',
+      icon: '🎨',
+      fullDescription: 'Kategori Kreatif & Budaya berfokus pada bisnis yang mengembangkan sektor ekonomi kreatif dan melestarikan kearifan lokal Indonesia melalui pendekatan modern.',
+      examples: [
+        'Platform marketplace untuk produk seni lokal',
+        'Solusi AR/VR untuk wisata budaya virtual',
+        'Studio animasi dengan konten budaya Indonesia',
+        'Fashion dengan sentuhan kearifan lokal',
+        'Aplikasi pembelajaran budaya interaktif'
+      ],
+      criteria: [
+        'Integrasi nilai budaya dalam model bisnis',
+        'Inovasi dalam memperkenalkan budaya ke pasar modern',
+        'Dampak terhadap pelestarian budaya lokal',
+        'Potensi menarik minat generasi muda',
+        'Kualitas artistik dan eksekusi kreatif'
+      ],
+      image: '/public/images/categories/creative.jpg'
+    },
+    {
+      title: 'Kuliner & Agribisnis',
+      description: 'Inovasi di bidang makanan, pertanian, dan pengolahan hasil tani',
+      color: 'from-orange-500 to-orange-600',
+      bgColor: 'bg-orange-50',
+      icon: '🍲',
+      fullDescription: 'Kategori Kuliner & Agribisnis mencakup inovasi dalam industri makanan, pertanian modern, dan pengolahan hasil pertanian menjadi produk bernilai tambah.',
+      examples: [
+        'Aplikasi manajemen rantai pasok pertanian',
+        'Produk olahan pangan inovatif',
+        'Sistem pertanian vertikal di perkotaan',
+        'Bisnis makanan berbasis subscription',
+        'Teknologi untuk meningkatkan hasil panen'
+      ],
+      criteria: [
+        'Inovasi dalam produk atau proses produksi',
+        'Keberlanjutan dan dampak lingkungan',
+        'Potensi meningkatkan pendapatan petani',
+        'Kontribusi pada ketahanan pangan',
+        'Kualitas dan keamanan produk pangan'
+      ],
+      image: '/public/images/categories/culinary.jpg'
+    },
+    {
+      title: 'Open Category',
+      description: 'Kategori terbuka untuk ide bisnis inovatif lainnya',
+      color: 'from-purple-500 to-purple-600',
+      bgColor: 'bg-purple-50',
+      icon: '💡',
+      fullDescription: 'Open Category adalah kategori khusus untuk ide bisnis inovatif yang tidak termasuk dalam kategori lain namun memiliki potensi dampak dan keunikan yang signifikan.',
+      examples: [
+        'Bisnis hibrid yang menggabungkan beberapa sektor',
+        'Inovasi dalam industri pendidikan',
+        'Solusi untuk tantangan kesehatan',
+        'Platform untuk industri hiburan',
+        'Teknologi baru yang belum masuk kategori spesifik'
+      ],
+      criteria: [
+        'Tingkat inovasi dan kebaruan ide',
+        'Potensi disruptif dalam industri terkait',
+        'Proposisi nilai yang jelas',
+        'Kelayakan implementasi',
+        'Potensi skalabilitas bisnis'
+      ],
+      image: '/public/images/categories/open.jpg'
     }
   ];
 
@@ -287,50 +437,7 @@ export default function CompetitionPage() {
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-            {[
-              {
-                title: 'Teknologi Digital',
-                description: 'Ide bisnis berbasis teknologi seperti aplikasi, platform, atau solusi digital',
-                color: 'from-blue-500 to-blue-600',
-                bgColor: 'bg-blue-50',
-                icon: '💻'
-              },
-              {
-                title: 'Sosial & Lingkungan',
-                description: 'Bisnis dengan dampak sosial atau lingkungan yang positif dan berkelanjutan',
-                color: 'from-green-500 to-green-600',
-                bgColor: 'bg-green-50',
-                icon: '🌱'
-              },
-              {
-                title: 'Produk & Jasa',
-                description: 'Pengembangan produk fisik atau jasa inovatif dengan nilai tambah',
-                color: 'from-yellow-500 to-yellow-600',
-                bgColor: 'bg-yellow-50',
-                icon: '🛍️'
-              },
-              {
-                title: 'Kreatif & Budaya',
-                description: 'Bisnis di sektor ekonomi kreatif dan kearifan lokal',
-                color: 'from-red-500 to-red-600',
-                bgColor: 'bg-red-50',
-                icon: '🎨'
-              },
-              {
-                title: 'Kuliner & Agribisnis',
-                description: 'Inovasi di bidang makanan, pertanian, dan pengolahan hasil tani',
-                color: 'from-orange-500 to-orange-600',
-                bgColor: 'bg-orange-50',
-                icon: '🍲'
-              },
-              {
-                title: 'Open Category',
-                description: 'Kategori terbuka untuk ide bisnis inovatif lainnya',
-                color: 'from-purple-500 to-purple-600',
-                bgColor: 'bg-purple-50',
-                icon: '💡'
-              }
-            ].map((category, index) => (
+            {categories.map((category, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
@@ -352,12 +459,15 @@ export default function CompetitionPage() {
                     </div>
                     <p className="text-gray-600 mb-6 flex-grow">{category.description}</p>
                     <div className="pt-4 border-t border-gray-100 mt-auto">
-                      <a href="#" className="text-blue-600 font-medium inline-flex items-center group-hover:translate-x-2 transition-transform duration-300">
+                      <button 
+                        onClick={() => openCategoryDetail(index)}
+                        className="text-blue-600 font-medium inline-flex items-center group-hover:translate-x-2 transition-transform duration-300"
+                      >
                         Pelajari lebih lanjut
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1 group-hover:ml-2 transition-all duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                         </svg>
-                      </a>
+                      </button>
                     </div>
                   </div>
                 </AnimatedCard>
@@ -715,6 +825,190 @@ export default function CompetitionPage() {
           </FadeInSection>
         </div>
       </section>
+
+      {/* Category Detail Popup */}
+      <AnimatePresence>
+        {activeCategory !== null && (
+          <motion.div 
+            className="fixed inset-0 z-50 flex items-center justify-center p-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <motion.div 
+              className="absolute inset-0 bg-black/70 backdrop-blur-sm"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={closeCategoryDetail}
+            ></motion.div>
+            
+            <motion.div 
+              className="relative w-full max-w-5xl bg-white rounded-2xl shadow-2xl overflow-hidden z-10"
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ type: "spring", stiffness: 300, damping: 25 }}
+            >
+              <div className="absolute top-4 right-4">
+                <button 
+                  onClick={closeCategoryDetail}
+                  className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-gray-700 hover:bg-gray-100 transition-colors"
+                >
+                  <FiX size={24} />
+                </button>
+              </div>
+              
+              <div className="flex flex-col lg:flex-row h-full max-h-[80vh]">
+                {/* Left Panel - Colored sidebar */}
+                <div className={`lg:w-1/3 bg-gradient-to-br ${categories[activeCategory].color} text-white p-8 relative flex flex-col`}>
+                  <div className="absolute inset-0 bg-black/10"></div>
+                  <div className="absolute inset-0 overflow-hidden">
+                    <motion.div 
+                      className="absolute inset-0 opacity-10"
+                      animate={{ 
+                        backgroundPosition: ['0% 0%', '100% 100%'],
+                      }}
+                      transition={{ 
+                        duration: 20, 
+                        repeat: Infinity, 
+                        repeatType: "reverse" 
+                      }}
+                      style={{
+                        backgroundImage: `url('/pattern-dots.svg')`,
+                        backgroundSize: '30%',
+                      }}
+                    />
+                  </div>
+                  
+                  <div className="relative z-10 flex-1 flex flex-col justify-between">
+                    <div>
+                      <div className="mb-6 flex items-center">
+                        <div className="w-16 h-16 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center mr-4">
+                          <span className="text-4xl">{categories[activeCategory].icon}</span>
+                        </div>
+                        <h2 className="text-3xl font-bold">{categories[activeCategory].title}</h2>
+                      </div>
+                      
+                      <div className="mb-8">
+                        <h3 className="text-xl font-semibold mb-4">Contoh Ide Bisnis:</h3>
+                        <ul className="space-y-3">
+                          {categories[activeCategory].examples.map((example, idx) => (
+                            <motion.li 
+                              key={idx}
+                              initial={{ opacity: 0, x: -20 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              transition={{ delay: 0.1 * idx, duration: 0.5 }}
+                              className="flex items-start"
+                            >
+                              <FiCheck className="mr-2 mt-1 flex-shrink-0" />
+                              <span>{example}</span>
+                            </motion.li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                    
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.5, duration: 0.5 }}
+                      className="mt-auto"
+                    >
+                      <a 
+                        href="#daftar" 
+                        onClick={closeCategoryDetail}
+                        className="inline-flex items-center justify-center w-full py-3 px-6 bg-white text-blue-600 rounded-lg font-medium hover:bg-blue-50 transition-colors group"
+                      >
+                        Daftar untuk kategori ini
+                        <FiArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+                      </a>
+                    </motion.div>
+                  </div>
+                </div>
+                
+                {/* Right Panel - Content */}
+                <div className="lg:w-2/3 p-8 overflow-y-auto">
+                  <div className="max-w-2xl mx-auto">
+                    <h3 className="text-2xl font-bold mb-4 text-gray-900">Tentang Kategori {categories[activeCategory].title}</h3>
+                    
+                    <div className="prose prose-lg text-gray-600 mb-8">
+                      <p>{categories[activeCategory].fullDescription}</p>
+                    </div>
+                    
+                    <div className="mb-8">
+                      <h4 className="text-xl font-semibold mb-4 text-gray-800">Kriteria Penilaian:</h4>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {categories[activeCategory].criteria.map((criterion, idx) => (
+                          <motion.div 
+                            key={idx}
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.1 * idx, duration: 0.4 }}
+                            className={`p-4 rounded-lg ${categories[activeCategory].bgColor} flex items-start`}
+                          >
+                            <div className={`w-8 h-8 rounded-full bg-gradient-to-r ${categories[activeCategory].color} flex-shrink-0 flex items-center justify-center text-white mr-3`}>
+                              <span className="font-bold">{idx + 1}</span>
+                            </div>
+                            <div>
+                              <p className="font-medium text-gray-800">{criterion}</p>
+                            </div>
+                          </motion.div>
+                        ))}
+                      </div>
+                    </div>
+                    
+                    <div className="mb-8">
+                      <h4 className="text-xl font-semibold mb-4 text-gray-800">Tips Sukses:</h4>
+                      <div className="p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border border-blue-100">
+                        <ul className="space-y-3">
+                          <li className="flex items-start">
+                            <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-blue-100 text-blue-600 font-bold flex-shrink-0 mr-3">1</span>
+                            <p>Fokuslah pada masalah nyata yang ingin diselesaikan oleh bisnis Anda</p>
+                          </li>
+                          <li className="flex items-start">
+                            <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-blue-100 text-blue-600 font-bold flex-shrink-0 mr-3">2</span>
+                            <p>Lakukan riset pasar yang mendalam dan validasi ide Anda</p>
+                          </li>
+                          <li className="flex items-start">
+                            <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-blue-100 text-blue-600 font-bold flex-shrink-0 mr-3">3</span>
+                            <p>Buatlah model bisnis yang jelas dan berkelanjutan</p>
+                          </li>
+                          <li className="flex items-start">
+                            <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-blue-100 text-blue-600 font-bold flex-shrink-0 mr-3">4</span>
+                            <p>Tunjukkan bagaimana bisnis Anda memiliki keunggulan kompetitif</p>
+                          </li>
+                          <li className="flex items-start">
+                            <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-blue-100 text-blue-600 font-bold flex-shrink-0 mr-3">5</span>
+                            <p>Persiapkan presentasi yang meyakinkan dan jawaban untuk pertanyaan juri</p>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    
+                    <div className="flex flex-col sm:flex-row gap-4 justify-end mt-10">
+                      <button 
+                        onClick={closeCategoryDetail}
+                        className="px-6 py-3 border border-gray-200 rounded-lg text-gray-600 hover:bg-gray-50 transition-colors"
+                      >
+                        Tutup
+                      </button>
+                      <a 
+                        href="#daftar"
+                        onClick={closeCategoryDetail}
+                        className={`px-6 py-3 rounded-lg text-white bg-gradient-to-r ${categories[activeCategory].color} hover:shadow-lg transition-shadow`}
+                      >
+                        Daftar Sekarang
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 } 
