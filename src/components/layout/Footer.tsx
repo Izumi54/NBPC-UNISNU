@@ -291,7 +291,7 @@ const Footer = () => {
                 <HiOutlineMail className="text-blue-400 mt-1 flex-shrink-0" size={16} />
                 <div>
                   <p className="text-gray-300 text-sm">Email:</p>
-                  <a href="mailto:info@nbpc.id" className="text-white hover:text-blue-300 transition-colors text-sm">info@nbpc.id</a>
+                  <a href="mailto:unisnubisniscomunity@gmail.com" className="text-white hover:text-blue-300 transition-colors text-sm">unisnubisniscomunity@gmail.com</a>
                 </div>
               </li>
               <li className="flex items-start space-x-3">
