@@ -22,11 +22,11 @@ const BenefitsSection = () => {
       title: 'Networking',
       description: 'Perluas jaringan dengan peserta, juri, dan praktisi bisnis'
     },
-    {
-      icon: <FiBookOpen size={40} className="text-primary-purple" />,
-      title: 'Mentoring',
-      description: 'Dapatkan bimbingan dari ahli bisnis dan entrepreneur sukses'
-    }
+    // {
+    //   icon: <FiBookOpen size={40} className="text-primary-purple" />,
+    //   title: 'Mentoring',
+    //   description: 'Dapatkan bimbingan dari ahli bisnis dan entrepreneur sukses'
+    // }
   ];
 
   return (

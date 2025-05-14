@@ -26,8 +26,8 @@ const TimelineSection = () => {
 
   const timelineEvents = [
     {
-      month: "1 - 15 Agustus 2025",
-      title: "Pendaftaran",
+      month: "15 Mei - 30 Juni 2025",
+      title: "Pendaftaran dan Pengumpulan BMC",
       description: "Registrasi tim dan ide bisnis",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -36,9 +36,9 @@ const TimelineSection = () => {
       )
     },
     {
-      month: "20 Agustus 2025",
-      title: "Pengumuman",
-      description: "Pengumuman tim yang lolos seleksi",
+      month: "01 Juli - 04 Juli 2025",
+      title: "Selelsi BMC",
+      description: "Tim juri menilai dan menyeleksi dokumen BMC yang telah masuk.",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -46,9 +46,9 @@ const TimelineSection = () => {
       )
     },
     {
-      month: "25 Agustus 2025",
-      title: "Technical Meeting BMC",
-      description: "Pembekalan penyusunan BMC",
+      month: "05 Juli 2025",
+      title: "Pengumuman BMC",
+      description: "Hasil seleksi BMC diumumkan kepada peserta.",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
@@ -56,9 +56,9 @@ const TimelineSection = () => {
       )
     },
     {
-      month: "10 September 2025",
-      title: "Final BMC",
-      description: "Presentasi Business Model Canvas",
+      month: "06 Juli - 11 Juli 2025",
+      title: "Pengumpulan Proposal",
+      description: "Peserta yang lolos wajib mengumpulkan proposal bisnis lengkap.",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
@@ -66,9 +66,9 @@ const TimelineSection = () => {
       )
     },
     {
-      month: "20 September 2025",
-      title: "Pengumpulan Proposal",
-      description: "Submit proposal bisnis lengkap",
+      month: "12 Juli - 14 Juli 2025",
+      title: "Seleksi Proposal",
+      description: "Proposal akan dinilai untuk menentukan finalis.",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -76,9 +76,9 @@ const TimelineSection = () => {
       )
     },
     {
-      month: "1 Oktober 2025",
-      title: "Penentuan 6 Besar",
-      description: "Seleksi 6 tim finalis",
+      month: "15 Juli 2025",
+      title: "Pengumuman Finalis",
+      description: "Proposal akan dinilai untuk menentukan finalis.",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
@@ -86,9 +86,9 @@ const TimelineSection = () => {
       )
     },
     {
-      month: "15 Oktober 2025",
-      title: "Presentasi Tim",
-      description: "Presentasi final di hadapan juri",
+      month: "16 Juli 2025",
+      title: "Technical Meeting",
+      description: "Briefing teknis bagi finalis terkait tahap presentasi.",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
@@ -96,9 +96,19 @@ const TimelineSection = () => {
       )
     },
     {
-      month: "20 Oktober 2025",
-      title: "Final Juara",
-      description: "Pengumuman pemenang kompetisi",
+      month: "22 Juli 2025",
+      title: "Pengumpulan PPT",
+      description: "Finalis menyerahkan materi presentasi (PPT) untuk dinilai.",
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+        </svg>
+      )
+    },
+    {
+      month: "23 Juli 2025",
+      title: "Presentas dan Awarding",
+      description: "Finalis mempresentasikan ide bisnis di hadapan juri. Acara diakhiri dengan pengumuman pemenang dan penyerahan hadiah.",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />

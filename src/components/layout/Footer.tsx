@@ -1,13 +1,12 @@
 'use client';
 
+import { AnimatePresence, motion } from 'framer-motion';
 import Link from 'next/link';
-import Image from 'next/image';
+import { useState } from 'react';
+import { BsWhatsapp } from 'react-icons/bs';
 import { FaInstagram } from 'react-icons/fa';
 import { HiOutlineMail } from 'react-icons/hi';
-import { BsWhatsapp } from 'react-icons/bs';
-import { useState } from 'react';
 import { IoClose } from 'react-icons/io5';
-import { motion, AnimatePresence } from 'framer-motion';
 
 type PopupType = 'privacy' | 'terms' | 'faq' | null;
 
@@ -227,7 +226,7 @@ const Footer = () => {
             </div>
             
             <p className="text-gray-300 text-sm mb-6 max-w-xs">
-              National Business Plan Competition, ajang kompetisi bisnis yang membantu generasi muda Indonesia mengembangkan ide bisnis inovatif mereka.
+              Unisnu Business Plan Competition, ajang kompetisi bisnis yang membantu generasi muda Indonesia mengembangkan ide bisnis inovatif mereka.
             </p>
             
             <div className="flex space-x-3 mb-8">
@@ -270,6 +269,18 @@ const Footer = () => {
                   Pendaftaran
                 </a>
               </li>
+              <li>
+                <a href="https://s.id/LinkPendaftaranNBPC" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-blue-300 transition-colors text-sm flex items-center group">
+                  <span className="inline-block w-0 group-hover:w-2 h-[1px] bg-blue-400 mr-0 group-hover:mr-2 transition-all duration-300"></span>
+                  Booklet
+                </a>
+              </li>
+              <li>
+                <a href="https://s.id/LinkPendaftaranNBPC" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-blue-300 transition-colors text-sm flex items-center group">
+                  <span className="inline-block w-0 group-hover:w-2 h-[1px] bg-blue-400 mr-0 group-hover:mr-2 transition-all duration-300"></span>
+                  Twibon
+                </a>
+              </li>
             </ul>
           </div>
           
@@ -280,14 +291,14 @@ const Footer = () => {
                 <HiOutlineMail className="text-blue-400 mt-1 flex-shrink-0" size={16} />
                 <div>
                   <p className="text-gray-300 text-sm">Email:</p>
-                  <a href="mailto:info@nbpc.id" className="text-white hover:text-blue-300 transition-colors text-sm">info@nbpc.id</a>
+                  <a href="mailto:unisnubisniscomunity@gmail.com" className="text-white hover:text-blue-300 transition-colors text-sm">unisnubisniscomunity@gmail.com</a>
                 </div>
               </li>
               <li className="flex items-start space-x-3">
                 <BsWhatsapp className="text-blue-400 mt-1 flex-shrink-0" size={16} />
                 <div>
                   <p className="text-gray-300 text-sm">WhatsApp:</p>
-                  <a href="https://wa.me/6289504014732" className="text-white hover:text-blue-300 transition-colors text-sm">+62 895-0401-4732</a>
+                  <a href="https://wa.me/89504014732" className="text-white hover:text-blue-300 transition-colors text-sm">+62 895-0401-4732</a>
                 </div>
               </li>
             </ul>
@@ -296,7 +307,7 @@ const Footer = () => {
         
         <div className="mt-10 pt-6 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-500 text-xs mb-4 md:mb-0">
-            &copy; {new Date().getFullYear()} NBPC Competition. All rights reserved.
+            &copy; {new Date().getFullYear()} by Komunitas Kewirausahaan.
           </p>
           <div className="flex flex-wrap justify-center space-x-4 text-xs text-gray-500">
             <button 

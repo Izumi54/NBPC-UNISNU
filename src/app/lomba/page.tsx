@@ -1,11 +1,11 @@
 'use client';
 
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { FiInfo, FiAward, FiHelpCircle, FiPlus, FiMinus, FiX, FiCheck, FiArrowRight } from 'react-icons/fi';
-import AnimatedTitle from '@/components/animations/AnimatedTitle';
 import AnimatedCard from '@/components/animations/AnimatedCard';
+import AnimatedTitle from '@/components/animations/AnimatedTitle';
 import FadeInSection from '@/components/animations/FadeInSection';
+import { AnimatePresence, motion } from 'framer-motion';
+import { useState } from 'react';
+import { FiArrowRight, FiAward, FiCheck, FiInfo, FiMinus, FiPlus, FiX } from 'react-icons/fi';
 
 export default function CompetitionPage() {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
@@ -56,140 +56,139 @@ export default function CompetitionPage() {
 
   const categories = [
     {
-      title: 'Teknologi Digital',
-      description: 'Ide bisnis berbasis teknologi seperti aplikasi, platform, atau solusi digital',
+      title: 'Makanan dan Minuman',
+      description: 'Kategori ini fokus pada ide-ide bisnis inovatif di bidang kuliner dan minuman.',
       color: 'from-blue-500 to-blue-600',
       bgColor: 'bg-blue-50',
       icon: '💻',
-      fullDescription: 'Kategori Teknologi Digital mencakup berbagai inovasi berbasis teknologi yang bertujuan untuk menyelesaikan masalah atau meningkatkan efisiensi melalui solusi digital.',
+      fullDescription: 'Kategori ini fokus pada ide-ide bisnis inovatif di bidang kuliner dan minuman. NBPC UNISNU 2025 mengundang para inovator muda di bidang kuliner untuk menunjukkan ide-ide kreatif mereka dalam menjawab tantangan dan peluang di industri makanan dan minuman.',
       examples: [
-        'Aplikasi mobile untuk manajemen bisnis kecil',
-        'Platform e-learning dengan teknologi AI',
-        'Solusi IoT untuk Smart City',
-        'Platform fintech untuk inklusi keuangan',
-        'Aplikasi berbasis blockchain untuk supply chain'
+        'Produk makanan dan minuman baru yang inovatif dan sehat.',
+        'Platform online untuk pemesanan dan pengantaran makanan.',
+        'Layanan katering ramah lingkungan.',
+        'Teknologi baru untuk pengolahan makanan dan minuman.',
+        'Model bisnis baru untuk menjangkau konsumen yang kurang terlayani.'
       ],
       criteria: [
-        'Inovasi teknologi yang digunakan',
-        'Kemampuan untuk menyelesaikan masalah nyata',
-        'Potensi skalabilitas dan pertumbuhan',
-        'Keunggulan kompetitif dibanding solusi yang ada',
-        'Kelayakan teknis implementasi'
+        'Inovasi Produk',
+        'Potensi Pasar & Kebutuhan Konsumen',
+        'Strategi Bisnis & Model Pendapatan',
+        'Aspek Keberlanjutan & Kesehatan',
+        'Kelayakan Finansial & Skalabilitas'
       ],
       image: '/public/images/categories/tech.jpg'
     },
     {
-      title: 'Sosial & Lingkungan',
-      description: 'Bisnis dengan dampak sosial atau lingkungan yang positif dan berkelanjutan',
+      title: 'Budidaya',
+      description: 'Kategori ini terbuka untuk ide-ide bisnis yang terkait dengan budidaya tanaman, hewan, dan perikanan.',
       color: 'from-green-500 to-green-600',
       bgColor: 'bg-green-50',
       icon: '🌱',
-      fullDescription: 'Kategori Sosial & Lingkungan fokus pada bisnis yang memberikan dampak positif pada masyarakat dan lingkungan sekitar, dengan model bisnis yang berkelanjutan.',
+      fullDescription: 'Kategori ini terbuka untuk ide-ide bisnis yang terkait dengan budidaya tanaman, hewan, dan perikanan.',
       examples: [
-        'Bank sampah digital dengan sistem reward',
-        'Bisnis daur ulang plastik menjadi produk bernilai tinggi',
-        'Platform crowdfunding untuk proyek lingkungan',
-        'Bisnis sosial untuk pemberdayaan masyarakat prasejahtera',
-        'Solusi energi terbarukan untuk daerah terpencil'
+        'Membangun pertanian modern dengan teknologi presisi dan ramah lingkungan.',
+        'Mengembangkan budidaya perikanan berkelanjutan dengan sistem akuaponik atau hidroponik.',
+        'Menciptakan platform online untuk menghubungkan petani dengan pembeli dan distributor.',
+        'Menawarkan jasa konsultasi dan pelatihan untuk petani dalam meningkatkan produktivitas dan kualitas hasil panen.',
+        'Mengembangkan produk olahan hasil pertanian, seperti keripik, saus, atau jus.'
       ],
       criteria: [
-        'Besaran dampak sosial/lingkungan yang dihasilkan',
-        'Keberlanjutan model bisnis',
-        'Inovasi dalam pendekatan penyelesaian masalah',
-        'Potensi untuk meningkatkan kualitas hidup masyarakat',
-        'Keterlibatan komunitas lokal'
+        'Inovasi Teknik Budidaya',
+        'Potensi Skalabilitas',
+        'Keberlanjutan Lingkungan',
+        'Analisis Finansial',
+        'Dampak Sosial & Ekonom'
       ],
       image: '/public/images/categories/social.jpg'
     },
     {
-      title: 'Produk & Jasa',
-      description: 'Pengembangan produk fisik atau jasa inovatif dengan nilai tambah',
+      title: 'Industri Kreatif, Seni, Budaya, dan Pariwisata',
+      description: 'Kategori ini terbuka untuk ide-ide bisnis yang terkait dengan industri kreatif, seni, budaya, dan pariwisata.',
       color: 'from-yellow-500 to-yellow-600',
       bgColor: 'bg-yellow-50',
       icon: '🛍️',
-      fullDescription: 'Kategori Produk & Jasa mencakup inovasi dalam pembuatan produk fisik atau penyediaan jasa yang menawarkan nilai tambah bagi konsumen.',
+      fullDescription: 'Kategori ini terbuka untuk ide-ide bisnis yang terkait dengan industri kreatif, seni, budaya, dan pariwisata.',
       examples: [
-        'Produk ramah lingkungan dengan desain inovatif',
-        'Jasa konsultasi dengan pendekatan unik',
-        'Produk kesehatan dengan teknologi terkini',
-        'Jasa personal yang memanfaatkan teknologi',
-        'Produk lokal dengan standar internasional'
+        'Membangun platform online untuk menjual produk kreatif, seperti karya seni, kerajinan tangan, atau desain fashion.',
+        'Menyelenggarakan festival seni dan budaya untuk mempromosikan budaya lokal.',
+        'Mengembangkan paket wisata edukatif dan berkelanjutan',
+        'Menawarkan jasa pembuatan konten kreatif untuk media sosial dan website.',
+        'Membangun co-working space untuk para pekerja kreatif.'
       ],
       criteria: [
-        'Keunikan nilai proposisi produk/jasa',
-        'Potensi pasar dan permintaan konsumen',
-        'Tingkat inovasi dan kreativitas',
-        'Strategi pemasaran dan distribusi',
-        'Kelayakan produksi atau penyediaan layanan'
+        'Orisinalitas & Kreativitas Ide',
+        'Kelayakan Pasar & Potensi Dampak',
+        'Keberlanjutan Bisnis (Sustainability)',
+        'Model Bisnis & Strategi Operasional',
+        'Kesesuaian dengan Nilai Budaya & Kearifan Lokal'
       ],
       image: '/public/images/categories/product.jpg'
     },
     {
-      title: 'Kreatif & Budaya',
-      description: 'Bisnis di sektor ekonomi kreatif dan kearifan lokal',
+      title: 'Jasa dan Perdagangan',
+      description: 'Kategori ini terbuka untuk ide-ide bisnis yang terkait dengan penyediaan jasa dan perdagangan.',
       color: 'from-red-500 to-red-600',
       bgColor: 'bg-red-50',
       icon: '🎨',
-      fullDescription: 'Kategori Kreatif & Budaya berfokus pada bisnis yang mengembangkan sektor ekonomi kreatif dan melestarikan kearifan lokal Indonesia melalui pendekatan modern.',
+      fullDescription: 'Kategori ini terbuka untuk ide-ide bisnis yang terkait dengan penyediaan jasa dan perdagangan.',
       examples: [
-        'Platform marketplace untuk produk seni lokal',
-        'Solusi AR/VR untuk wisata budaya virtual',
-        'Studio animasi dengan konten budaya Indonesia',
-        'Fashion dengan sentuhan kearifan lokal',
-        'Aplikasi pembelajaran budaya interaktif'
+        'Membangun platform online UMKM lokal untuk layanan jasa , seperti jasa pembersihan, jasa perbaikan atau jasa perawatan.',
+        'Menawarkan jasa logistik dan pengiriman barang.',
+        'Membangun agen perjalanan dan tour wisata.',
+        'Menyediakan layanan konsultasi dan pelatihan bisnis.'
       ],
       criteria: [
-        'Integrasi nilai budaya dalam model bisnis',
-        'Inovasi dalam memperkenalkan budaya ke pasar modern',
-        'Dampak terhadap pelestarian budaya lokal',
-        'Potensi menarik minat generasi muda',
-        'Kualitas artistik dan eksekusi kreatif'
+        'Inovasi Layanan dan Produk',
+        'Potensi Pasar dan Kelayakan Komersial',
+        'Strategi Operasional dan Pemasaran',
+        'Keberlanjutan Bisnis (Sustainability & Scalability)',
+        'Kesiapan Tim dan Perencanaan Keuangan'
       ],
       image: '/public/images/categories/creative.jpg'
     },
     {
-      title: 'Kuliner & Agribisnis',
-      description: 'Inovasi di bidang makanan, pertanian, dan pengolahan hasil tani',
+      title: 'Manufaktur dan Teknologi Terapan',
+      description: 'Kategori ini terbuka untuk ide-ide bisnis yang terkait dengan manufaktur dan teknologi terapan.',
       color: 'from-orange-500 to-orange-600',
       bgColor: 'bg-orange-50',
       icon: '🍲',
-      fullDescription: 'Kategori Kuliner & Agribisnis mencakup inovasi dalam industri makanan, pertanian modern, dan pengolahan hasil pertanian menjadi produk bernilai tambah.',
+      fullDescription: 'Kategori ini terbuka untuk ide-ide bisnis yang terkait dengan manufaktur dan teknologi terapan.',
       examples: [
-        'Aplikasi manajemen rantai pasok pertanian',
-        'Produk olahan pangan inovatif',
-        'Sistem pertanian vertikal di perkotaan',
-        'Bisnis makanan berbasis subscription',
-        'Teknologi untuk meningkatkan hasil panen'
+        'Membangun pabrik untuk memproduksi produk-produk inovatif dan ramah lingkungan.',
+        'Mengembangkan teknologi baru untuk industri manufaktur.',
+        'Menciptakan platform online untuk menghubungkan inventor dengan investor dan mitra bisnis.',
+        'Menawarkan jasa desain dan prototyping produk.',
+        'Menyediakan layanan pelatihan dan sertifikasi untuk tenaga kerja di bidang manufaktur.'
       ],
       criteria: [
-        'Inovasi dalam produk atau proses produksi',
-        'Keberlanjutan dan dampak lingkungan',
-        'Potensi meningkatkan pendapatan petani',
-        'Kontribusi pada ketahanan pangan',
-        'Kualitas dan keamanan produk pangan'
+        'Inovasi Teknologi',
+        'Kelayakan Teknis dan Produksi',
+        'Potensi Pasar dan Kebutuhan Industri',
+        'Model Bisnis dan Keberlanjutan Usaha',
+        'Dampak Sosial dan Lingkungan'
       ],
       image: '/public/images/categories/culinary.jpg'
     },
     {
-      title: 'Open Category',
-      description: 'Kategori terbuka untuk ide bisnis inovatif lainnya',
+      title: 'Bisnis Digital',
+      description: 'Kategori ini terbuka untuk ide-ide bisnis yang terkait dengan bisnis digital dan teknologi informasi.',
       color: 'from-purple-500 to-purple-600',
       bgColor: 'bg-purple-50',
       icon: '💡',
-      fullDescription: 'Open Category adalah kategori khusus untuk ide bisnis inovatif yang tidak termasuk dalam kategori lain namun memiliki potensi dampak dan keunikan yang signifikan.',
+      fullDescription: 'Kategori ini terbuka untuk ide-ide bisnis yang terkait dengan bisnis digital dan teknologi informasi.',
       examples: [
-        'Bisnis hibrid yang menggabungkan beberapa sektor',
-        'Inovasi dalam industri pendidikan',
-        'Solusi untuk tantangan kesehatan',
-        'Platform untuk industri hiburan',
-        'Teknologi baru yang belum masuk kategori spesifik'
+        'Membangun aplikasi mobile atau platform online untuk berbagai kebutuhan, seperti aplikasi edukasi, aplikasi kesehatan, atau aplikasi e-commerce.',
+        'Mengembangkan solusi software untuk perusahaan dan organisasi.',
+        'Menawarkan jasa pemasaran digital dan branding.',
+        'Membangun startup yang memanfaatkan teknologi blockchain atau artificial intelligence.',
+        'Menyediakan layanan cloud computing dan hosting.'
       ],
       criteria: [
-        'Tingkat inovasi dan kebaruan ide',
-        'Potensi disruptif dalam industri terkait',
-        'Proposisi nilai yang jelas',
-        'Kelayakan implementasi',
-        'Potensi skalabilitas bisnis'
+        'Inovasi Teknologi',
+        'Kelayakan Bisnis (Business Feasibility)',
+        'Implementasi Digital (Digital Implementation)',
+        'Dampak Sosial dan Ekonomi',
+        'Presentasi dan Komunikasi Ide'
       ],
       image: '/public/images/categories/open.jpg'
     }
@@ -296,7 +295,7 @@ export default function CompetitionPage() {
           transition={{ duration: 0.8 }}
         >
           <AnimatedTitle
-            title="Syarat & Ketentuan"
+            title="Persyarat"
             subtitle="Berikut adalah persyaratan untuk mengikuti kompetisi NBPC"
             align="center"
             className="mb-16"
@@ -335,27 +334,69 @@ export default function CompetitionPage() {
                       <li className="flex items-start">
                         <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-blue-100 text-blue-600 font-bold flex-shrink-0 mr-4 mt-0.5">3</span>
                         <div>
-                          <p className="font-medium">Setiap mahasiswa hanya boleh terdaftar dalam 1 tim</p>
-                          <p className="text-gray-500 text-sm mt-1">Tidak diperkenankan menjadi anggota di lebih dari satu tim</p>
+                          <p className="font-medium">Setiap peserta hanya boleh terdaftar dalam satu tim.</p>
+                          <p className="text-gray-500 text-sm mt-1">de business plan bersifat orisinil dan tidak ada unsur plagiarisme.</p>
                         </div>
                       </li>
                       <li className="flex items-start">
                         <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-blue-100 text-blue-600 font-bold flex-shrink-0 mr-4 mt-0.5">4</span>
                         <div>
                           <p className="font-medium">Ide yang di daftarkan belum pernah/sedang diikutkan dalam kompetisi lain</p>
-                          <p className="text-gray-500 text-sm mt-1">Jika terdeteksi demikian, maka peserta akan di diskualifikasi.</p>
+                          <p className="text-gray-500 text-sm mt-1">jika terdeteksi demikian, maka peserta akan di diskualifikasi.</p>
                         </div>
                       </li>
                       <li className="flex items-start">
                         <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-blue-100 text-blue-600 font-bold flex-shrink-0 mr-4 mt-0.5">5</span>
                         <div>
-                          <p className="font-medium">Melunasi biaya pendaftaran sebesar Rp 250.000/tim</p>
-                          <p className="text-gray-500 text-sm mt-1">Pembayaran dapat dilakukan melalui transfer bank atau e-wallet</p>
+                          <p className="font-medium">Setiap tim mengupload BMC menggunakan template yang telah disediakan.</p>
+                          <p className="text-gray-500 text-sm mt-1"></p>
+                        </div>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-blue-100 text-blue-600 font-bold flex-shrink-0 mr-4 mt-0.5">6</span>
+                        <div>
+                          <p className="font-medium">Setiap peserta wajib mengikuti akun instagram</p>
+                          <p className="text-gray-500 text-sm mt-1">@pkwuunisnujepara dan @unisnujepara @NBPC UNISNU untuk mengetahui update informasi terkait kompetisi ini.</p>
+                        </div>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-blue-100 text-blue-600 font-bold flex-shrink-0 mr-4 mt-0.5">7</span>
+                        <div>
+                          <p className="font-medium">Setiap peserta wajib mengunggah twibbon NBPC UNISNU 2025 di akun instagram masing-masing</p>
+                          <p className="text-gray-500 text-sm mt-1">dengan tag akun instagram @pkwuunisnujepara @unisnujepara sesuai dengan ketentuan yang ada pada template twibbon. Twibbon dapat diunduh</p>
+                        </div>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-blue-100 text-blue-600 font-bold flex-shrink-0 mr-4 mt-0.5">8</span>
+                        <div>
+                          <p className="font-medium">Upload Twibbon di masing - masing Instagram wajib tag instagram</p>
+                          <p className="text-gray-500 text-sm mt-1">@pkwuunisnujepara @unisnujepara @NBPCUNISNU dan instansi masing-masing harus menggunakan akun utama dan tidak boleh diprivat hingga acara selesai.</p>
+                        </div>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-blue-100 text-blue-600 font-bold flex-shrink-0 mr-4 mt-0.5">9</span>
+                        <div>
+                          <p className="font-medium">yang sudah terdaftar tidak dapat digantikan dengan alasan apapun.</p>
+                          <p className="text-gray-500 text-sm mt-1"></p>
+                        </div>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-blue-100 text-blue-600 font-bold flex-shrink-0 mr-4 mt-0.5">10</span>
+                        <div>
+                          <p className="font-medium">Penilaian dewan juri bersifat mutlak dan tidak dapat diganggu gugat.</p>
+                          <p className="text-gray-500 text-sm mt-1"></p>
+                        </div>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-blue-100 text-blue-600 font-bold flex-shrink-0 mr-4 mt-0.5">11</span>
+                        <div>
+                          <p className="font-medium">Setiap peserta wajib mengikuti peraturan umum, syarat dan ketentuan yang berlaku.</p>
+                          <p className="text-gray-500 text-sm mt-1">Apabila terdapat kecurangan dalam kompetisi akan berakibat pada pengurangan penilaian atau diskualifikasi</p>
                         </div>
                       </li>
                     </ul>
 
-                    <div className="mt-12 mb-4">
+                    {/* <div className="mt-12 mb-4">
                       <div className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white p-6 -mx-8 flex items-center">
                         <div className="p-3 rounded-full bg-white/20 backdrop-blur-sm mr-4">
                           <FiInfo size={32} className="text-white" />
@@ -402,7 +443,7 @@ export default function CompetitionPage() {
                           </li>
                         </ul>
                       </div>
-                    </div>
+                    </div> */}
                   </div>
                 </AnimatedCard>
               </motion.div>
@@ -650,7 +691,7 @@ export default function CompetitionPage() {
               <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-full -mt-20 -mr-20 opacity-50"></div>
               <div className="relative z-10">
                 <p className="text-lg text-gray-700">
-                  <span className="font-semibold text-blue-700">Bonus:</span> Semua finalis juga akan mendapatkan sertifikat, merchandise eksklusif, dan kesempatan mengikuti workshop eksklusif bersama pakar bisnis terkemuka!
+                  <span className="font-semibold text-blue-700">Bonus:</span> Semua finalis juga akan mendapatkan sertifikat  
                 </p>
               </div>
             </motion.div>
