@@ -23,14 +23,14 @@ const Navbar = () => {
     const path = window.location.pathname;
     setActiveLink(path);
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scrol  l', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const menuItems = [
     { label: 'Home', href: '/' },
     { label: 'Tentang', href: '/tentang' },
-    { label: 'Informasi Lomba', href: '/lomba' },
+    { label: 'Informasi ', href: '/lomba' },
   ];
 
   const navbarClasses = `fixed top-0 left-0 w-full z-50 transition-all duration-500 ${

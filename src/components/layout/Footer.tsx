@@ -226,7 +226,7 @@ const Footer = () => {
             </div>
             
             <p className="text-gray-300 text-sm mb-6 max-w-xs">
-              Unisnu ational Business Plan Competition, ajang kompetisi bisnis yang membantu generasi muda Indonesia mengembangkan ide bisnis inovatif mereka.
+              Unisnu Business Plan Competition, ajang kompetisi bisnis yang membantu generasi muda Indonesia mengembangkan ide bisnis inovatif mereka.
             </p>
             
             <div className="flex space-x-3 mb-8">
@@ -307,7 +307,7 @@ const Footer = () => {
         
         <div className="mt-10 pt-6 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-500 text-xs mb-4 md:mb-0">
-            &copy; {new Date().getFullYear()} NBPC Competition. All rights reserved.
+            &copy; {new Date().getFullYear()} by Komunitas Kewirausahaan.
           </p>
           <div className="flex flex-wrap justify-center space-x-4 text-xs text-gray-500">
             <button 
