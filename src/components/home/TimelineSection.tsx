@@ -112,6 +112,13 @@ const timelineItems = [
     date: '22 Juli 2025',
     icon: <GiTrophy className="text-amber-400" size={22} />,
     color: 'amber'
+  },
+  {
+    title: 'Presentas dan Awarding',
+    description: 'Finalis menyerahkan materi presentasi (PPT) untuk dinilai.',
+    date: '23 Juli 2025',
+    icon: <GiTrophy className="text-amber-400" size={22} />,
+    color: 'amber'
   }
 ];
 

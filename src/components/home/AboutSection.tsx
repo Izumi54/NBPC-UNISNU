@@ -11,11 +11,11 @@ const InnovationIcon = () => (
   </svg>
 );
 
-const MentoringIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="w-10 h-10 text-indigo-400">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" />
-  </svg>
-);
+// const MentoringIcon = () => (
+//   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="w-10 h-10 text-indigo-400">
+//     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" />
+//   </svg>
+// );
 
 const PrizeIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="w-10 h-10 text-purple-400">
@@ -88,11 +88,11 @@ const AboutSection = () => {
       title: "Inovasi Bisnis",
       description: "Kembangkan ide bisnis inovatif yang memecahkan masalah nyata di masyarakat"
     },
-    {
-      icon: <MentoringIcon />,
-      title: "Mentoring Profesional",
-      description: "Dapatkan bimbingan dari mentor berpengalaman di berbagai bidang industri"
-    },
+    // {
+    //   icon: <MentoringIcon />,
+    //   title: "Mentoring Profesional",
+    //   description: "Dapatkan bimbingan dari mentor berpengalaman di berbagai bidang industri"
+    // },
     {
       icon: <PrizeIcon />,
       title: "Hadiah Menarik",
@@ -178,7 +178,7 @@ const AboutSection = () => {
               <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-indigo-500 mx-auto mb-8" />
               
               <p className="text-lg md:text-xl leading-relaxed text-gray-300 max-w-5xl mx-auto">
-              National Business Plan Competition 2025 (NBPC 2025) adalah kompetisi tahunan
+              Unisnu National Business Plan Competition 2025 (NBPC 2025) adalah kompetisi tahunan
               berskala nasional yang diselenggarakan oleh Pusat Kewirausahaan Unisnu dan pada tahun ini
               memasuki penyelenggaraan yang kedua kalinya. Kompetisi ini bertujuan untuk mendorong semangat kewirausahaan
               generasi muda Indonesia melalui pengembangan ide bisnis yang inovatif, aplikatif, dan berkelanjutan.
@@ -349,7 +349,7 @@ const AboutSection = () => {
               className="text-lg md:text-xl leading-relaxed text-gray-300 max-w-5xl mx-auto"
               variants={textVariants}
             >
-              National Business Plan Competition 2025 (NBPC 2025) adalah kompetisi tahunan
+              Unisnu National Business Plan Competition 2025 adalah kompetisi tahunan
               berskala nasional yang diselenggarakan oleh Pusat Kewirausahaan Unisnu dan pada tahun ini
               memasuki penyelenggaraan yang kedua kalinya. Kompetisi ini bertujuan untuk mendorong semangat kewirausahaan
               generasi muda Indonesia melalui pengembangan ide bisnis yang inovatif, aplikatif, dan berkelanjutan.  

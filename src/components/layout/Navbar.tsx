@@ -89,12 +89,12 @@ const Navbar = () => {
           className="flex items-center"
         >
           <Link href="/" className="flex items-center">
-            <div className="h-[50px] w-[100px] relative flex items-center">
+            <div className="h-[65px] w-[65px] relative flex items-center">
               <Image
-                src="/images/logo.png"
-                alt="NBPC Logo"
-                width={100}
-                height={30}
+                src="/images/LogoUNISNU.png"
+                alt="Logo Unisnu"
+                width={65}
+                height={65}
                 className="transition-all duration-300 object-contain"
                 priority
               />
@@ -141,7 +141,7 @@ const Navbar = () => {
           </div>
         </div>
 
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.5, duration: 0.5 }}
@@ -163,6 +163,26 @@ const Navbar = () => {
               Daftar Sekarang
             </motion.button>
           </a>
+        </motion.div> */}
+
+        <motion.div
+          variants={logoVariants}
+          initial="initial"
+          animate="animate"
+          className="flex items-center"
+        >
+          <Link href="/" className="flex items-center">
+            <div className="h-[50px] w-[100px] relative flex items-center">
+              <Image
+                src="/images/logo.png"
+                alt="NBPC Logo"
+                width={100}
+                height={30}
+                className="transition-all duration-300 object-contain"
+                priority
+              />
+            </div>
+          </Link>
         </motion.div>
 
         {/* Mobile Menu Button */}
@@ -209,7 +229,7 @@ const Navbar = () => {
                   </Link>
                 </motion.div>
               ))}
-              <motion.div
+              {/* <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
@@ -223,7 +243,7 @@ const Navbar = () => {
                     Daftar Sekarang
                   </button>
                 </a>
-              </motion.div>
+              </motion.div> */}
             </div>
           </motion.div>
         )}

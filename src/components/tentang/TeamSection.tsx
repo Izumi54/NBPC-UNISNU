@@ -1,8 +1,8 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 import Image from 'next/image';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useEffect, useState } from 'react';
 import { FiX } from 'react-icons/fi';
 
 interface TeamMember {
@@ -111,7 +111,6 @@ const TeamSection = () => {
       members: [
         { name: 'Anisa Saili Rifqoh', image: '/images/team/d_konsum/anisa.jpeg' },
         { name: 'Latifatul Asna', image: '/images/team/d_konsum/asna.jpeg' },
-        { name: 'Alyssa Dwi Septiani', image: '/images/team/d_konsum/.jpg' }
       ],
       description: 'Divisi Konsumsi bertanggung jawab untuk menyediakan dan mengelola kebutuhan makanan dan minuman selama rangkaian acara NBPC.',
       responsibilities: [
@@ -132,9 +131,16 @@ const TeamSection = () => {
     image: '/images/team/sarwido.jpg'
   };
 
-  // Pembina
-  const pembina = {
+  // Pembina 1
+  const pembina1 = {
     name: 'M. Mujab Juhaini',
+    role: 'Pembina',
+    image: '/images/team/likah.jpeg'
+  };
+
+  // Pembina 2
+  const pembina2 = {
+    name: 'M. Mujab Juhaini', 
     role: 'Pembina',
     image: '/images/team/mujap.JPG'
   };
@@ -323,7 +329,7 @@ const TeamSection = () => {
             </motion.div>
           </motion.div>
 
-          {/* Pembina */}
+          {/* Pembina 1 */}
           <motion.div 
             initial={{ opacity: 0, y: -50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -341,8 +347,8 @@ const TeamSection = () => {
               <div className="flex flex-col items-center px-8 pt-0 pb-10">
                 <div className="relative w-36 h-36 -mt-20 mb-6 rounded-full overflow-hidden border-4 border-white shadow-xl group">
                   <Image 
-                    src={pembina.image} 
-                    alt={pembina.name} 
+                    src={pembina1.image} 
+                    alt={pembina1.name} 
                     fill 
                     style={{ objectFit: 'cover' }}
                     className="filter brightness-105 transition-transform duration-700 group-hover:scale-110"
@@ -354,9 +360,48 @@ const TeamSection = () => {
                   />
                 </div>
                 
-                <h3 className="text-2xl font-bold text-blue-950 mb-3 text-center">{pembina.name}</h3>
+                <h3 className="text-2xl font-bold text-blue-950 mb-3 text-center">{pembina1.name}</h3>
                 <div className="mb-5 bg-gradient-to-r from-blue-600 to-blue-500 text-white font-medium px-5 py-2 rounded-lg text-sm shadow-lg">
-                  {pembina.role}
+                  {pembina1.role}
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+
+          {/* Pembina 2 */}
+          <motion.div 
+            initial={{ opacity: 0, y: -50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, type: "spring", stiffness: 50, delay: 0.1 }}
+            className="flex justify-center"
+          >
+            <motion.div 
+              className="relative w-full max-w-sm bg-white rounded-xl shadow-2xl overflow-hidden"
+              whileHover={{ y: -10, boxShadow: "0 25px 50px -12px rgba(59, 130, 246, 0.25)" }}
+              transition={{ type: "spring", stiffness: 300, damping: 15 }}
+            >
+              <div className="h-28 bg-gradient-to-r from-blue-700 to-blue-500"></div>
+              
+              <div className="flex flex-col items-center px-8 pt-0 pb-10">
+                <div className="relative w-36 h-36 -mt-20 mb-6 rounded-full overflow-hidden border-4 border-white shadow-xl group">
+                  <Image 
+                    src={pembina2.image} 
+                    alt={pembina2.name} 
+                    fill 
+                    style={{ objectFit: 'cover' }}
+                    className="filter brightness-105 transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <motion.div 
+                    className="absolute inset-0 bg-gradient-to-b from-blue-500/0 to-blue-600/30"
+                    whileHover={{ opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                  />
+                </div>
+                
+                <h3 className="text-2xl font-bold text-blue-950 mb-3 text-center">{pembina2.name}</h3>
+                <div className="mb-5 bg-gradient-to-r from-blue-600 to-blue-500 text-white font-medium px-5 py-2 rounded-lg text-sm shadow-lg">
+                  {pembina2.role}
                 </div>
               </div>
             </motion.div>
