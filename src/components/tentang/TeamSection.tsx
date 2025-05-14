@@ -1,6 +1,7 @@
 'use client';
 
 import { AnimatePresence, motion } from 'framer-motion';
+import { image } from 'framer-motion/client';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { FiX } from 'react-icons/fi';
@@ -44,8 +45,7 @@ const TeamSection = () => {
       members: [
         { name: 'Alif Fataya', image: '/images/team/d_acara/alif.jpeg' },
         { name: 'Mohammad Affandi', image: '/images/team/d_acara/m_affandi.jpg' },
-        { name: 'Abid Azka Maulana', image: '/images/team/d_acara/abid.jpeg' },
-        { name: 'M. Afriza Maula Putra', image: '/images/team/d_acara/afriza.jpeg' }
+        { name: 'Abid Azka Maulana', image: '/images/team/d_acara/abid.jpeg' }
       ],
       description: 'Divisi Acara bertanggung jawab untuk merencanakan, mengorganisir, dan mengeksekusi seluruh rangkaian acara NBPC.',
       responsibilities: [
@@ -134,14 +134,14 @@ const TeamSection = () => {
   // Pembina 1
   const pembina1 = {
     name: 'M. Mujab Juhaini',
-    role: 'Pembina',
+    role: 'Pembina 1',
     image: '/images/team/likah.jpeg'
   };
 
   // Pembina 2
   const pembina2 = {
     name: 'M. Mujab Juhaini', 
-    role: 'Pembina',
+    role: 'Pembina 2',
     image: '/images/team/mujap.JPG'
   };
 
@@ -152,17 +152,19 @@ const TeamSection = () => {
     image: '/images/team/rival.jpeg'
   };
 
+  // Bendahara 
+  const bendahara = {
+    name: 'M. Afriza Maula Putra',
+    role: 'bendahara',
+    image: '/images/team/afriza.jpeg'
+  };
+
   // Sekretariat
   const secretariat = [
     {
       name: 'Muhamad Rizal Nurdin',
       role: 'Sekretariat',
       image: '/images/team/rizal.jpeg'
-    },
-    {
-      name: 'Fenti Siti Fatimah',
-      role: 'Sekretariat',
-      image: '/images/team/placeholder.jpg'
     }
   ];
 
@@ -447,6 +449,50 @@ const TeamSection = () => {
           </motion.div>
         </div>
 
+        {/* Bendahara */}
+        <div className="mb-24">
+          <motion.h3 
+            className="text-3xl font-bold text-center mb-12 text-blue-800"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            Bendahara
+          </motion.h3>
+          
+          <div className="grid grid-cols- md:grid-cols-2 max-w-3xl mx-auto gap-10">
+            <motion.div 
+                // key={idx}
+                initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="flex justify-center"
+              >
+                  <motion.div
+                  className="flex items-center bg-white rounded-xl shadow-lg p-5 gap-6 w-full"
+                  whileHover={{ y: -5, boxShadow: "0 15px 30px -12px rgba(59, 130, 246, 0.2)" }}
+                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                >
+                  <div className="relative w-16 h-16 overflow-hidden rounded-full border-2 border-blue-200 flex-shrink-0">
+                    <Image
+                      src={bendahara.image}
+                      alt={bendahara.name}
+                      fill
+                      style={{ objectFit: 'cover' }}
+                    />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-gray-800">{bendahara.name}</h4>
+                    <p className="text-sm text-blue-600">{bendahara.role}</p>
+                  </div>
+                </motion.div>
+              </motion.div>
+          
+          </div>
+        </div>
+
         {/* Sekretariat */}
         <div className="mb-24">
           <motion.h3 
@@ -489,8 +535,8 @@ const TeamSection = () => {
                 </motion.div>
               </motion.div>
             ))}
-                </div>
-              </div>
+          </div>
+        </div>
 
         {/* Divisi-divisi */}
         <div className="mb-24">
