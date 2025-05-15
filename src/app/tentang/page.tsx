@@ -201,8 +201,8 @@ export default function AboutPage() {
         
         <div className="container-custom relative z-10">
           <AnimatedTitle
-            title="Sejarah"
-            subtitle="Perjalanan evolusi dan pencapaian yang berkesinambungan"
+            title="Sejarah NBPC"
+            subtitle="Perjalanan kompetisi bisnis terdepan di Indonesia"
             align="center"
             className="mb-16"
             textColor="text-gray-800"
@@ -210,35 +210,113 @@ export default function AboutPage() {
 
           <FadeInSection>
             <div 
-              className="max-w-4xl mx-auto bg-white p-10 rounded-lg shadow-sm border border-gray-100 relative"
+              className="max-w-4xl mx-auto bg-white p-10 rounded-lg shadow-sm border border-gray-100 relative mb-16"
             >
-              <div className="absolute left-10 top-0 bottom-0 w-0.5 bg-gray-200"></div>
+              <p className="text-gray-700 text-lg leading-relaxed mb-6">
+                National Business Plan Competition (NBPC) pertama kali diadakan pada tahun 2024 dengan antusiasme yang luar biasa dari mahasiswa seluruh Indonesia. Kompetisi ini menjadi wadah bagi mahasiswa untuk mengembangkan ide bisnis inovatif mereka dan mendapatkan masukan berharga dari para profesional industri.
+              </p>
+              <p className="text-gray-700 text-lg leading-relaxed">
+                Pada tahun 2025 ini, NBPC memasuki penyelenggaraan kedua dengan berbagai penyempurnaan dan inovasi baru. Kami berkomitmen untuk terus mendorong semangat kewirausahaan dan inovasi di kalangan generasi muda Indonesia.
+              </p>
+            </div>
+          </FadeInSection>
+          
+          {/* Galeri foto NBPC tahun sebelumnya */}
+          <AnimatedTitle
+            title="Galeri NBPC 2024"
+            subtitle="Momen berkesan dari penyelenggaraan pertama"
+            align="center"
+            className="mb-12"
+            textColor="text-gray-800"
+          />
+          
+          <FadeInSection>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+              <div className="col-span-1 space-y-6">
+                <motion.div 
+                  className="rounded-lg overflow-hidden shadow-lg relative h-64"
+                  whileHover={{ y: -5, boxShadow: "0 20px 30px -10px rgba(0, 0, 0, 0.3)" }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <Image
+                    src="/images/sejarah/WhatsApp Image 2025-05-15 at 02.06.11 (2).jpeg"
+                    alt="NBPC 2024 - Sesi Presentasi"
+                    fill
+                    style={{ objectFit: 'cover' }}
+                    className="transition-transform duration-300 hover:scale-105"
+                  />
+                </motion.div>
+                <motion.div 
+                  className="rounded-lg overflow-hidden shadow-lg relative h-52"
+                  whileHover={{ y: -5, boxShadow: "0 20px 30px -10px rgba(0, 0, 0, 0.3)" }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <Image
+                    src="/images/sejarah/WhatsApp Image 2025-05-15 at 02.06.10.jpeg"
+                    alt="NBPC 2024 - Kelompok Peserta"
+                    fill
+                    style={{ objectFit: 'cover' }}
+                    className="transition-transform duration-300 hover:scale-105"
+                  />
+                </motion.div>
+              </div>
               
-              {/* Timeline items */}
-              <div className="space-y-12">
-                <div className="relative pl-8">
-                  <div className="absolute left-0 -translate-x-1/2 w-4 h-4 rounded-full bg-blue-500 border-2 border-white shadow-sm"></div>
-                  <h3 className="text-xl font-bold mb-2 text-blue-600">2020: Awal Mula</h3>
-                  <p className="text-gray-600">
-                Kompetisi ini didirikan pada tahun 2020 oleh sekelompok dosen dan praktisi bisnis yang prihatin dengan kurangnya platform kompetisi bisnis yang komprehensif bagi mahasiswa. Pada awalnya, kompetisi ini diikuti oleh 20 tim dari 10 universitas di Indonesia.
-              </p>
-                </div>
+              <div className="col-span-1 space-y-6">
+                <motion.div
+                  className="rounded-lg overflow-hidden shadow-lg relative h-72"
+                  whileHover={{ y: -5, boxShadow: "0 20px 30px -10px rgba(0, 0, 0, 0.3)" }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <Image
+                    src="/images/sejarah/WhatsApp Image 2025-05-15 at 02.06.11 (1).jpeg"
+                    alt="NBPC 2024 - Presentasi Tim"
+                    fill
+                    style={{ objectFit: 'cover' }}
+                    className="transition-transform duration-300 hover:scale-105"
+                  />
+                </motion.div>
+                <motion.div 
+                  className="rounded-lg overflow-hidden shadow-lg relative h-44"
+                  whileHover={{ y: -5, boxShadow: "0 20px 30px -10px rgba(0, 0, 0, 0.3)" }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <Image
+                    src="/images/sejarah/WhatsApp Image 2025-05-15 at 02.06.09.jpeg"
+                    alt="NBPC 2024 - Diskusi Tim"
+                    fill
+                    style={{ objectFit: 'cover' }}
+                    className="transition-transform duration-300 hover:scale-105"
+                  />
+                </motion.div>
+              </div>
               
-                <div className="relative pl-8">
-                  <div className="absolute left-0 -translate-x-1/2 w-4 h-4 rounded-full bg-blue-600 border-2 border-white shadow-sm"></div>
-                  <h3 className="text-xl font-bold mb-2 text-blue-700">2022: Pertumbuhan</h3>
-                  <p className="text-gray-600">
-                Seiring dengan berjalannya waktu, kompetisi terus berkembang dan mendapatkan pengakuan di kalangan mahasiswa dan pelaku industri. Pada tahun 2022, kegiatan ini telah diikuti oleh lebih dari 100 tim dari 50 universitas di seluruh Indonesia. 
-              </p>
-                </div>
-
-                <div className="relative pl-8">
-                  <div className="absolute left-0 -translate-x-1/2 w-4 h-4 rounded-full bg-blue-700 border-2 border-white shadow-sm"></div>
-                  <h3 className="text-xl font-bold mb-2 text-blue-800">2025: Pencapaian</h3>
-                  <p className="text-gray-600">
-                Saat ini, kompetisi ini telah menjadi salah satu ajang bisnis terkemuka di Indonesia dengan dukungan dari berbagai pihak termasuk pemerintah, investor, dan perusahaan terkemuka. Kami berkomitmen untuk terus mendorong inovasi dan semangat kewirausahaan di kalangan mahasiswa Indonesia.
-              </p>
-                </div>
+              <div className="col-span-1 space-y-6">
+                <motion.div 
+                  className="rounded-lg overflow-hidden shadow-lg relative h-56"
+                  whileHover={{ y: -5, boxShadow: "0 20px 30px -10px rgba(0, 0, 0, 0.3)" }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <Image
+                    src="/images/sejarah/WhatsApp Image 2025-05-15 at 02.06.11.jpeg"
+                    alt="NBPC 2024 - Awarding Ceremony"
+                    fill
+                    style={{ objectFit: 'cover' }}
+                    className="transition-transform duration-300 hover:scale-105"
+                  />
+                </motion.div>
+                <motion.div 
+                  className="rounded-lg overflow-hidden shadow-lg relative h-60"
+                  whileHover={{ y: -5, boxShadow: "0 20px 30px -10px rgba(0, 0, 0, 0.3)" }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <Image
+                    src="/images/sejarah/WhatsApp Image 2025-05-15 at 02.06.09 (1).jpeg"
+                    alt="NBPC 2024 - Penyerahan Hadiah"
+                    fill
+                    style={{ objectFit: 'cover' }}
+                    className="transition-transform duration-300 hover:scale-105"
+                  />
+                </motion.div>
               </div>
             </div>
           </FadeInSection>

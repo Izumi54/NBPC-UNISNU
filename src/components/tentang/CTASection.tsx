@@ -4,9 +4,33 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 
+// Definisi interface untuk tipe data particle
+interface Particle {
+  id: number;
+  width: number;
+  height: number;
+  top: string;
+  left: string;
+  opacity: number;
+  duration: number;
+  delay: number;
+}
+
+// Definisi interface untuk tipe data shape
+interface Shape {
+  id: number;
+  width: number;
+  height: number;
+  top: string;
+  left: string;
+  className: string;
+  duration: number;
+  delay: number;
+}
+
 const CTASection = () => {
-  const [particles, setParticles] = useState([]);
-  const [shapes, setShapes] = useState([]);
+  const [particles, setParticles] = useState<Particle[]>([]);
+  const [shapes, setShapes] = useState<Shape[]>([]);
 
   useEffect(() => {
     // Generate particles only on client-side to avoid hydration issues
@@ -69,8 +93,8 @@ const CTASection = () => {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
       ),
-      title: "Akses ke Pendanaan",
-      description: "Kesempatan mendapatkan akses ke pendanaan untuk pengembangan bisnis Anda"
+      title: "Sertifikasi",
+      description: "Mendapatkan sertifikat resmi yang diakui untuk portofolio karir Anda"
     }
   ];
 

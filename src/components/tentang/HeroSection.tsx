@@ -248,83 +248,55 @@ const AboutHeroSection = () => {
               </motion.span>
               
               <motion.h1
-                className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-50 via-white to-blue-100 leading-tight"
-                initial={{ opacity: 0, y: 40 }}
-                animate={isVisible ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.8, delay: 0.3, type: "spring", stiffness: 50 }}
-              >
-                <span className="block md:inline">Inovasi &amp;</span>
-                <span className="block md:inline"> Kolaborasi</span>
-                <span className="hidden md:inline ml-4 text-lg align-middle px-4 py-2 rounded-full bg-blue-600/20 text-blue-100 font-medium">Tentang NBPC</span>
-              </motion.h1>
-              
-              <motion.div
-                className="h-1 w-20 bg-gradient-to-r from-blue-400 to-blue-300 mb-8 rounded-full md:mx-0 mx-auto"
-                initial={{ width: 0 }}
-                animate={isVisible ? { width: 80 } : {}}
-                transition={{ duration: 0.8, delay: 0.6 }}
-              />
-              
-              <motion.p
-                className="text-base sm:text-lg md:text-xl text-blue-100 mb-10 max-w-2xl leading-relaxed font-light md:pr-8"
+                className="text-4xl md:text-6xl font-black mb-6 md:leading-[1.2] bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-100 to-blue-200"
                 initial={{ opacity: 0, y: 20 }}
                 animate={isVisible ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.8, delay: 0.7 }}
+                transition={{ duration: 0.7, delay: 0.1 }}
               >
-                Platform kompetisi bisnis terdepan yang mendorong inovasi dan kewirausahaan bagi generasi muda Indonesia melalui pendampingan berkualitas, jaringan profesional, dan peluang pendanaan.
+                National Business Plan Competition
+              </motion.h1>
+              
+              <motion.p
+                className="text-xl text-blue-100 leading-relaxed md:max-w-lg"
+                initial={{ opacity: 0, y: 20 }}
+                animate={isVisible ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.7, delay: 0.2 }}
+              >
+                Kompetisi tahunan berskala nasional yang diselenggarakan oleh UNISNU Jepara untuk mendorong inovasi dan semangat kewirausahaan di kalangan mahasiswa seluruh Indonesia.
               </motion.p>
             </motion.div>
             
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={isVisible ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.9 }}
               className="flex flex-wrap gap-4 justify-center md:justify-start"
+              initial={{ opacity: 0, y: 30 }}
+              animate={isVisible ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.7, delay: 0.3 }}
             >
-              <motion.a
-                href="#visi-misi"
-                onClick={(e) => {
-                  e.preventDefault();
-                  scrollToVisiMisi();
-                }}
-                className="group relative overflow-hidden px-8 py-4 rounded-lg bg-gradient-to-r from-blue-600 to-blue-500 text-white font-medium shadow-xl hover:shadow-blue-500/30 transition-all duration-300"
-                whileHover={{ scale: 1.03, y: -3 }}
-                whileTap={{ scale: 0.98 }}
+              <motion.button
+                onClick={scrollToVisiMisi}
+                className="px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white rounded-full font-bold text-lg shadow-lg shadow-blue-700/30 transition-transform duration-300"
+                whileHover={{ y: -5 }}
+                whileTap={{ scale: 0.95 }}
               >
-                <span className="relative z-10 flex items-center gap-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                    <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
-                    <path fillRule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clipRule="evenodd" />
-                  </svg>
-                  <span>Pelajari Lebih Lanjut</span>
-                </span>
-                
-                {/* Glassmorphism hover effect */}
-                <motion.span
-                  className="absolute inset-0 bg-gradient-to-r from-blue-500/30 to-blue-600/30 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all duration-300"
-                />
-                
-                {/* Animated highlight effect */}
-                <motion.span 
-                  className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-300/20 to-transparent opacity-0 group-hover:opacity-100"
-                  animate={{
-                    backgroundPosition: ['200% 50%', '-200% 50%'],
-                  }}
-                  transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                    repeatType: 'loop',
-                    ease: "easeInOut"
-                  }}
-                  style={{
-                    backgroundSize: '400% 100%',
-                  }}
-                />
-              </motion.a>
+                Pelajari Lebih Lanjut
+              </motion.button>
             </motion.div>
           </div>
         </div>
       </div>
+      
+      {/* Scrolldown indicator dengan animasi yang lebih halus */}
+      <motion.div
+        className="absolute bottom-12 left-1/2 -translate-x-1/2 text-blue-200 flex flex-col items-center cursor-pointer"
+        animate={{ y: [0, 10, 0] }}
+        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+        onClick={scrollToVisiMisi}
+      >
+        <span className="text-sm mb-2">Scrolldown</span>
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+        </svg>
+      </motion.div>
     </section>
   );
 };

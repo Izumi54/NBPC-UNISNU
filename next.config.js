@@ -14,7 +14,8 @@ const nextConfig = {
       '3.bp.blogspot.com',
       '2.bp.blogspot.com',
       'download.logo.wine',
-      'i.pinimg.com'
+      'i.pinimg.com',
+      'media.neliti.com'
     ],
     // Menggunakan remotePatterns untuk konfigurasi yang lebih aman dan spesifik
     remotePatterns: [
@@ -61,6 +62,11 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'download.logo.wine',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'media.neliti.com',
         pathname: '/**',
       }
     ],

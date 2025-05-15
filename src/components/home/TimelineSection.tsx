@@ -1,10 +1,20 @@
 'use client';
 
+import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
-import { FiCalendar, FiCheck, FiStar, FiAward, FiFileText, FiUsers, FiMic } from 'react-icons/fi';
+import { FiCalendar, FiCheck, FiStar, FiAward, FiFileText, FiUsers, FiMic, FiVideo } from 'react-icons/fi';
 import { GiTrophy } from 'react-icons/gi';
 import { IoClose } from 'react-icons/io5';
+
+// Definisi tipe untuk item timeline
+interface TimelineItem {
+  title: string;
+  description: string;
+  date: string;
+  icon: React.ReactNode;
+  color: string;
+}
 
 // Helper functions (moved outside the components)
 // Variasi warna untuk timeline nodes berdasarkan properti color
@@ -17,7 +27,9 @@ const getNodeColor = (color: string) => {
     cyan: 'border-cyan-400 bg-cyan-400/10',
     indigo: 'border-indigo-400 bg-indigo-400/10',
     orange: 'border-orange-400 bg-orange-400/10',
-    amber: 'border-amber-400 bg-amber-400/10'
+    amber: 'border-amber-400 bg-amber-400/10',
+    pink: 'border-pink-400 bg-pink-400/10',
+    red: 'border-red-400 bg-red-400/10'
   };
   
   return colors[color] || 'border-blue-400 bg-blue-400/10';
@@ -33,30 +45,16 @@ const getTitleColor = (color: string) => {
     cyan: 'text-cyan-400',
     indigo: 'text-indigo-400',
     orange: 'text-orange-400',
-    amber: 'text-amber-400'
+    amber: 'text-amber-400',
+    pink: 'text-pink-400',
+    red: 'text-red-400'
   };
   
   return colors[color] || 'text-blue-400';
 };
 
-// Variasi shadow untuk hover effect berdasarkan properti color
-const getNodeShadow = (color: string) => {
-  const shadows: Record<string, string> = {
-    blue: 'shadow-blue-400/30',
-    green: 'shadow-green-400/30',
-    purple: 'shadow-purple-400/30',
-    yellow: 'shadow-yellow-400/30',
-    cyan: 'shadow-cyan-400/30',
-    indigo: 'shadow-indigo-400/30',
-    orange: 'shadow-orange-400/30',
-    amber: 'shadow-amber-400/30'
-  };
-  
-  return shadows[color] || 'shadow-blue-400/30';
-};
-
 // Timeline data
-const timelineItems = [
+const timelineItems: TimelineItem[] = [
   {
     title: 'Pendaftaran dan Pengumpulan BMC',
     description: 'Registrasi tim dan ide bisnis',
@@ -112,12 +110,31 @@ const timelineItems = [
     date: '22 Juli 2025',
     icon: <GiTrophy className="text-amber-400" size={22} />,
     color: 'amber'
+  },
+  {
+    title: 'Presentasi Final',
+    description: 'Finalis mempresentasikan ide bisnis di hadapan juri dan publik.',
+    date: '23 Juli 2025',
+    icon: <FiVideo className="text-pink-400" size={22} />,
+    color: 'pink'
+  },
+  {
+    title: 'Awarding Ceremony',
+    description: 'Pengumuman pemenang dan penyerahan hadiah dalam acara penghargaan.',
+    date: '23 Juli 2025',
+    icon: <FiAward className="text-red-400" size={22} />,
+    color: 'red'
   }
 ];
 
 // Komponen untuk popup detail timeline
-const TimelinePopup = ({ item, onClose }) => {
-  const getExtraContent = (title) => {
+type TimelinePopupProps = {
+  item: TimelineItem;
+  onClose: () => void;
+};
+
+const TimelinePopup = ({ item, onClose }: TimelinePopupProps) => {
+  const getExtraContent = (title: string) => {
     switch(title) {
       case 'Pendaftaran':
         return (
@@ -250,6 +267,38 @@ const TimelinePopup = ({ item, onClose }) => {
             </p>
           </div>
         );
+      case 'Presentasi Final':
+        return (
+          <div className="space-y-3">
+            <h4 className="font-medium text-gray-300">Ketentuan Presentasi:</h4>
+            <ul className="list-disc list-inside text-gray-400 space-y-1">
+              <li>Durasi: 20 menit presentasi + 15 menit Q&A</li>
+              <li>Semua anggota tim harus hadir</li>
+              <li>Demo produk/prototype akan mendapat nilai tambah</li>
+              <li>Presentasi dalam Bahasa Indonesia atau Inggris</li>
+            </ul>
+            <p className="text-gray-400 mt-2">
+              Presentasi final akan dilaksanakan di Aula Utama UNISNU pada pagi hingga siang hari tanggal 23 Juli 2025.
+              Panel juri terdiri dari pakar industri, venture capitalist, dan praktisi bisnis terkemuka.
+            </p>
+          </div>
+        );
+      case 'Awarding Ceremony':
+        return (
+          <div className="space-y-3">
+            <h4 className="font-medium text-gray-300">Agenda Acara:</h4>
+            <ul className="list-disc list-inside text-gray-400 space-y-1">
+              <li>Sambutan dari pimpinan UNISNU dan sponsor utama</li>
+              <li>Pengumuman pemenang dan penyerahan hadiah</li>
+              <li>Penampilan spesial dari bintang tamu</li>
+              <li>Networking session dengan investor dan mitra industri</li>
+            </ul>
+            <p className="text-gray-400 mt-2">
+              Acara awarding ceremony akan diselenggarakan pada sore hari tanggal 23 Juli 2025 di Auditorium UNISNU,
+              setelah sesi presentasi final selesai. Peserta diharapkan mengenakan pakaian formal.
+            </p>
+          </div>
+        );
       default:
         return null;
     }
@@ -324,33 +373,79 @@ const TimelinePopup = ({ item, onClose }) => {
 
 const TimelineSection = () => {
   const [isMounted, setIsMounted] = useState(false);
-  const [activeItem, setActiveItem] = useState(null);
+  const [activeItem, setActiveItem] = useState<TimelineItem | null>(null);
   
   useEffect(() => {
     setIsMounted(true);
   }, []);
 
-  // Render server-side dengan animasi dasar
-  if (!isMounted) {
+  // BARU: Desain Timeline yang Diperbarui dengan Gap Besar
+  const renderDesktopTimeline = () => {
     return (
-      <section className="py-24 relative overflow-hidden">
-        {/* Background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#050A24] to-[#071352] z-0"></div>
-        
-        {/* Grid pattern - static version */}
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute h-[1px] w-full bg-gray-500/20 top-1/4"></div>
-          <div className="absolute h-[1px] w-full bg-gray-500/20 top-2/4"></div>
-          <div className="absolute h-[1px] w-full bg-gray-500/20 top-3/4"></div>
+      <div className="hidden md:block">
+        {/* BAGIAN ATAS */}
+        <div className="flex mb-24 relative">
+          {/* Kita buat div khusus untuk garis terpisah */}
+          <div className="absolute left-0 right-0 top-8 z-[1]">
+            <div className="mx-[12%] h-[3px] bg-gradient-to-r from-blue-400 via-purple-400 to-yellow-400 rounded-full shadow-sm"></div>
+          </div>
           
-          <div className="absolute w-[1px] h-full bg-gray-500/20 left-1/4"></div>
-          <div className="absolute w-[1px] h-full bg-gray-500/20 left-2/4"></div>
-          <div className="absolute w-[1px] h-full bg-gray-500/20 left-3/4"></div>
+          {/* Konten */}
+          {timelineItems.slice(0, 4).map((item, index) => (
+            <div key={`top-${index}`} className="flex-1 px-3">
+              {/* Ikon */}
+              <div 
+                className={`w-16 h-16 rounded-full border-2 flex items-center justify-center mx-auto ${getNodeColor(item.color)} hover:shadow-lg transition-all duration-300 cursor-pointer z-[5] relative bg-[#050A24]`}
+                onClick={() => setActiveItem(item)}
+              >
+                {item.icon}
+              </div>
+              
+              {/* Teks dengan jarak yang besar dari ikon */}
+              <div className="mt-14 text-center bg-[#050A24] rounded-lg py-4 px-3 border border-gray-800/30 shadow-md">
+                <h3 className={`text-lg font-bold mb-2 ${getTitleColor(item.color)}`}>{item.title}</h3>
+                <p className="text-white text-sm text-opacity-80 mb-2 min-h-[40px]">{item.description}</p>
+                <p className="text-gray-400 text-xs font-medium">{item.date}</p>
+              </div>
+            </div>
+          ))}
         </div>
+        
+        {/* BAGIAN BAWAH */}
+        <div className="flex relative">
+          {/* Kita buat div khusus untuk garis terpisah */}
+          <div className="absolute left-0 right-0 top-8 z-[1]">
+            <div className="mx-[12%] h-[3px] bg-gradient-to-r from-cyan-400 via-indigo-400 to-amber-400 rounded-full shadow-sm"></div>
+          </div>
+          
+          {/* Konten */}
+          {timelineItems.slice(4).map((item, index) => (
+            <div key={`bottom-${index}`} className="flex-1 px-3">
+              {/* Ikon */}
+              <div 
+                className={`w-16 h-16 rounded-full border-2 flex items-center justify-center mx-auto ${getNodeColor(item.color)} hover:shadow-lg transition-all duration-300 cursor-pointer z-[5] relative bg-[#050A24]`}
+                onClick={() => setActiveItem(item)}
+              >
+                {item.icon}
+              </div>
+              
+              {/* Teks dengan jarak yang besar dari ikon */}
+              <div className="mt-14 text-center bg-[#050A24] rounded-lg py-4 px-3 border border-gray-800/30 shadow-md">
+                <h3 className={`text-lg font-bold mb-2 ${getTitleColor(item.color)}`}>{item.title}</h3>
+                <p className="text-white text-sm text-opacity-80 mb-2 min-h-[40px]">{item.description}</p>
+                <p className="text-gray-400 text-xs font-medium">{item.date}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  };
 
-        {/* Abstract shapes - static */}
-        <div className="absolute top-1/4 right-1/4 w-64 h-64 rounded-full bg-blue-500/5 blur-3xl"></div>
-        <div className="absolute bottom-1/4 left-1/3 w-80 h-80 rounded-full bg-purple-500/5 blur-3xl"></div>
+  return (
+    <section className="py-24 relative overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#050A24] to-[#071352] z-0"></div>
         
         <div className="container-custom relative z-10">
           <div className="text-center mb-16">
@@ -365,58 +460,10 @@ const TimelineSection = () => {
             </p>
           </div>
 
-          {/* Desktop timeline */}
-          <div className="hidden md:block relative">
-            {/* Top timeline */}
-            <div className="relative flex justify-between mb-24">
-              <div className="absolute left-0 right-0 top-1/2 h-1 bg-gradient-to-r from-blue-400 via-purple-400 to-yellow-400"></div>
-              
-              {timelineItems.slice(0, 4).map((item, index) => (
-                <div
-                  key={`top-${index}`}
-                  className="relative z-10 flex flex-col items-center"
-                >
-                  <div 
-                    className={`w-16 h-16 rounded-full border-2 flex items-center justify-center mb-4 ${getNodeColor(item.color)} hover:shadow-lg transition-all duration-300 cursor-pointer`}
-                    onClick={() => setActiveItem(item)}
-                  >
-                    {item.icon}
-                  </div>
-                  <div className="text-center">
-                    <h3 className={`text-lg font-bold mb-1 ${getTitleColor(item.color)}`}>{item.title}</h3>
-                    <p className="text-white text-sm text-opacity-80 mb-2">{item.description}</p>
-                    <p className="text-gray-400 text-xs font-medium">{item.date}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
+        {/* Tampilan Desktop */}
+        {renderDesktopTimeline()}
 
-            {/* Bottom timeline */}
-            <div className="relative flex justify-between">
-              <div className="absolute left-0 right-0 top-1/2 h-1 bg-gradient-to-r from-cyan-400 via-indigo-400 to-orange-400"></div>
-              
-              {timelineItems.slice(4).map((item, index) => (
-                <div
-                  key={`bottom-${index}`}
-                  className="relative z-10 flex flex-col items-center"
-                >
-                  <div 
-                    className={`w-16 h-16 rounded-full border-2 flex items-center justify-center mb-4 ${getNodeColor(item.color)} hover:shadow-lg transition-all duration-300 cursor-pointer`}
-                    onClick={() => setActiveItem(item)}
-                  >
-                    {item.icon}
-                  </div>
-                  <div className="text-center">
-                    <h3 className={`text-lg font-bold mb-1 ${getTitleColor(item.color)}`}>{item.title}</h3>
-                    <p className="text-white text-sm text-opacity-80 mb-2">{item.description}</p>
-                    <p className="text-gray-400 text-xs font-medium">{item.date}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Mobile timeline */}
+        {/* Mobile timeline (simple) */}
           <div className="md:hidden relative">
             <div className="absolute left-6 top-0 bottom-0 w-[2px] bg-gradient-to-b from-blue-400 via-purple-400 to-amber-400"></div>
             
@@ -427,7 +474,7 @@ const TimelineSection = () => {
                   className="flex items-start space-x-6"
                 >
                   <div 
-                    className={`flex-shrink-0 w-12 h-12 rounded-full border-2 flex items-center justify-center z-10 ${getNodeColor(item.color)} hover:shadow-lg transition-all duration-300 cursor-pointer`}
+                  className={`flex-shrink-0 w-12 h-12 rounded-full border-2 flex items-center justify-center z-10 ${getNodeColor(item.color)} hover:shadow-lg transition-all duration-300 cursor-pointer bg-[#050A24]`}
                     onClick={() => setActiveItem(item)}
                   >
                     {item.icon}
@@ -441,313 +488,6 @@ const TimelineSection = () => {
               ))}
             </div>
           </div>
-        </div>
-      </section>
-    );
-  }
-  
-  // Main component dengan animasi untuk client-side
-  return (
-    <section className="py-24 relative overflow-hidden">
-      {activeItem && (
-        <TimelinePopup 
-          item={activeItem} 
-          onClose={() => setActiveItem(null)} 
-        />
-      )}
-      
-      {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#050A24] to-[#071352] z-0"></div>
-      
-      {/* Background graphics dengan animasi */}
-      <div className="absolute inset-0 opacity-20">
-        {/* Grid pattern dengan animasi */}
-        {[...Array(8)].map((_, i) => (
-          <motion.div 
-            key={`h-line-${i}`}
-            className="absolute h-[1px] w-full bg-gray-500/20"
-            style={{ top: `${(i + 1) * 10}%` }}
-            initial={{ scaleX: 0, opacity: 0 }}
-            animate={{ scaleX: 1, opacity: 0.2 }}
-            transition={{ duration: 1.5, delay: i * 0.1, ease: "easeOut" }}
-          />
-        ))}
-        
-        {[...Array(8)].map((_, i) => (
-          <motion.div 
-            key={`v-line-${i}`}
-            className="absolute w-[1px] h-full bg-gray-500/20"
-            style={{ left: `${(i + 1) * 10}%` }}
-            initial={{ scaleY: 0, opacity: 0 }}
-            animate={{ scaleY: 1, opacity: 0.2 }}
-            transition={{ duration: 1.5, delay: i * 0.1, ease: "easeOut" }}
-          />
-        ))}
-        
-        {/* Floating particles */}
-        {[...Array(30)].map((_, i) => {
-          const size = Math.random() * 4 + 2;
-          return (
-            <motion.div
-              key={`particle-${i}`}
-              className="absolute rounded-full bg-gray-400/10"
-              style={{
-                width: size,
-                height: size,
-                top: `${Math.random() * 100}%`,
-                left: `${Math.random() * 100}%`,
-              }}
-              animate={{
-                y: [0, -10, 0],
-                opacity: [0.1, 0.4, 0.1],
-              }}
-              transition={{
-                duration: Math.random() * 3 + 5,
-                repeat: Infinity,
-                delay: Math.random() * 5,
-              }}
-            />
-          );
-        })}
-      </div>
-      
-      {/* Abstract blobs dengan animasi */}
-      <motion.div 
-        className="absolute top-1/4 right-1/4 w-64 h-64 rounded-full bg-blue-500/5 blur-3xl"
-        animate={{
-          scale: [1, 1.2, 1],
-          opacity: [0.4, 0.6, 0.4],
-        }}
-        transition={{
-          duration: 15,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
-      />
-      <motion.div 
-        className="absolute bottom-1/4 left-1/3 w-80 h-80 rounded-full bg-purple-500/5 blur-3xl"
-        animate={{
-          scale: [1, 1.1, 1],
-          opacity: [0.3, 0.5, 0.3],
-        }}
-        transition={{
-          duration: 12,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 2
-        }}
-      />
-      
-      <div className="container-custom relative z-10">
-        <motion.div 
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-        >
-          <motion.h2 
-            className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-indigo-300"
-            initial={{ clipPath: "polygon(0 0, 0 0, 0 100%, 0 100%)" }}
-            animate={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}
-            transition={{ delay: 0.2, duration: 1, ease: "easeOut" }}
-          >
-            Timeline Lomba
-          </motion.h2>
-          
-          <motion.div 
-            className="w-24 h-1 bg-gradient-to-r from-blue-500 to-indigo-500 mx-auto mt-4 mb-8"
-            initial={{ width: 0, opacity: 0 }}
-            animate={{ width: 96, opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          />
-          
-          <motion.p 
-            className="text-lg text-gray-300 max-w-2xl mx-auto"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-          >
-            Berikut adalah rangkaian perjalanan kompetisi NBP dari awal hingga pengumuman pemenang
-          </motion.p>
-        </motion.div>
-
-        {/* Desktop timeline dengan animasi dan interaktif */}
-        <div className="hidden md:block relative">
-          {/* Top timeline animasi */}
-          <div className="relative flex justify-between mb-24">
-            <motion.div 
-              className="absolute left-0 right-0 top-1/2 h-1 bg-gradient-to-r from-blue-400 via-purple-400 to-yellow-400"
-              initial={{ scaleX: 0, transformOrigin: "left" }}
-              whileInView={{ scaleX: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1.2, ease: "easeInOut" }}
-            />
-            
-            {timelineItems.slice(0, 4).map((item, index) => (
-              <motion.div
-                key={`top-${index}`}
-                className="relative z-10 flex flex-col items-center"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.15 }}
-              >
-                <motion.div 
-                  className={`w-16 h-16 rounded-full border-2 flex items-center justify-center mb-4 ${getNodeColor(item.color)} cursor-pointer`}
-                  initial={{ scale: 0 }}
-                  whileInView={{ scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ 
-                    type: "spring", 
-                    stiffness: 300, 
-                    damping: 15, 
-                    delay: 0.5 + index * 0.15 
-                  }}
-                  whileHover={{ 
-                    scale: 1.1,
-                    boxShadow: `0 0 20px 5px rgba(var(--${item.color}-rgb)/0.3)`,
-                    transition: { duration: 0.2 }
-                  }}
-                  onClick={() => setActiveItem(item)}
-                >
-                  {item.icon}
-                </motion.div>
-                <motion.div 
-                  className="text-center"
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.7 + index * 0.15 }}
-                >
-                  <h3 className={`text-lg font-bold mb-1 ${getTitleColor(item.color)}`}>{item.title}</h3>
-                  <p className="text-white text-sm text-opacity-80 mb-2">{item.description}</p>
-                  <p className="text-gray-400 text-xs font-medium">{item.date}</p>
-                </motion.div>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Bottom timeline animasi */}
-          <div className="relative flex justify-between">
-            <motion.div 
-              className="absolute left-0 right-0 top-1/2 h-1 bg-gradient-to-r from-cyan-400 via-indigo-400 to-orange-400"
-              initial={{ scaleX: 0, transformOrigin: "left" }}
-              whileInView={{ scaleX: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1.2, ease: "easeInOut", delay: 0.8 }}
-            />
-            
-            {timelineItems.slice(4).map((item, index) => (
-              <motion.div
-                key={`bottom-${index}`}
-                className="relative z-10 flex flex-col items-center"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.8 + index * 0.15 }}
-              >
-                <motion.div 
-                  className={`w-16 h-16 rounded-full border-2 flex items-center justify-center mb-4 ${getNodeColor(item.color)} cursor-pointer`}
-                  initial={{ scale: 0 }}
-                  whileInView={{ scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ 
-                    type: "spring", 
-                    stiffness: 300, 
-                    damping: 15, 
-                    delay: 1.2 + index * 0.15 
-                  }}
-                  whileHover={{ 
-                    scale: 1.1,
-                    boxShadow: `0 0 20px 5px rgba(var(--${item.color}-rgb)/0.3)`,
-                    transition: { duration: 0.2 }
-                  }}
-                  onClick={() => setActiveItem(item)}
-                >
-                  {item.icon}
-                </motion.div>
-                <motion.div 
-                  className="text-center"
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 1.4 + index * 0.15 }}
-                >
-                  <h3 className={`text-lg font-bold mb-1 ${getTitleColor(item.color)}`}>{item.title}</h3>
-                  <p className="text-white text-sm text-opacity-80 mb-2">{item.description}</p>
-                  <p className="text-gray-400 text-xs font-medium">{item.date}</p>
-                </motion.div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-
-        {/* Mobile timeline dengan animasi dan interaktif */}
-        <div className="md:hidden relative">
-          <motion.div 
-            className="absolute left-6 top-0 bottom-0 w-[2px] bg-gradient-to-b from-blue-400 via-purple-400 to-amber-400"
-            initial={{ scaleY: 0, transformOrigin: "top" }}
-            whileInView={{ scaleY: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 2, ease: "easeInOut" }}
-          />
-          
-          <div className="space-y-12">
-            {timelineItems.map((item, index) => (
-              <motion.div
-                key={`mobile-${index}`}
-                className="flex items-start space-x-6"
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <motion.div 
-                  className={`flex-shrink-0 w-12 h-12 rounded-full border-2 flex items-center justify-center z-10 ${getNodeColor(item.color)} cursor-pointer`}
-                  initial={{ scale: 0 }}
-                  whileInView={{ scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ 
-                    type: "spring", 
-                    stiffness: 300, 
-                    damping: 15, 
-                    delay: 0.3 + index * 0.1 
-                  }}
-                  whileHover={{ scale: 1.1 }}
-                  onClick={() => setActiveItem(item)}
-                >
-                  {item.icon}
-                </motion.div>
-                <div className="flex-1">
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
-                  >
-                    <h3 className={`text-lg font-bold mb-1 ${getTitleColor(item.color)}`}>{item.title}</h3>
-                    <p className="text-white text-sm text-opacity-80 mb-1">{item.description}</p>
-                    <p className="text-gray-400 text-xs font-medium mb-2">{item.date}</p>
-                  </motion.div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-        
-        {/* Interactive note */}
-        <motion.div 
-          className="text-center mt-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 2 }}
-        >
-          <p className="text-blue-300 text-sm">
-            <span className="inline-block animate-pulse mr-2">✨</span> 
-            Klik pada ikon untuk melihat informasi detail
-          </p>
-        </motion.div>
       </div>
     </section>
   );

@@ -31,7 +31,7 @@ const TestimonialSection = () => {
   const [autoplay, setAutoplay] = useState(true);
 
   useEffect(() => {
-    let timer;
+    let timer: NodeJS.Timeout;
     if (autoplay) {
       timer = setInterval(() => {
         setCurrent((prevCurrent) => (prevCurrent + 1) % testimonials.length);

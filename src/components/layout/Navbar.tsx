@@ -82,6 +82,7 @@ const Navbar = () => {
   return (
     <nav className={navbarClasses}>
       <div className="container-custom flex items-center justify-between">
+        {/* Logo UNISNU di kiri */}
         <motion.div
           variants={logoVariants}
           initial="initial"
@@ -89,14 +90,11 @@ const Navbar = () => {
           className="flex items-center"
         >
           <Link href="/" className="flex items-center">
-            <div className="h-[50px] w-[100px] relative flex items-center">
-              <Image
-                src="/images/logo.png"
-                alt="NBPC Logo"
-                width={100}
-                height={30}
-                className="transition-all duration-300 object-contain"
-                priority
+            <div className="h-[40px] w-[40px] relative flex items-center mr-2">
+              <img
+                src="https://media.neliti.com/media/organisations/logo-None-universitas-islam-nahdlatul-ulama-deb8b644.png"
+                alt="UNISNU Logo"
+                className="transition-all duration-300 object-contain h-full w-auto"
               />
             </div>
           </Link>
@@ -141,33 +139,21 @@ const Navbar = () => {
           </div>
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.5, duration: 0.5 }}
-        >
-          <a href="https://s.id/LinkPendaftaranNBPC" target="_blank" rel="noopener noreferrer">
-            <motion.button 
-              whileHover={{ 
-                scale: 1.05, 
-                boxShadow: "0 10px 25px -5px rgba(0, 181, 239, 0.4)" 
-              }} 
-              whileTap={{ scale: 0.95 }}
-              transition={{
-                type: "spring",
-                stiffness: 400,
-                damping: 15
-              }}
-              className={`${isScrolled ? 'bg-primary-blue text-white' : 'bg-transparent border border-[#00B5EF] text-white'} px-6 py-2 rounded-full hover:shadow-lg transition-all duration-300`}
-            >
-              Daftar Sekarang
-            </motion.button>
-          </a>
-        </motion.div>
+        {/* Logo NBPC di kanan */}
+        <div className="h-[40px] w-[80px] relative flex items-center hidden md:flex">
+          <Image
+            src="/images/logo.png"
+            alt="NBPC Logo"
+            width={80}
+            height={25}
+            className="transition-all duration-300 object-contain"
+            priority
+          />
+        </div>
 
         {/* Mobile Menu Button */}
         <motion.div 
-          className="md:hidden"
+          className="md:hidden flex items-center"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3 }}
@@ -179,6 +165,15 @@ const Navbar = () => {
           >
             {isMobileMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
           </button>
+          <div className="h-[30px] w-[60px] relative flex items-center ml-3">
+            <Image
+              src="/images/logo.png"
+              alt="NBPC Logo"
+              width={60}
+              height={20}
+              className="transition-all duration-300 object-contain"
+            />
+          </div>
         </motion.div>
       </div>
 
@@ -209,21 +204,6 @@ const Navbar = () => {
                   </Link>
                 </motion.div>
               ))}
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
-                className="pt-2"
-              >
-                <a href="https://s.id/LinkPendaftaranNBPC" target="_blank" rel="noopener noreferrer" className="w-full">
-                  <button 
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="w-full bg-primary-blue text-white rounded-full py-3 font-medium shadow-md hover:shadow-lg transition-shadow"
-                  >
-                    Daftar Sekarang
-                  </button>
-                </a>
-              </motion.div>
             </div>
           </motion.div>
         )}

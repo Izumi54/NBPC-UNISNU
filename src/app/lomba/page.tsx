@@ -10,6 +10,7 @@ import FadeInSection from '@/components/animations/FadeInSection';
 export default function CompetitionPage() {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
   const [activeCategory, setActiveCategory] = useState<number | null>(null);
+  const [showCopyNotification, setShowCopyNotification] = useState(false);
 
   const toggleFaq = (index: number) => {
     if (openFaqIndex === index) {
@@ -349,8 +350,8 @@ export default function CompetitionPage() {
                       <li className="flex items-start">
                         <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-blue-100 text-blue-600 font-bold flex-shrink-0 mr-4 mt-0.5">5</span>
                         <div>
-                          <p className="font-medium">Melunasi biaya pendaftaran sebesar Rp 250.000/tim</p>
-                          <p className="text-gray-500 text-sm mt-1">Pembayaran dapat dilakukan melalui transfer bank atau e-wallet</p>
+                          <p className="font-medium">Pendaftaran GRATIS</p>
+                          <p className="text-gray-500 text-sm mt-1">Tidak ada biaya pendaftaran untuk mengikuti kompetisi NBPC 2025</p>
                         </div>
                       </li>
                     </ul>
@@ -408,6 +409,125 @@ export default function CompetitionPage() {
               </motion.div>
             </div>
           </FadeInSection>
+        </motion.div>
+      </section>
+
+      {/* Pamflet Lomba */}
+      <section className="section py-24 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute top-20 right-10 w-64 h-64 bg-blue-50 rounded-full filter blur-3xl opacity-70"></div>
+          <div className="absolute bottom-20 left-10 w-64 h-64 bg-purple-50 rounded-full filter blur-3xl opacity-70"></div>
+        </div>
+        
+        <motion.div 
+          className="container-custom relative z-10"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <AnimatedTitle
+            title="Pamflet Lomba"
+            subtitle="Unduh dan bagikan informasi tentang NBPC 2025"
+            align="center"
+            className="mb-16"
+          />
+
+          <div className="max-w-5xl mx-auto">
+            <FadeInSection>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+                <motion.div 
+                  className="rounded-2xl overflow-hidden shadow-2xl border border-gray-100"
+                  whileHover={{ y: -10, boxShadow: "0 30px 60px rgba(0, 0, 0, 0.2)" }}
+                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                >
+                  <img 
+                    src="/images/poster-nbpc.jpg" 
+                    alt="Pamflet NBPC 2025" 
+                    className="w-full h-auto"
+                  />
+                </motion.div>
+                
+                <div className="space-y-8">
+                  <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.3, duration: 0.6 }}
+                    className="p-8 bg-white rounded-2xl shadow-xl border border-gray-100"
+                  >
+                    <h3 className="text-2xl font-bold mb-4 text-blue-600">Informasi Penting</h3>
+                    <ul className="space-y-3">
+                      <li className="flex items-start">
+                        <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex-shrink-0 mr-3">
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                        </span>
+                        <p>Pendaftaran dibuka: <span className="font-semibold">1 Januari - 30 April 2025</span></p>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex-shrink-0 mr-3">
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                        </span>
+                        <p>Pengumpulan proposal: <span className="font-semibold">5 Mei 2025</span></p>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex-shrink-0 mr-3">
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                        </span>
+                        <p>Pengumuman finalis: <span className="font-semibold">20 Mei 2025</span></p>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex-shrink-0 mr-3">
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                        </span>
+                        <p>Final & Awarding: <span className="font-semibold">23 Juli 2025</span></p>
+                      </li>
+                    </ul>
+                  </motion.div>
+                  
+                  <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.5, duration: 0.6 }}
+                    className="flex flex-col sm:flex-row gap-4"
+                  >
+                    <a 
+                      href="/files/pamflet-nbpc-2025.pdf" 
+                      download
+                      className="flex-1 px-6 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl font-medium flex items-center justify-center shadow-lg shadow-blue-500/30 hover:shadow-xl hover:shadow-blue-500/40 transition-all"
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                      </svg>
+                      Unduh Pamflet
+                    </a>
+                    <button 
+                      onClick={() => {
+                        navigator.clipboard.writeText(window.location.href);
+                        setShowCopyNotification(true);
+                        setTimeout(() => setShowCopyNotification(false), 3000);
+                      }}
+                      className="flex-1 px-6 py-4 bg-white text-blue-600 border border-blue-200 rounded-xl font-medium flex items-center justify-center hover:bg-blue-50 transition-all"
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+                      </svg>
+                      Bagikan Link
+                    </button>
+                  </motion.div>
+                </div>
+              </div>
+            </FadeInSection>
+          </div>
         </motion.div>
       </section>
 
@@ -1010,6 +1130,29 @@ export default function CompetitionPage() {
                 </div>
               </div>
             </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Notification Popup */}
+      <AnimatePresence>
+        {showCopyNotification && (
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -50 }}
+            transition={{ type: "spring", stiffness: 500, damping: 30 }}
+            className="fixed bottom-10 left-1/2 transform -translate-x-1/2 z-50 bg-blue-600 text-white px-6 py-4 rounded-xl shadow-2xl flex items-center"
+          >
+            <div className="flex items-center">
+              <div className="bg-white/20 rounded-full p-2 mr-3">
+                <FiCheck className="text-white text-xl" />
+              </div>
+              <div>
+                <p className="font-medium">Link berhasil disalin!</p>
+                <p className="text-blue-100 text-sm">Bagikan link ini dengan teman dan kolegamu</p>
+              </div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
