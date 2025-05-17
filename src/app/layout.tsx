@@ -19,6 +19,9 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "NBPC 2025 - Nasional Bisnis Plan Competition",
   description: "National Business Plan Competition 2025 - Bersaing, Berinovasi, Berprestasi",
+  icons: {
+    icon: '/images/logo-nbpc.svg',
+  },
 };
 
 export default function RootLayout({
