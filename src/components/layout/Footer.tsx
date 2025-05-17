@@ -263,24 +263,6 @@ const Footer = () => {
                   Informasi Lomba
                 </Link>
               </li>
-              <li>
-                <a href="https://s.id/LinkPendaftaranNBPC" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-blue-300 transition-colors text-sm flex items-center group">
-                  <span className="inline-block w-0 group-hover:w-2 h-[1px] bg-blue-400 mr-0 group-hover:mr-2 transition-all duration-300"></span>
-                  Pendaftaran
-                </a>
-              </li>
-              <li>
-                <a href="https://s.id/LinkPendaftaranNBPC" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-blue-300 transition-colors text-sm flex items-center group">
-                  <span className="inline-block w-0 group-hover:w-2 h-[1px] bg-blue-400 mr-0 group-hover:mr-2 transition-all duration-300"></span>
-                  Booklet
-                </a>
-              </li>
-              <li>
-                <a href="https://s.id/LinkPendaftaranNBPC" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-blue-300 transition-colors text-sm flex items-center group">
-                  <span className="inline-block w-0 group-hover:w-2 h-[1px] bg-blue-400 mr-0 group-hover:mr-2 transition-all duration-300"></span>
-                  Twibon
-                </a>
-              </li>
             </ul>
           </div>
           

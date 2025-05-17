@@ -210,7 +210,7 @@ export default function CompetitionPage() {
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.5 }}
           >
             <AnimatedTitle
               title="Informasi Lomba"
@@ -224,7 +224,7 @@ export default function CompetitionPage() {
           <motion.div 
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.8 }}
+            transition={{ delay: 0.2 }}
             className="max-w-3xl mx-auto mt-8 text-center"
           >
             <p className="text-white/90 text-xl italic font-light">
@@ -236,7 +236,7 @@ export default function CompetitionPage() {
                 href="#persyaratan" 
                 className="px-8 py-4 bg-white/10 backdrop-blur-md text-white rounded-full border border-white/20 hover:bg-white/20 transition-all flex items-center justify-center shadow-lg shadow-blue-900/20"
                 whileHover={{ y: -5, boxShadow: "0 15px 30px rgba(30, 58, 138, 0.3)" }}
-                transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                transition={{ type: "spring", stiffness: 300, damping: 15 }}
               >
                 <FiInfo className="mr-2" /> Persyaratan
               </motion.a>
@@ -244,7 +244,7 @@ export default function CompetitionPage() {
                 href="#kategori" 
                 className="px-8 py-4 bg-white text-blue-900 rounded-full hover:bg-blue-50 transition-all shadow-lg shadow-blue-900/20 flex items-center justify-center"
                 whileHover={{ y: -5, boxShadow: "0 15px 30px rgba(30, 58, 138, 0.3)" }}
-                transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                transition={{ type: "spring", stiffness: 300, damping: 15 }}
               >
                 <FiAward className="mr-2" /> Kategori Lomba
               </motion.a>
@@ -294,7 +294,7 @@ export default function CompetitionPage() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.4 }}
         >
           <AnimatedTitle
             title="Syarat & Ketentuan"
@@ -424,7 +424,7 @@ export default function CompetitionPage() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.4 }}
         >
           <AnimatedTitle
             title="Pamflet Lomba"
@@ -453,7 +453,7 @@ export default function CompetitionPage() {
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ delay: 0.3, duration: 0.6 }}
+                    transition={{ delay: 0.15 }}
                     className="p-8 bg-white rounded-2xl shadow-xl border border-gray-100"
                   >
                     <h3 className="text-2xl font-bold mb-4 text-blue-600">Informasi Penting</h3>
@@ -464,7 +464,7 @@ export default function CompetitionPage() {
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                           </svg>
                         </span>
-                        <p>Pendaftaran dibuka: <span className="font-semibold">1 Januari - 30 April 2025</span></p>
+                        <p>Pendaftaran dan Pengumpulan BMC: <span className="font-semibold">15 Mei - 30 Juni 2025</span></p>
                       </li>
                       <li className="flex items-start">
                         <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex-shrink-0 mr-3">
@@ -472,7 +472,7 @@ export default function CompetitionPage() {
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                           </svg>
                         </span>
-                        <p>Pengumpulan proposal: <span className="font-semibold">5 Mei 2025</span></p>
+                        <p>Seleksi BMC: <span className="font-semibold">01 Juli - 04 Juli 2025</span></p>
                       </li>
                       <li className="flex items-start">
                         <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex-shrink-0 mr-3">
@@ -480,7 +480,7 @@ export default function CompetitionPage() {
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                           </svg>
                         </span>
-                        <p>Pengumuman finalis: <span className="font-semibold">20 Mei 2025</span></p>
+                        <p>Pengumuman BMC: <span className="font-semibold">05 Juli 2025</span></p>
                       </li>
                       <li className="flex items-start">
                         <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex-shrink-0 mr-3">
@@ -488,7 +488,55 @@ export default function CompetitionPage() {
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                           </svg>
                         </span>
-                        <p>Final & Awarding: <span className="font-semibold">23 Juli 2025</span></p>
+                        <p>Pengumpulan Proposal: <span className="font-semibold">06 Juli - 11 Juli 2025</span></p>
+                      </li>
+                       <li className="flex items-start">
+                        <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex-shrink-0 mr-3">
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                        </span>
+                        <p>Seleksi Proposal: <span className="font-semibold">12 Juli - 14 Juli 2025</span></p>
+                      </li>
+                       <li className="flex items-start">
+                        <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex-shrink-0 mr-3">
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                        </span>
+                        <p>Pengumuman Finalis: <span className="font-semibold">15 Juli 2025</span></p>
+                      </li>
+                       <li className="flex items-start">
+                        <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex-shrink-0 mr-3">
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                        </span>
+                        <p>Technical Meeting: <span className="font-semibold">16 Juli 2025</span></p>
+                      </li>
+                       <li className="flex items-start">
+                        <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex-shrink-0 mr-3">
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                        </span>
+                        <p>Pengumpulan PPT: <span className="font-semibold">22 Juli 2025</span></p>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex-shrink-0 mr-3">
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                        </span>
+                        <p>Presentasi Final: <span className="font-semibold">23 Juli 2025</span></p>
+                      </li>
+                       <li className="flex items-start">
+                        <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex-shrink-0 mr-3">
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                        </span>
+                        <p>Awarding Ceremony: <span className="font-semibold">23 Juli 2025</span></p>
                       </li>
                     </ul>
                   </motion.div>
@@ -497,11 +545,11 @@ export default function CompetitionPage() {
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ delay: 0.5, duration: 0.6 }}
+                    transition={{ delay: 0.3, duration: 0.4 }}
                     className="flex flex-col sm:flex-row gap-4"
                   >
                     <a 
-                      href="/files/pamflet-nbpc-2025.pdf" 
+                      href="/files/pamflet_2025.jpg" 
                       download
                       className="flex-1 px-6 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl font-medium flex items-center justify-center shadow-lg shadow-blue-500/30 hover:shadow-xl hover:shadow-blue-500/40 transition-all"
                     >
@@ -531,6 +579,71 @@ export default function CompetitionPage() {
         </motion.div>
       </section>
 
+      {/* Kebutuhan Lomba */}
+      <section className="section py-24 bg-white relative overflow-hidden">
+        <div className="absolute left-0 top-0 w-full h-64 bg-gradient-to-b from-gray-50 to-white"></div>
+        <div className="absolute right-0 top-1/4 w-64 h-64 bg-blue-100 rounded-full filter blur-3xl opacity-30"></div>
+        <div className="absolute left-0 bottom-1/4 w-64 h-64 bg-purple-100 rounded-full filter blur-3xl opacity-30"></div>
+
+        <motion.div
+          className="container-custom relative z-10"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+        >
+          <AnimatedTitle
+            title="Kebutuhan Lomba"
+            subtitle="Persiapkan dirimu dengan mengunduh dokumen dan panduan penting berikut"
+            align="center"
+            className="mb-16"
+          />
+
+          <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+            {[{
+                name: 'Booklet',
+                link: 'https://drive.google.com/drive/folders/1FwsjkvwVTqSzFuRvAHB8BEZBQ_4Tj27A?usp=drive_link',
+                icon: <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5S19.832 5.477 21 6.253v13C19.832 18.477 18.246 18 16.5 18s-3.332.477-4.5 1.253" /></svg>
+              },
+              {
+                name: 'Lembar Pengesahan',
+                link: 'https://drive.google.com/drive/folders/15lCfHjqasaZcJVPf2psGqhFubrCcvOfP?usp=drive_link',
+                icon: <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+              },
+              {
+                name: 'Twibbon & Caption',
+                link: 'https://drive.google.com/drive/folders/15JjUVbkXWR80DfN9_uXWVD5yEUgvopTG?usp=drive_link',
+                icon: <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2 2l1.586-1.586a2 2 0 012.828 0L20 18m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+              },
+              {
+                name: 'Template BMC',
+                link: 'https://drive.google.com/drive/folders/10FcdNmPuy9LZeTBlVm5qbR1wR7C1KF0E',
+                icon: <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+              },
+            ].map((item, index) => (
+              <motion.a
+                key={index}
+                href={item.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="flex items-center px-6 py-4 bg-white rounded-xl font-semibold text-blue-800 border border-blue-200 shadow-md hover:shadow-lg hover:border-blue-300 hover:bg-blue-50 transition-all transform hover:-translate-y-1"
+              >
+                <div className="flex-shrink-0 mr-4 text-blue-600 group-hover:text-blue-800 transition-colors">
+                  {item.icon}
+                </div>
+                {item.name}
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-auto text-blue-500 group-hover:text-blue-700 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </motion.a>
+            ))}
+          </div>
+        </motion.div>
+      </section>
+
       {/* Kategori Lomba */}
       <section id="kategori" className="section bg-gradient-to-b from-gray-50 to-white relative py-24 overflow-hidden">
         <div className="absolute top-0 inset-x-0 h-32 bg-gradient-to-b from-white to-transparent z-0"></div>
@@ -547,7 +660,7 @@ export default function CompetitionPage() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.4 }}
         >
           <AnimatedTitle
             title="Kategori Lomba"
@@ -563,10 +676,10 @@ export default function CompetitionPage() {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1, duration: 0.6 }}
+                transition={{ delay: index * 0.08 }}
               >
                 <AnimatedCard 
-                  delay={index * 0.1} 
+                  delay={index * 0.08} 
                   className={`transform transition-all duration-500 h-full group overflow-hidden rounded-2xl border border-gray-100 shadow-xl ${category.bgColor} hover:shadow-2xl`}
                 >
                   <div className="relative p-8 h-full flex flex-col">
@@ -608,7 +721,7 @@ export default function CompetitionPage() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.4 }}
         >
           <AnimatedTitle
             title="Hadiah Juara"
@@ -654,7 +767,7 @@ export default function CompetitionPage() {
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: index * 0.2, duration: 0.6 }}
+                  transition={{ delay: index * 0.1 }}
                   className={item.transform}
                 >
                   <motion.div
@@ -728,7 +841,7 @@ export default function CompetitionPage() {
                             initial={{ opacity: 0, x: -10 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
-                            transition={{ delay: 0.3 + (i * 0.1) }}
+                            transition={{ delay: 0.2 + (i * 0.08) }}
                           >
                             <span className="flex-shrink-0 w-5 h-5 rounded-full bg-green-100 text-green-500 flex items-center justify-center mr-3">
                               <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -761,7 +874,7 @@ export default function CompetitionPage() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.6 }}
+            transition={{ delay: 0.4 }}
           >
             <motion.div 
               className="p-8 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl border border-blue-100 relative overflow-hidden shadow-lg"
@@ -787,7 +900,7 @@ export default function CompetitionPage() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.4 }}
         >
           <AnimatedTitle
             title="Frequently Asked Questions"
@@ -833,7 +946,7 @@ export default function CompetitionPage() {
                     <motion.span 
                       className="ml-4 flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center bg-gray-100 group-hover:bg-blue-100 transition-all"
                       animate={{ rotate: openFaqIndex === index ? 180 : 0 }}
-                      transition={{ duration: 0.3 }}
+                      transition={{}}
                     >
                       {openFaqIndex === index ? (
                         <FiMinus size={18} className="text-blue-600" />
@@ -848,7 +961,7 @@ export default function CompetitionPage() {
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: 'auto', opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.3 }}
+                        transition={{ duration: 0.2, ease: 'easeInOut' }}
                         className="overflow-hidden"
                       >
                         <div className="px-8 pb-6 text-gray-600 border-t border-gray-100 pt-4">
@@ -878,7 +991,7 @@ export default function CompetitionPage() {
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.4 }}
               className="max-w-3xl mx-auto bg-white/10 backdrop-blur-md rounded-2xl p-10 border border-white/20 shadow-2xl"
             >
               <motion.h2 
@@ -886,7 +999,7 @@ export default function CompetitionPage() {
                 initial={{ opacity: 0, y: -20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: 0.2, duration: 0.6 }}
+                transition={{ delay: 0.1, duration: 0.4 }}
               >
                 Siap Menjadi Juara?
               </motion.h2>
@@ -895,7 +1008,7 @@ export default function CompetitionPage() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: 0.4, duration: 0.6 }}
+                transition={{ delay: 0.2, duration: 0.4 }}
               >
                 Jangan lewatkan kesempatan untuk menunjukkan potensi ide bisnismu dan memenangkan hadiah menarik!
               </motion.p>
@@ -904,7 +1017,7 @@ export default function CompetitionPage() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: 0.6, duration: 0.6 }}
+                transition={{ delay: 0.4, duration: 0.4 }}
               >
                 <motion.a 
                   href="https://s.id/LinkPendaftaranNBPC" 
@@ -938,7 +1051,7 @@ export default function CompetitionPage() {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              transition={{ delay: 1, duration: 0.8 }}
+              transition={{ delay: 0.8, duration: 0.4 }}
             >
               <p>Untuk informasi lebih lanjut, hubungi panitia di <a href="mailto:info@nbpc.ac.id" className="text-white underline hover:text-blue-200 transition-colors">info@nbpc.ac.id</a></p>
             </motion.div>
@@ -954,7 +1067,7 @@ export default function CompetitionPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
+            transition={{}}
           >
             <motion.div 
               className="absolute inset-0 bg-black/70 backdrop-blur-sm"
@@ -991,7 +1104,6 @@ export default function CompetitionPage() {
                         backgroundPosition: ['0% 0%', '100% 100%'],
                       }}
                       transition={{ 
-                        duration: 20, 
                         repeat: Infinity, 
                         repeatType: "reverse" 
                       }}
@@ -1019,7 +1131,7 @@ export default function CompetitionPage() {
                               key={idx}
                               initial={{ opacity: 0, x: -20 }}
                               animate={{ opacity: 1, x: 0 }}
-                              transition={{ delay: 0.1 * idx, duration: 0.5 }}
+                              transition={{ delay: 0.08 * idx }}
                               className="flex items-start"
                             >
                               <FiCheck className="mr-2 mt-1 flex-shrink-0" />
@@ -1033,7 +1145,7 @@ export default function CompetitionPage() {
                     <motion.div
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.5, duration: 0.5 }}
+                      transition={{ delay: 0.4 }}
                       className="mt-auto"
                     >
                       <a 
@@ -1067,7 +1179,7 @@ export default function CompetitionPage() {
                             key={idx}
                             initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.1 * idx, duration: 0.4 }}
+                            transition={{ delay: 0.08 * idx }}
                             className={`p-3 sm:p-4 rounded-lg ${categories[activeCategory].bgColor} flex items-start`}
                           >
                             <div className={`w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-gradient-to-r ${categories[activeCategory].color} flex-shrink-0 flex items-center justify-center text-white mr-3`}>
