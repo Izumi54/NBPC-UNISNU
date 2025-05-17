@@ -20,18 +20,20 @@ interface Division {
   responsibilities?: string[];
 }
 
-// Interface untuk popup
-interface PopupInfo {
-  isOpen: boolean;
-  division: Division | null;
+// Tambahkan tipe universal untuk popup
+interface PopupPerson {
+  name: string;
+  role?: string;
+  image: string;
+  description?: string;
 }
 
 const TeamSection = () => {
-  // State untuk popup
-  const [popupInfo, setPopupInfo] = useState<PopupInfo>({
-    isOpen: false,
-    division: null
-  });
+  // State untuk popup universal
+  const [popupPerson, setPopupPerson] = useState<PopupPerson | null>(null);
+
+  // Tambahkan state untuk fullscreen foto
+  const [fullscreenImg, setFullscreenImg] = useState<string | null>(null);
 
   // Data divisi dan anggota tim
   const divisions: Division[] = [
@@ -45,7 +47,8 @@ const TeamSection = () => {
       members: [
         { name: 'Alif Fataya', image: '/images/team/d_acara/alif.jpeg' },
         { name: 'Mohammad Affandi', image: '/images/team/d_acara/m_affandi.jpg' },
-        { name: 'Abid Azka Maulana', image: '/images/team/d_acara/abid.jpeg' }
+        { name: 'Abid Azka Maulana', image: '/images/team/d_acara/abid.jpeg' },
+        { name: 'Eka Dian Juliana', image: '/images/team/d_acara/Eka Dian juliana ka.jpg' },
       ],
       description: 'Divisi Acara bertanggung jawab untuk merencanakan, mengorganisir, dan mengeksekusi seluruh rangkaian acara NBPC.',
       responsibilities: [
@@ -87,7 +90,7 @@ const TeamSection = () => {
         image: '/images/team/d_humas/farhan.jpeg'
       },
       members: [
-        { name: 'Muhammad Rafi Chalfian', image: '/images/team/d_humas/.jpg' },
+        { name: 'Muhammad Rafi Chalfian', image: '/images/team/d_humas/rafli.jpg' },
         { name: 'Galeh Kurniawan', image: '/images/team/d_humas/Galih.jpg' },
         { name: 'Syahreza Affandi', image: '/images/team/d_humas/s-affandi.jpeg' }
       ],
@@ -133,15 +136,15 @@ const TeamSection = () => {
 
   // Pembina 1
   const pembina1 = {
-    name: 'M. Mujab Juhaini',
-    role: 'Pembina 1',
+    name: 'Mariatus Sholikah, S.M.',
+    role: 'Pembina',
     image: '/images/team/likah.jpeg'
   };
 
   // Pembina 2
   const pembina2 = {
-    name: 'M. Mujab Juhaini', 
-    role: 'Pembina 2',
+    name: 'M. Mujab Juhaini, M.M.',
+    role: 'Pembina',
     image: '/images/team/mujap.JPG'
   };
 
@@ -195,21 +198,11 @@ const TeamSection = () => {
     setFloatingElements(elements);
   }, []);
 
-  // Fungsi untuk membuka popup
-  const openPopup = (division: Division) => {
-    setPopupInfo({
-      isOpen: true,
-      division
-    });
-  };
+  // Fungsi untuk membuka popup universal
+  const openPersonPopup = (person: PopupPerson) => setPopupPerson(person);
 
-  // Fungsi untuk menutup popup
-  const closePopup = () => {
-    setPopupInfo({
-      isOpen: false,
-      division: null
-    });
-  };
+  // Fungsi untuk menutup popup universal
+  const closePersonPopup = () => setPopupPerson(null);
 
   return (
     <section className="py-32 relative overflow-hidden bg-gradient-to-b from-blue-100 via-blue-50 to-white">
@@ -287,165 +280,137 @@ const TeamSection = () => {
           </p>
         </motion.div>
 
-        {/* Main leadership dengan desain kartu yang lebih premium */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-20 max-w-5xl mx-auto mb-20">
-          {/* Penanggung Jawab Acara */}
+        {/* Layout baru: Penanggung Jawab, Pembina, Ketua */}
+        <div className="flex flex-col items-center gap-10 mb-20">
+          {/* Penanggung Jawab */}
           <motion.div 
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: -30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7, type: "spring", stiffness: 50 }}
-            className="flex justify-center"
+            transition={{ duration: 0.7 }}
+            className="w-full max-w-md flex justify-center"
+            onClick={() => openPersonPopup({ ...eventLead })}
+            style={{ cursor: 'pointer' }}
           >
-            <motion.div 
-              className="relative w-full max-w-sm bg-white rounded-xl shadow-2xl overflow-hidden"
-              whileHover={{ y: -10, boxShadow: "0 25px 50px -12px rgba(59, 130, 246, 0.25)" }}
-              transition={{ type: "spring", stiffness: 300, damping: 15 }}
-            >
-              {/* Card header dengan gradient yang lebih bold */}
-              <div className="h-28 bg-gradient-to-r from-blue-800 to-blue-600"></div>
-              
-              <div className="flex flex-col items-center px-8 pt-0 pb-10">
-                {/* Profile image dengan efek hover yang lebih menarik */}
-                <div className="relative w-36 h-36 -mt-20 mb-6 rounded-full overflow-hidden border-4 border-white shadow-xl group">
+            <div className="w-full">
+              <motion.h3 className="text-3xl font-bold text-center mb-8 text-blue-800">Penanggung Jawab</motion.h3>
+              <motion.div 
+                className="flex items-center bg-gradient-to-r from-blue-50 to-blue-100 rounded-xl shadow-lg p-6 gap-6 w-full max-w-md border border-blue-200"
+                whileHover={{ y: -5, boxShadow: '0 15px 30px -12px rgba(59, 130, 246, 0.2)' }}
+                transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+              >
+                <div className="relative w-20 h-20 overflow-hidden rounded-full border-2 border-blue-300 flex-shrink-0">
                   <Image 
                     src={eventLead.image} 
                     alt={eventLead.name} 
                     fill 
                     style={{ objectFit: 'cover' }}
-                    className="filter brightness-105 transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <motion.div 
-                    className="absolute inset-0 bg-gradient-to-b from-blue-500/0 to-blue-600/30"
-                    whileHover={{ opacity: 0 }}
-                    transition={{ duration: 0.3 }}
                   />
                 </div>
-                
-                {/* Content dengan desain tipografi yang lebih baik */}
-                <h3 className="text-2xl font-bold text-blue-950 mb-3 text-center">{eventLead.name}</h3>
-                <div className="mb-5 bg-gradient-to-r from-blue-700 to-blue-600 text-white font-medium px-5 py-2 rounded-lg text-sm shadow-lg">
-                  {eventLead.role}
+                <div>
+                  <h4 className="font-bold text-gray-800 text-lg">{eventLead.name}</h4>
+                  <p className="text-blue-600">{eventLead.role}</p>
                 </div>
-              </div>
-            </motion.div>
+              </motion.div>
+            </div>
           </motion.div>
 
-          {/* Pembina 1 */}
-          <motion.div 
-            initial={{ opacity: 0, y: -50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, type: "spring", stiffness: 50, delay: 0.1 }}
-            className="flex justify-center"
-          >
-            <motion.div 
-              className="relative w-full max-w-sm bg-white rounded-xl shadow-2xl overflow-hidden"
-              whileHover={{ y: -10, boxShadow: "0 25px 50px -12px rgba(59, 130, 246, 0.25)" }}
-              transition={{ type: "spring", stiffness: 300, damping: 15 }}
-            >
-              <div className="h-28 bg-gradient-to-r from-blue-700 to-blue-500"></div>
-              
-              <div className="flex flex-col items-center px-8 pt-0 pb-10">
-                <div className="relative w-36 h-36 -mt-20 mb-6 rounded-full overflow-hidden border-4 border-white shadow-xl group">
-                  <Image 
-                    src={pembina1.image} 
-                    alt={pembina1.name} 
-                    fill 
-                    style={{ objectFit: 'cover' }}
-                    className="filter brightness-105 transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <motion.div 
-                    className="absolute inset-0 bg-gradient-to-b from-blue-500/0 to-blue-600/30"
-                    whileHover={{ opacity: 0 }}
-                    transition={{ duration: 0.3 }}
-                  />
-                </div>
-                
-                <h3 className="text-2xl font-bold text-blue-950 mb-3 text-center">{pembina1.name}</h3>
-                <div className="mb-5 bg-gradient-to-r from-blue-600 to-blue-500 text-white font-medium px-5 py-2 rounded-lg text-sm shadow-lg">
-                  {pembina1.role}
-                </div>
-              </div>
-            </motion.div>
-          </motion.div>
-
-          {/* Pembina 2 */}
-          <motion.div 
-            initial={{ opacity: 0, y: -50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, type: "spring", stiffness: 50, delay: 0.1 }}
-            className="flex justify-center"
-          >
-            <motion.div 
-              className="relative w-full max-w-sm bg-white rounded-xl shadow-2xl overflow-hidden"
-              whileHover={{ y: -10, boxShadow: "0 25px 50px -12px rgba(59, 130, 246, 0.25)" }}
-              transition={{ type: "spring", stiffness: 300, damping: 15 }}
-            >
-              <div className="h-28 bg-gradient-to-r from-blue-700 to-blue-500"></div>
-              
-              <div className="flex flex-col items-center px-8 pt-0 pb-10">
-                <div className="relative w-36 h-36 -mt-20 mb-6 rounded-full overflow-hidden border-4 border-white shadow-xl group">
-                  <Image 
-                    src={pembina2.image} 
-                    alt={pembina2.name} 
-                    fill 
-                    style={{ objectFit: 'cover' }}
-                    className="filter brightness-105 transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <motion.div 
-                    className="absolute inset-0 bg-gradient-to-b from-blue-500/0 to-blue-600/30"
-                    whileHover={{ opacity: 0 }}
-                    transition={{ duration: 0.3 }}
-                  />
-                </div>
-                
-                <h3 className="text-2xl font-bold text-blue-950 mb-3 text-center">{pembina2.name}</h3>
-                <div className="mb-5 bg-gradient-to-r from-blue-600 to-blue-500 text-white font-medium px-5 py-2 rounded-lg text-sm shadow-lg">
-                  {pembina2.role}
-                </div>
-              </div>
-            </motion.div>
-          </motion.div>
+          {/* Pembina */}
+          <div className="w-full">
+            <motion.h3 className="text-3xl font-bold text-center mb-8 text-blue-800">Pembina</motion.h3>
+            <div className="grid md:grid-cols-2 gap-8">
+              {/* Card Pembina 1 */}
+              <motion.div 
+                initial={{ opacity: 0, y: -20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, delay: 0.1 }}
+                className="flex justify-center"
+                onClick={() => openPersonPopup({ ...pembina1 })}
+                style={{ cursor: 'pointer' }}
+              >
+                <motion.div 
+                  className="flex items-center bg-gradient-to-r from-blue-50 to-blue-100 rounded-xl shadow-lg p-6 gap-6 w-full max-w-md border border-blue-200"
+                  whileHover={{ y: -5, boxShadow: '0 15px 30px -12px rgba(59, 130, 246, 0.2)' }}
+                  transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+                >
+                  <div className="relative w-20 h-20 overflow-hidden rounded-full border-2 border-blue-300 flex-shrink-0">
+                    <Image 
+                      src={pembina1.image} 
+                      alt={pembina1.name} 
+                      fill 
+                      style={{ objectFit: 'cover' }}
+                    />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-gray-800 text-lg">{pembina1.name}</h4>
+                    <p className="text-blue-600">{pembina1.role}</p>
+                  </div>
+                </motion.div>
+              </motion.div>
+              {/* Card Pembina 2 */}
+              <motion.div 
+                initial={{ opacity: 0, y: -20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, delay: 0.2 }}
+                className="flex justify-center"
+                onClick={() => openPersonPopup({ ...pembina2 })}
+                style={{ cursor: 'pointer' }}
+              >
+                <motion.div 
+                  className="flex items-center bg-gradient-to-r from-blue-50 to-blue-100 rounded-xl shadow-lg p-6 gap-6 w-full max-w-md border border-blue-200"
+                  whileHover={{ y: -5, boxShadow: '0 15px 30px -12px rgba(59, 130, 246, 0.2)' }}
+                  transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+                >
+                  <div className="relative w-20 h-20 overflow-hidden rounded-full border-2 border-blue-300 flex-shrink-0">
+                    <Image 
+                      src={pembina2.image} 
+                      alt={pembina2.name} 
+                      fill 
+                      style={{ objectFit: 'cover' }}
+                    />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-gray-800 text-lg">{pembina2.name}</h4>
+                    <p className="text-blue-600">{pembina2.role}</p>
+                  </div>
+                </motion.div>
+              </motion.div>
+            </div>
+          </div>
 
           {/* Ketua */}
           <motion.div 
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: -10 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7, type: "spring", stiffness: 50, delay: 0.2 }}
-            className="flex justify-center"
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="w-full max-w-md flex justify-center"
+            onClick={() => openPersonPopup({ ...divisionHead })}
+            style={{ cursor: 'pointer' }}
           >
-            <motion.div 
-              className="relative w-full max-w-sm bg-white rounded-xl shadow-2xl overflow-hidden"
-              whileHover={{ y: -10, boxShadow: "0 25px 50px -12px rgba(59, 130, 246, 0.25)" }}
-              transition={{ type: "spring", stiffness: 300, damping: 15 }}
-            >
-              <div className="h-28 bg-gradient-to-r from-blue-600 to-blue-500"></div>
-              
-              <div className="flex flex-col items-center px-8 pt-0 pb-10">
-                <div className="relative w-36 h-36 -mt-20 mb-6 rounded-full overflow-hidden border-4 border-white shadow-xl group">
+            <div className="w-full">
+              <motion.h3 className="text-3xl font-bold text-center mb-8 text-blue-800">Ketua</motion.h3>
+              <motion.div 
+                className="flex items-center bg-gradient-to-r from-blue-50 to-blue-100 rounded-xl shadow-lg p-6 gap-6 w-full max-w-md border border-blue-200"
+                whileHover={{ y: -5, boxShadow: '0 15px 30px -12px rgba(59, 130, 246, 0.2)' }}
+                transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+              >
+                <div className="relative w-20 h-20 overflow-hidden rounded-full border-2 border-blue-300 flex-shrink-0">
                   <Image 
                     src={divisionHead.image} 
                     alt={divisionHead.name} 
                     fill 
                     style={{ objectFit: 'cover' }}
-                    className="filter brightness-105 transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <motion.div 
-                    className="absolute inset-0 bg-gradient-to-b from-blue-500/0 to-blue-600/30"
-                    whileHover={{ opacity: 0 }}
-                    transition={{ duration: 0.3 }}
                   />
                 </div>
-                
-                <h3 className="text-2xl font-bold text-blue-950 mb-3 text-center">{divisionHead.name}</h3>
-                <div className="mb-5 bg-gradient-to-r from-blue-600 to-blue-500 text-white font-medium px-5 py-2 rounded-lg text-sm shadow-lg">
-                  {divisionHead.role}
+                <div>
+                  <h4 className="font-bold text-gray-800 text-lg">{divisionHead.name}</h4>
+                  <p className="text-blue-600">{divisionHead.role}</p>
                 </div>
-              </div>
-            </motion.div>
+              </motion.div>
+            </div>
           </motion.div>
         </div>
 
@@ -461,35 +426,35 @@ const TeamSection = () => {
             Bendahara
           </motion.h3>
           
-          <div className="grid grid-cols- md:grid-cols-2 max-w-3xl mx-auto gap-10">
+          <div className="flex justify-center">
             <motion.div 
-                // key={idx}
-                initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                className="flex justify-center"
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="flex justify-center w-full max-w-md"
+              onClick={() => openPersonPopup({ ...bendahara })}
+              style={{ cursor: 'pointer' }}
+            >
+              <motion.div
+                className="flex items-center bg-white rounded-xl shadow-lg p-5 gap-6 w-full"
+                whileHover={{ y: -5, boxShadow: '0 15px 30px -12px rgba(59, 130, 246, 0.2)' }}
+                transition={{ type: 'spring', stiffness: 400, damping: 17 }}
               >
-                  <motion.div
-                  className="flex items-center bg-white rounded-xl shadow-lg p-5 gap-6 w-full"
-                  whileHover={{ y: -5, boxShadow: "0 15px 30px -12px rgba(59, 130, 246, 0.2)" }}
-                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                >
-                  <div className="relative w-16 h-16 overflow-hidden rounded-full border-2 border-blue-200 flex-shrink-0">
-                    <Image
-                      src={bendahara.image}
-                      alt={bendahara.name}
-                      fill
-                      style={{ objectFit: 'cover' }}
-                    />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-gray-800">{bendahara.name}</h4>
-                    <p className="text-sm text-blue-600">{bendahara.role}</p>
-                  </div>
-                </motion.div>
+                <div className="relative w-16 h-16 overflow-hidden rounded-full border-2 border-blue-200 flex-shrink-0">
+                  <Image
+                    src={bendahara.image}
+                    alt={bendahara.name}
+                    fill
+                    style={{ objectFit: 'cover' }}
+                  />
+                </div>
+                <div>
+                  <h4 className="font-bold text-gray-800">{bendahara.name}</h4>
+                  <p className="text-sm text-blue-600">{bendahara.role}</p>
+                </div>
               </motion.div>
-          
+            </motion.div>
           </div>
         </div>
 
@@ -505,20 +470,22 @@ const TeamSection = () => {
             Sekretariat
           </motion.h3>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 max-w-3xl mx-auto gap-10">
+          <div className="flex justify-center">
             {secretariat.map((member, idx) => (
-            <motion.div 
+              <motion.div 
                 key={idx}
                 initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="flex justify-center"
+                className="flex justify-center w-full max-w-md"
+                onClick={() => openPersonPopup({ ...member })}
+                style={{ cursor: 'pointer' }}
               >
-                  <motion.div
+                <motion.div
                   className="flex items-center bg-white rounded-xl shadow-lg p-5 gap-6 w-full"
-                  whileHover={{ y: -5, boxShadow: "0 15px 30px -12px rgba(59, 130, 246, 0.2)" }}
-                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                  whileHover={{ y: -5, boxShadow: '0 15px 30px -12px rgba(59, 130, 246, 0.2)' }}
+                  transition={{ type: 'spring', stiffness: 400, damping: 17 }}
                 >
                   <div className="relative w-16 h-16 overflow-hidden rounded-full border-2 border-blue-200 flex-shrink-0">
                     <Image
@@ -560,12 +527,13 @@ const TeamSection = () => {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5 }}
                   className="flex justify-center mb-12"
+                  onClick={() => openPersonPopup({ ...division.leader, description: division.description })}
+                  style={{ cursor: 'pointer' }}
                 >
                     <motion.div 
                     className="flex items-center bg-gradient-to-r from-blue-50 to-blue-100 rounded-xl shadow-lg p-6 gap-6 w-full max-w-md border border-blue-200 cursor-pointer"
                     whileHover={{ y: -5, boxShadow: "0 15px 30px -12px rgba(59, 130, 246, 0.2)" }}
                     transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                    onClick={() => openPopup(division)}
                   >
                     <div className="relative w-20 h-20 overflow-hidden rounded-full border-2 border-blue-300 flex-shrink-0">
                       {division.name === 'Divisi PDD & IT' && division.leader.name === 'Wisnu' ? (
@@ -591,38 +559,75 @@ const TeamSection = () => {
                 </motion.div>
 
                 {/* Anggota */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                  {division.members.map((member, memberIdx) => (
-                  <motion.div 
-                      key={memberIdx}
-                      initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.5, delay: memberIdx * 0.1 }}
-                    className="flex justify-center"
-                  >
-                    <motion.div
-                        className="flex items-center bg-white rounded-xl shadow-md p-5 gap-4 w-full cursor-pointer"
-                        whileHover={{ y: -3, boxShadow: "0 10px 20px -10px rgba(59, 130, 246, 0.25)" }}
-                        transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                        onClick={() => openPopup(division)}
-                    >
-                        <div className="relative w-12 h-12 overflow-hidden rounded-full border-2 border-blue-100 flex-shrink-0">
-                          <Image 
-                            src={member.image} 
-                            alt={member.name} 
-                            fill 
-                            style={{ objectFit: 'cover' }}
-                          />
-                        </div>
-                        <div>
-                          <h4 className="font-medium text-gray-800">{member.name}</h4>
-                          <p className="text-sm text-blue-500">Anggota</p>
-                      </div>
-                    </motion.div>
-                  </motion.div>
-                ))}
-              </div>
+                {division.members.length === 2 ? (
+                  <div className="grid grid-cols-2 gap-8 justify-items-center">
+                    {division.members.map((member, memberIdx) => (
+                      <motion.div 
+                        key={memberIdx}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: memberIdx * 0.1 }}
+                        className="flex justify-center"
+                        onClick={() => openPersonPopup({ ...member })}
+                        style={{ cursor: 'pointer' }}
+                      >
+                        <motion.div
+                          className="flex items-center bg-white rounded-xl shadow-md p-5 gap-4 w-full cursor-pointer"
+                          whileHover={{ y: -3, boxShadow: "0 10px 20px -10px rgba(59, 130, 246, 0.25)" }}
+                          transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                        >
+                          <div className="relative w-12 h-12 overflow-hidden rounded-full border-2 border-blue-100 flex-shrink-0">
+                            <Image 
+                              src={member.image} 
+                              alt={member.name} 
+                              fill 
+                              style={{ objectFit: 'cover' }}
+                            />
+                          </div>
+                          <div>
+                            <h4 className="font-medium text-gray-800">{member.name}</h4>
+                            <p className="text-sm text-blue-500">Anggota</p>
+                          </div>
+                        </motion.div>
+                      </motion.div>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
+                    {division.members.map((member, memberIdx) => (
+                      <motion.div 
+                        key={memberIdx}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: memberIdx * 0.1 }}
+                        className="flex justify-center"
+                        onClick={() => openPersonPopup({ ...member })}
+                        style={{ cursor: 'pointer' }}
+                      >
+                        <motion.div
+                          className="flex items-center bg-white rounded-xl shadow-md p-5 gap-4 w-full cursor-pointer"
+                          whileHover={{ y: -3, boxShadow: "0 10px 20px -10px rgba(59, 130, 246, 0.25)" }}
+                          transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                        >
+                          <div className="relative w-12 h-12 overflow-hidden rounded-full border-2 border-blue-100 flex-shrink-0">
+                            <Image 
+                              src={member.image} 
+                              alt={member.name} 
+                              fill 
+                              style={{ objectFit: 'cover' }}
+                            />
+                          </div>
+                          <div>
+                            <h4 className="font-medium text-gray-800">{member.name}</h4>
+                            <p className="text-sm text-blue-500">Anggota</p>
+                          </div>
+                        </motion.div>
+                      </motion.div>
+                    ))}
+                  </div>
+                )}
               </div>
             </div>
           ))}
@@ -640,89 +645,71 @@ const TeamSection = () => {
         </motion.div>
       </div>
 
-      {/* Popup untuk menampilkan detail tupoksi divisi */}
-      <AnimatePresence>
-        {popupInfo.isOpen && popupInfo.division && (
+      {/* Popup baru universal di bawah section */}
+      {popupPerson && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.3 }}
+          className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4"
+          onClick={closePersonPopup}
+        >
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4"
-            onClick={closePopup}
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.8, opacity: 0 }}
+            transition={{ type: 'spring', stiffness: 300, damping: 25 }}
+            className="bg-white rounded-2xl shadow-2xl overflow-hidden max-w-md w-full flex flex-col items-center p-8 relative"
+            onClick={e => e.stopPropagation()}
           >
-                <motion.div 
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              transition={{ type: "spring", stiffness: 300, damping: 25 }}
-              className="bg-white rounded-2xl shadow-2xl overflow-hidden max-w-4xl w-full max-h-[85vh] flex flex-col md:flex-row"
-              onClick={(e) => e.stopPropagation()}
+            <motion.div
+              initial={{ y: -40, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="w-40 h-40 rounded-full overflow-hidden border-4 border-blue-300 shadow-lg mb-6"
             >
-              {/* Bagian gambar (kiri) */}
-              <div className="md:w-2/5 bg-gradient-to-br from-blue-700 to-blue-500 p-8 flex flex-col justify-center items-center text-white">
-                <div className="w-24 h-24 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center mb-6">
-                  <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center">
-                    <h3 className="text-blue-700 font-bold text-2xl">{popupInfo.division.name.charAt(0)}</h3>
-                  </div>
-                </div>
-                <h2 className="text-2xl font-bold mb-3 text-center">{popupInfo.division.name}</h2>
-                <p className="text-white/80 text-center mb-6">Tim NBPC 2023</p>
-                
-                <div className="mt-4 w-full max-w-xs bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                  <h4 className="font-semibold mb-2 text-white/90">Anggota Tim:</h4>
-                  <ul className="space-y-2">
-                    <li className="flex items-center gap-2">
-                      <span className="w-2 h-2 bg-white rounded-full"></span>
-                      <span className="font-medium">{popupInfo.division.leader.name} (Koordinator)</span>
-                    </li>
-                    {popupInfo.division.members.map((member, idx) => (
-                      <li key={idx} className="flex items-center gap-2">
-                        <span className="w-2 h-2 bg-white rounded-full"></span>
-                        <span>{member.name}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-              
-              {/* Bagian konten (kanan) */}
-              <div className="md:w-3/5 p-8 overflow-y-auto">
-                <div className="flex justify-between items-center mb-6">
-                  <h3 className="text-2xl font-bold text-gray-800">Tugas dan Tanggung Jawab</h3>
-                  <button 
-                    onClick={closePopup}
-                    className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
-                  >
-                    <FiX className="text-gray-600" size={20} />
-                  </button>
-                </div>
-                
-                <div className="mb-6">
-                  <h4 className="text-lg font-semibold mb-3 text-blue-700">Deskripsi:</h4>
-                  <p className="text-gray-700 leading-relaxed">
-                    {popupInfo.division.description}
-                  </p>
-                </div>
-                
-                <div>
-                  <h4 className="text-lg font-semibold mb-3 text-blue-700">Tugas Pokok:</h4>
-                  <ul className="space-y-3">
-                    {popupInfo.division.responsibilities?.map((item, idx) => (
-                      <li key={idx} className="flex items-start gap-3">
-                        <div className="mt-1 w-5 h-5 rounded-full bg-blue-100 flex-shrink-0 flex items-center justify-center">
-                          <div className="w-2 h-2 rounded-full bg-blue-600"></div>
-                        </div>
-                        <p className="text-gray-700">{item}</p>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
+              <img 
+                src={popupPerson.image} 
+                alt={popupPerson.name} 
+                className="w-full h-full object-cover"
+                onClick={() => setFullscreenImg(popupPerson.image)}
+                style={{ cursor: 'zoom-in' }}
+              />
             </motion.div>
+            <motion.h2 className="text-2xl font-bold text-blue-900 mb-2 text-center">{popupPerson.name}</motion.h2>
+            <motion.p className="text-blue-600 font-medium mb-4 text-center">{popupPerson.role}</motion.p>
+            {popupPerson.description && (
+              <motion.p className="text-gray-700 text-center mb-4" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}>{popupPerson.description}</motion.p>
+            )}
+            <button onClick={closePersonPopup} className="mt-4 px-6 py-2 rounded-full bg-blue-100 text-blue-700 font-semibold hover:bg-blue-200 transition">Tutup</button>
+          </motion.div>
         </motion.div>
-        )}
-      </AnimatePresence>
+      )}
+
+      {/* Tambahkan: */}
+      {fullscreenImg && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.2 }}
+          className="fixed inset-0 bg-black/80 z-[100] flex items-center justify-center"
+          onClick={() => setFullscreenImg(null)}
+        >
+          <motion.img
+            src={fullscreenImg}
+            alt="Foto Besar"
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.8, opacity: 0 }}
+            transition={{ type: 'spring', stiffness: 300, damping: 25 }}
+            className="max-w-3xl max-h-[90vh] rounded-2xl shadow-2xl border-4 border-white"
+            style={{ cursor: 'zoom-out' }}
+            onClick={e => e.stopPropagation()}
+          />
+        </motion.div>
+      )}
     </section>
   );
 };
