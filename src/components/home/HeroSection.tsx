@@ -261,7 +261,7 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <a href="https://s.id/LinkPendaftaranNBPC" target="_blank" rel="noopener noreferrer">
+            <a href="https://s.id/Pendaftaran-NBPC-UNISNU-2025" target="_blank" rel="noopener noreferrer">
               <motion.button
                 className="bg-[#00B5EF] hover:bg-[#0099CC] text-white font-medium px-8 py-3 rounded-full text-lg shadow-lg hover:shadow-xl transition-all duration-300"
                 whileHover={{ 

@@ -225,7 +225,7 @@ const PamphletSection = () => {
             
             <div className="mt-8 flex flex-col sm:flex-row gap-4">
               <motion.a
-                href="https://drive.google.com/drive/folders/1FwsjkvwVTqSzFuRvAHB8BEZBQ_4Tj27A"
+                href="https://s.id/NBPC-UNISNU-2025"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05, boxShadow: '0 0 20px rgba(0, 181, 239, 0.5)' }}

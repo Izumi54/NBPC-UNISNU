@@ -217,7 +217,7 @@ const CTASection = () => {
             transition={{ duration: 0.5, delay: 0.4 }}
           >
             <Link 
-              href="https://s.id/LinkPendaftaranNBPC" 
+              href="https://s.id/Pendaftaran-NBPC-UNISNU-2025" 
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block relative overflow-hidden px-16 py-6 rounded-full bg-gradient-to-r from-white to-blue-50 text-blue-800 font-bold text-xl shadow-2xl shadow-blue-900/30 hover:shadow-blue-900/50 transition-all duration-300 group"
