@@ -45,140 +45,140 @@ export default function CompetitionPage() {
 
   const categories = [
     {
-      title: 'Teknologi Digital',
-      description: 'Ide bisnis berbasis teknologi seperti aplikasi, platform, atau solusi digital',
-      color: 'from-blue-500 to-blue-600',
-      bgColor: 'bg-blue-50',
-      icon: '💻',
-      fullDescription: 'Kategori Teknologi Digital mencakup berbagai inovasi berbasis teknologi yang bertujuan untuk menyelesaikan masalah atau meningkatkan efisiensi melalui solusi digital.',
-      examples: [
-        'Aplikasi mobile untuk manajemen bisnis kecil',
-        'Platform e-learning dengan teknologi AI',
-        'Solusi IoT untuk Smart City',
-        'Platform fintech untuk inklusi keuangan',
-        'Aplikasi berbasis blockchain untuk supply chain'
-      ],
-      criteria: [
-        'Inovasi teknologi yang digunakan',
-        'Kemampuan untuk menyelesaikan masalah nyata',
-        'Potensi skalabilitas dan pertumbuhan',
-        'Keunggulan kompetitif dibanding solusi yang ada',
-        'Kelayakan teknis implementasi'
-      ],
-      image: '/public/images/categories/tech.jpg'
-    },
-    {
-      title: 'Sosial & Lingkungan',
-      description: 'Bisnis dengan dampak sosial atau lingkungan yang positif dan berkelanjutan',
-      color: 'from-green-500 to-green-600',
-      bgColor: 'bg-green-50',
-      icon: '🌱',
-      fullDescription: 'Kategori Sosial & Lingkungan fokus pada bisnis yang memberikan dampak positif pada masyarakat dan lingkungan sekitar, dengan model bisnis yang berkelanjutan.',
-      examples: [
-        'Bank sampah digital dengan sistem reward',
-        'Bisnis daur ulang plastik menjadi produk bernilai tinggi',
-        'Platform crowdfunding untuk proyek lingkungan',
-        'Bisnis sosial untuk pemberdayaan masyarakat prasejahtera',
-        'Solusi energi terbarukan untuk daerah terpencil'
-      ],
-      criteria: [
-        'Besaran dampak sosial/lingkungan yang dihasilkan',
-        'Keberlanjutan model bisnis',
-        'Inovasi dalam pendekatan penyelesaian masalah',
-        'Potensi untuk meningkatkan kualitas hidup masyarakat',
-        'Keterlibatan komunitas lokal'
-      ],
-      image: '/public/images/categories/social.jpg'
-    },
-    {
-      title: 'Produk & Jasa',
-      description: 'Pengembangan produk fisik atau jasa inovatif dengan nilai tambah',
-      color: 'from-yellow-500 to-yellow-600',
-      bgColor: 'bg-yellow-50',
-      icon: '🛍️',
-      fullDescription: 'Kategori Produk & Jasa mencakup inovasi dalam pembuatan produk fisik atau penyediaan jasa yang menawarkan nilai tambah bagi konsumen.',
-      examples: [
-        'Produk ramah lingkungan dengan desain inovatif',
-        'Jasa konsultasi dengan pendekatan unik',
-        'Produk kesehatan dengan teknologi terkini',
-        'Jasa personal yang memanfaatkan teknologi',
-        'Produk lokal dengan standar internasional'
-      ],
-      criteria: [
-        'Keunikan nilai proposisi produk/jasa',
-        'Potensi pasar dan permintaan konsumen',
-        'Tingkat inovasi dan kreativitas',
-        'Strategi pemasaran dan distribusi',
-        'Kelayakan produksi atau penyediaan layanan'
-      ],
-      image: '/public/images/categories/product.jpg'
-    },
-    {
-      title: 'Kreatif & Budaya',
-      description: 'Bisnis di sektor ekonomi kreatif dan kearifan lokal',
-      color: 'from-red-500 to-red-600',
-      bgColor: 'bg-red-50',
-      icon: '🎨',
-      fullDescription: 'Kategori Kreatif & Budaya berfokus pada bisnis yang mengembangkan sektor ekonomi kreatif dan melestarikan kearifan lokal Indonesia melalui pendekatan modern.',
-      examples: [
-        'Platform marketplace untuk produk seni lokal',
-        'Solusi AR/VR untuk wisata budaya virtual',
-        'Studio animasi dengan konten budaya Indonesia',
-        'Fashion dengan sentuhan kearifan lokal',
-        'Aplikasi pembelajaran budaya interaktif'
-      ],
-      criteria: [
-        'Integrasi nilai budaya dalam model bisnis',
-        'Inovasi dalam memperkenalkan budaya ke pasar modern',
-        'Dampak terhadap pelestarian budaya lokal',
-        'Potensi menarik minat generasi muda',
-        'Kualitas artistik dan eksekusi kreatif'
-      ],
-      image: '/public/images/categories/creative.jpg'
-    },
-    {
-      title: 'Kuliner & Agribisnis',
-      description: 'Inovasi di bidang makanan, pertanian, dan pengolahan hasil tani',
+      title: 'Makanan dan Minuman',
+      description: 'Inovasi produk dan jasa di sektor kuliner.',
       color: 'from-orange-500 to-orange-600',
       bgColor: 'bg-orange-50',
       icon: '🍲',
-      fullDescription: 'Kategori Kuliner & Agribisnis mencakup inovasi dalam industri makanan, pertanian modern, dan pengolahan hasil pertanian menjadi produk bernilai tambah.',
+      fullDescription: 'Kategori ini mencakup ide bisnis inovatif terkait produksi, pengolahan, distribusi, dan penyajian makanan serta minuman.',
       examples: [
-        'Aplikasi manajemen rantai pasok pertanian',
-        'Produk olahan pangan inovatif',
-        'Sistem pertanian vertikal di perkotaan',
-        'Bisnis makanan berbasis subscription',
-        'Teknologi untuk meningkatkan hasil panen'
+        'Aplikasi pemesanan makanan berbasis AI',
+        'Produk makanan sehat dan organik kemasan',
+        'Layanan katering berbasis komunitas',
+        'Minuman fungsional inovatif',
+        'Platform distribusi hasil pertanian untuk industri kuliner'
       ],
       criteria: [
-        'Inovasi dalam produk atau proses produksi',
-        'Keberlanjutan dan dampak lingkungan',
-        'Potensi meningkatkan pendapatan petani',
-        'Kontribusi pada ketahanan pangan',
-        'Kualitas dan keamanan produk pangan'
+        'Orisinalitas resep atau konsep',
+        'Potensi pasar kuliner',
+        'Keamanan pangan dan kualitas produk',
+        'Model bisnis yang scalable',
+        'Inovasi dalam proses produksi atau pemasaran'
       ],
       image: '/public/images/categories/culinary.jpg'
     },
     {
-      title: 'Open Category',
-      description: 'Kategori terbuka untuk ide bisnis inovatif lainnya',
-      color: 'from-purple-500 to-purple-600',
-      bgColor: 'bg-purple-50',
-      icon: '💡',
-      fullDescription: 'Open Category adalah kategori khusus untuk ide bisnis inovatif yang tidak termasuk dalam kategori lain namun memiliki potensi dampak dan keunikan yang signifikan.',
+      title: 'Budidaya',
+      description: 'Inovasi di bidang pertanian, perikanan, peternakan, dan kehutanan.',
+      color: 'from-green-500 to-green-600',
+      bgColor: 'bg-green-50',
+      icon: '🌱',
+      fullDescription: 'Fokus pada pengembangan teknologi dan metode baru dalam kegiatan budidaya untuk meningkatkan efisiensi, keberlanjutan, dan kualitas hasil.',
       examples: [
-        'Bisnis hibrid yang menggabungkan beberapa sektor',
-        'Inovasi dalam industri pendidikan',
-        'Solusi untuk tantangan kesehatan',
-        'Platform untuk industri hiburan',
-        'Teknologi baru yang belum masuk kategori spesifik'
+        'Teknologi Smart Farming untuk pertanian',
+        'Sistem budidaya ikan terintegrasi',
+        'Pengembangan pakan ternak inovatif',
+        'Model agrowisata berkelanjutan',
+        'Solusi pengelolaan hutan berbasis data'
       ],
       criteria: [
-        'Tingkat inovasi dan kebaruan ide',
-        'Potensi disruptif dalam industri terkait',
-        'Proposisi nilai yang jelas',
-        'Kelayakan implementasi',
-        'Potensi skalabilitas bisnis'
+        'Peningkatan efisiensi budidaya',
+        'Dampak terhadap lingkungan dan sosial',
+        'Potensi peningkatan hasil dan kualitas',
+        'Inovasi teknologi atau metode',
+        'Kelayakan implementasi di tingkat petani/pembudidaya'
+      ],
+      image: '/public/images/categories/social.jpg'
+    },
+    {
+      title: 'Industri Kreatif, Seni, Budaya, & Pariwisata',
+      description: 'Bisnis berbasis kreativitas, seni, warisan budaya, dan potensi wisata.',
+      color: 'from-red-500 to-red-600',
+      bgColor: 'bg-red-50',
+      icon: '🎨',
+      fullDescription: 'Kategori ini mendorong ide bisnis yang memanfaatkan kekayaan intelektual, ekspresi artistik, warisan budaya, dan potensi destinasi pariwisata untuk menciptakan nilai ekonomi.',
+      examples: [
+        'Platform marketplace untuk seniman lokal',
+        'Pengembangan konten digital berbasis budaya',
+        'Penyelenggaraan acara seni dan budaya virtual',
+        'Inovasi produk fashion atau kriya lokal',
+        'Pengembangan aplikasi panduan wisata interaktif'
+      ],
+      criteria: [
+        'Orisinalitas dan nilai artistik',
+        'Potensi pasar di sektor kreatif dan pariwisata',
+        'Dampak terhadap pelestarian budaya/seni',
+        'Inovasi model bisnis',
+        'Kualitas eksekusi dan presentasi'
+      ],
+      image: '/public/images/categories/creative.jpg'
+    },
+    {
+      title: 'Jasa Perdagangan',
+      description: 'Inovasi dalam model bisnis perdagangan dan layanan terkait.',
+      color: 'from-yellow-500 to-yellow-600',
+      bgColor: 'bg-yellow-50',
+      icon: '🛍️',
+      fullDescription: 'Meliputi ide bisnis yang meningkatkan efisiensi, jangkauan, dan pengalaman pelanggan dalam aktivitas perdagangan barang dan penyediaan jasa.',
+      examples: [
+        'Platform e-commerce spesialis',
+        'Layanan logistik inovatif',
+        'Sistem manajemen inventori berbasis cloud',
+        'Konsultasi bisnis digital untuk UMKM',
+        'Pengembangan model bisnis langganan (subscription)'
+      ],
+      criteria: [
+        'Peningkatan efisiensi operasional',
+        'Potensi pasar dan pertumbuhan',
+        'Keunggulan kompetitif dalam layanan',
+        'Inovasi model bisnis',
+        'Skalabilitas dan profitabilitas'
+      ],
+      image: '/public/images/categories/product.jpg'
+    },
+    {
+      title: 'Manufaktur dan Teknologi Terapan',
+      description: 'Inovasi produk manufaktur dan penerapan teknologi baru.',
+      color: 'from-cyan-500 to-cyan-600',
+      bgColor: 'bg-cyan-50',
+      icon: '⚙️',
+      fullDescription: 'Fokus pada pengembangan produk fisik melalui proses manufaktur yang inovatif dan penerapan teknologi canggih untuk solusi industri atau konsumen.',
+      examples: [
+        'Produksi material ramah lingkungan',
+        'Pengembangan purwarupa perangkat IoT',
+        'Teknologi cetak 3D untuk produksi massal',
+        'Sistem otomatisasi untuk industri kecil',
+        'Inovasi produk elektronik atau mekanik'
+      ],
+      criteria: [
+        'Tingkat inovasi produk/teknologi',
+        'Kelayakan produksi dan skala ekonomi',
+        'Potensi pasar dan adopsi',
+        'Efisiensi dan kualitas hasil manufaktur',
+        'Dampak sosial atau lingkungan dari produk'
+      ],
+      image: '/public/images/categories/tech.jpg'
+    },
+    {
+      title: 'Bisnis Digital',
+      description: 'Model bisnis yang sepenuhnya berbasis platform digital.',
+      color: 'from-blue-500 to-blue-600',
+      bgColor: 'bg-blue-50',
+      icon: '💻',
+      fullDescription: 'Kategori ini mencakup ide bisnis yang beroperasi dan menghasilkan pendapatan utamanya melalui platform atau teknologi digital, seperti aplikasi, website, atau SaaS.',
+      examples: [
+        'Pengembangan aplikasi edukasi interaktif',
+        'Platform digital marketing untuk UMKM',
+        'Layanan konsultasi online berbasis langganan',
+        'Pengembangan game atau aplikasi hiburan digital',
+        'Solusi Big Data atau AI untuk bisnis'
+      ],
+      criteria: [
+        'Inovasi platform digital',
+        'Potensi monetisasi dan pertumbuhan pengguna',
+        'Pengalaman pengguna (UX/UI)',
+        'Keunggulan kompetitif di ruang digital',
+        'Kelayakan teknis pengembangan dan operasional'
       ],
       image: '/public/images/categories/open.jpg'
     }
@@ -716,28 +716,28 @@ export default function CompetitionPage() {
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {[
-                { 
-                  position: 'Juara 1', 
-                  prize: 'Rp 25.000.000', 
-                  extras: ['Mentoring bisnis selama 6 bulan', 'Kesempatan pitching ke investor', 'Sertifikat & Trophy Eksklusif', 'Media coverage'],
+                {
+                  position: 'Juara 1',
+                  prize: 'Rp 2.000.000',
+                  extras: ['Sertifikat', 'Medali', 'Kesempatan pitching ke investor'],
                   delay: 0,
                   transform: 'md:transform md:-translate-y-4 md:scale-110 z-10',
                   className: 'bg-gradient-to-b from-yellow-50 to-yellow-100 border-yellow-300 shadow-[0_0_40px_rgba(251,191,36,0.3)]',
                   ribbon: true,
                   ribbonText: 'BEST PRIZE'
                 },
-                { 
-                  position: 'Juara 2', 
-                  prize: 'Rp 15.000.000', 
-                  extras: ['Mentoring bisnis selama 3 bulan', 'Sertifikat & Trophy', 'Media exposure'],
+                {
+                  position: 'Juara 2',
+                  prize: 'Rp 1.750.000',
+                  extras: ['Sertifikat', 'Medali'],
                   delay: 0.2,
                   transform: '',
                   className: 'bg-gradient-to-b from-gray-50 to-gray-100 border-gray-300'
                 },
-                { 
-                  position: 'Juara 3', 
-                  prize: 'Rp 10.000.000', 
-                  extras: ['Mentoring bisnis selama 1 bulan', 'Sertifikat & Trophy', 'Media exposure'],
+                {
+                  position: 'Juara 3',
+                  prize: 'Rp 1.500.000',
+                  extras: ['Sertifikat', 'Medali'],
                   delay: 0.4,
                   transform: 'md:transform md:translate-y-4',
                   className: 'bg-gradient-to-b from-orange-50 to-orange-100 border-orange-300'
@@ -864,7 +864,7 @@ export default function CompetitionPage() {
               <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-full -mt-20 -mr-20 opacity-50"></div>
               <div className="relative z-10">
                 <p className="text-lg text-gray-700">
-                  <span className="font-semibold text-blue-700">Bonus:</span> Semua finalis juga akan mendapatkan sertifikat, merchandise eksklusif, dan kesempatan pitching ke investor!
+                  <span className="font-semibold text-blue-700">Bonus:</span> Semua finalis juga akan mendapatkan sertifikat dan merchandise eksklusif!
                 </p>
               </div>
             </motion.div>
