@@ -196,7 +196,7 @@ const AboutSection = () => {
               </p>
               
               <a 
-                href="https://s.id/LinkPendaftaranNBPC"
+                href="https://s.id/Pendaftaran-NBPC-UNISNU-2025"
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white px-8 py-4 rounded-full font-bold shadow-lg shadow-blue-900/30 transition-all inline-block"
@@ -385,7 +385,7 @@ const AboutSection = () => {
             </p>
             
             <motion.a 
-              href="https://s.id/LinkPendaftaranNBPC"
+              href="https://s.id/Pendaftaran-NBPC-UNISNU-2025"
               target="_blank" 
               rel="noopener noreferrer"
               className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white px-10 py-5 rounded-full font-bold shadow-lg shadow-blue-900/30 transition-all inline-block text-lg"

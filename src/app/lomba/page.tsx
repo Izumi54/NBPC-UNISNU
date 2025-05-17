@@ -331,8 +331,15 @@ export default function CompetitionPage() {
                       <li className="flex items-start">
                         <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-blue-100 text-blue-600 font-bold flex-shrink-0 mr-4 mt-0.5">4</span>
                         <div>
-                          <p className="font-medium">Pendaftaran GRATIS</p>
-                          <p className="text-gray-500 text-sm mt-1">Tidak ada biaya pendaftaran untuk mengikuti kompetisi NBPC 2025</p>
+                          <p className="font-medium">Ide yang di daftarkan belum pernah/sedang diikutkan dalam kompetisi lain</p>
+                          <p className="text-gray-500 text-sm mt-1">jika terdeteksi demikian, maka peserta akan di diskualifikasi.</p>
+                        </div>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-blue-100 text-blue-600 font-bold flex-shrink-0 mr-4 mt-0.5">5</span>
+                        <div>
+                          <p className="font-medium">Setiap tim mengupload BMC menggunakan template yang telah disediakan.</p>
+                          {/* <p className="text-gray-500 text-sm mt-1">jika terdeteksi demikian, maka peserta akan di diskualifikasi.</p> */}
                         </div>
                       </li>
                     </ul>
@@ -350,38 +357,52 @@ export default function CompetitionPage() {
                           <li className="flex items-start">
                             <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-purple-100 text-purple-600 font-bold flex-shrink-0 mr-4 mt-0.5">1</span>
                             <div>
-                              <p className="font-medium">Proposal bisnis ditulis dalam Bahasa Indonesia</p>
-                              <p className="text-gray-500 text-sm mt-1">Gunakan bahasa yang baik, formal, dan mudah dipahami</p>
+                              <p className="font-medium">Lembar Cover</p>
+                              <p className="text-gray-500 text-sm mt-1">Desain cover di bebaskan wajib ada logo UNISNU Jepara, nama tim, nama ketua, dan anggota-anggota tim, dan asal perguruan tinggi/instansi</p>
                             </div>
                           </li>
-                          <li className="flex items-start">
+                          {/* <li className="flex items-start">
                             <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-purple-100 text-purple-600 font-bold flex-shrink-0 mr-4 mt-0.5">2</span>
                             <div>
-                              <p className="font-medium">Proposal maksimal 20 halaman (tidak termasuk lampiran)</p>
-                              <p className="text-gray-500 text-sm mt-1">Gunakan ukuran font 12 pt dengan spasi 1.5</p>
+                              <p className="font-medium">Lembar Pengesahan Daftar isi logo bisa di unduh di Bab I Pendahuluan</p>
+                              <p className="text-gray-500 text-sm mt-1">Bagian ini menjelaskan secara detail tentang profil singkat usaha dan latar belakang mengapa bisnis tersebut didirikan</p>
                             </div>
-                          </li>
+                          </li> */}
                           <li className="flex items-start">
                             <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-purple-100 text-purple-600 font-bold flex-shrink-0 mr-4 mt-0.5">3</span>
                             <div>
-                              <p className="font-medium">Format file: PDF</p>
-                              <p className="text-gray-500 text-sm mt-1">Ukuran file tidak melebihi 10MB</p>
+                              <p className="font-medium">Bab I Pendahuluan</p>
+                              <p className="text-gray-500 text-sm mt-1">Bagian ini menjelaskan secara detail tentang profil singkat usaha dan latar belakang mengapa bisnis tersebut didirikan</p>
                             </div>
                           </li>
                           <li className="flex items-start">
                             <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-purple-100 text-purple-600 font-bold flex-shrink-0 mr-4 mt-0.5">4</span>
                             <div>
-                              <p className="font-medium">Mengikuti template yang disediakan panitia</p>
-                              <p className="text-gray-500 text-sm mt-1">Template dapat diunduh dari website resmi NBPC</p>
+                              <p className="font-medium">Bab II Deskripsi Usaha</p>
+                              <p className="text-gray-500 text-sm mt-1">a. Permasalahan dan Solusi, b. Analisis Pasar (Segmenting, Targeting, dan Positioning), c. Analisis Kompetitor, d. Profil Tim, e. Traction</p>
                             </div>
                           </li>
                           <li className="flex items-start">
                             <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-purple-100 text-purple-600 font-bold flex-shrink-0 mr-4 mt-0.5">5</span>
                             <div>
-                              <p className="font-medium">Dikumpulkan sesuai deadline yang ditentukan</p>
-                              <p className="text-gray-500 text-sm mt-1">Keterlambatan pengumpulan akan mengurangi penilaian</p>
+                              <p className="font-medium">Bab III Strategi Bisnis dan Proyeksi Keuangan </p>
+                              <p className="text-gray-500 text-sm mt-1">a. Strategi Bisnis, b. Proyeksi Keuangan</p>
                             </div>
                           </li>
+                          <li className="flex items-start">
+                            <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-purple-100 text-purple-600 font-bold flex-shrink-0 mr-4 mt-0.5">6</span>
+                            <div>
+                              <p className="font-medium">Bab IV Penutup</p>
+                              <p className="text-gray-500 text-sm mt-1">Kesimpulan</p>
+                            </div>
+                          </li>
+                          {/* <li className="flex items-start">
+                            <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-purple-100 text-purple-600 font-bold flex-shrink-0 mr-4 mt-0.5">7</span>
+                            <div>
+                              <p className="font-medium">Lampiran</p>
+                              <p className="text-gray-500 text-sm mt-1">(a. BMC, b. Biodata Tim) B. Petunjuk</p>
+                            </div>
+                          </li> */}
                         </ul>
                       </div>
                     </div>
@@ -582,22 +603,22 @@ export default function CompetitionPage() {
           <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
             {[{
                 name: 'Booklet',
-                link: 'https://drive.google.com/drive/folders/1FwsjkvwVTqSzFuRvAHB8BEZBQ_4Tj27A?usp=drive_link',
+                link: 'https://s.id/NBPC-UNISNU-2025',
                 icon: <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5S19.832 5.477 21 6.253v13C19.832 18.477 18.246 18 16.5 18s-3.332.477-4.5 1.253" /></svg>
               },
               {
                 name: 'Lembar Pengesahan',
-                link: 'https://drive.google.com/drive/folders/15lCfHjqasaZcJVPf2psGqhFubrCcvOfP?usp=drive_link',
+                link: 'https://s.id/NBPC-UNISNU-2025',
                 icon: <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
               },
               {
                 name: 'Twibbon & Caption',
-                link: 'https://drive.google.com/drive/folders/15JjUVbkXWR80DfN9_uXWVD5yEUgvopTG?usp=drive_link',
+                link: 'https://s.id/NBPC-UNISNU-2025',
                 icon: <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2 2l1.586-1.586a2 2 0 012.828 0L20 18m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
               },
               {
                 name: 'Template BMC',
-                link: 'https://drive.google.com/drive/folders/10FcdNmPuy9LZeTBlVm5qbR1wR7C1KF0E',
+                link: 'https://s.id/NBPC-UNISNU-2025',
                 icon: <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
               },
             ].map((item, index) => (
@@ -719,7 +740,7 @@ export default function CompetitionPage() {
                 {
                   position: 'Juara 1',
                   prize: 'Rp 2.000.000',
-                  extras: ['Sertifikat', 'Medali', 'Kesempatan pitching ke investor'],
+                  extras: ['Sertifikat', 'Trophy'],
                   delay: 0,
                   transform: 'md:transform md:-translate-y-4 md:scale-110 z-10',
                   className: 'bg-gradient-to-b from-yellow-50 to-yellow-100 border-yellow-300 shadow-[0_0_40px_rgba(251,191,36,0.3)]',
@@ -729,7 +750,7 @@ export default function CompetitionPage() {
                 {
                   position: 'Juara 2',
                   prize: 'Rp 1.750.000',
-                  extras: ['Sertifikat', 'Medali'],
+                  extras: ['Sertifikat', 'Trophy'],
                   delay: 0.2,
                   transform: '',
                   className: 'bg-gradient-to-b from-gray-50 to-gray-100 border-gray-300'
@@ -737,7 +758,7 @@ export default function CompetitionPage() {
                 {
                   position: 'Juara 3',
                   prize: 'Rp 1.500.000',
-                  extras: ['Sertifikat', 'Medali'],
+                  extras: ['Sertifikat', 'Trophy'],
                   delay: 0.4,
                   transform: 'md:transform md:translate-y-4',
                   className: 'bg-gradient-to-b from-orange-50 to-orange-100 border-orange-300'
@@ -834,13 +855,16 @@ export default function CompetitionPage() {
                         ))}
                       </ul>
                       
-                      <motion.button
+                      <motion.a
+                        href="https://s.id/Pendaftaran-NBPC-UNISNU-2025"
                         className="mt-8 py-3 w-full rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-medium text-sm opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300"
                         whileHover={{ scale: 1.03 }}
                         whileTap={{ scale: 0.98 }}
+                        target="_blank" // jika ingin buka di tab baru
+                        rel="noopener noreferrer" // untuk keamanan jika pakai target="_blank"
                       >
                         Daftar Sekarang
-                      </motion.button>
+                      </motion.a>
                     </div>
                     
                     <div className="absolute bottom-0 left-0 right-0 h-1.5 bg-gradient-to-r from-blue-500 to-indigo-600 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></div>
@@ -864,7 +888,7 @@ export default function CompetitionPage() {
               <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-full -mt-20 -mr-20 opacity-50"></div>
               <div className="relative z-10">
                 <p className="text-lg text-gray-700">
-                  <span className="font-semibold text-blue-700">Bonus:</span> Semua finalis juga akan mendapatkan sertifikat dan merchandise eksklusif!
+                  <span className="font-semibold text-blue-700">Bonus:</span> Semua Peserta juga akan mendapatkan sertifikat!
                 </p>
               </div>
             </motion.div>
@@ -1001,7 +1025,7 @@ export default function CompetitionPage() {
                 transition={{ delay: 0.4, duration: 0.4 }}
               >
                 <motion.a 
-                  href="https://s.id/LinkPendaftaranNBPC" 
+                  href="https://s.id/Pendaftaran-NBPC-UNISNU-2025" 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn bg-white text-blue-900 transition-all shadow-xl px-8 py-4 rounded-full font-bold flex items-center justify-center"
@@ -1130,7 +1154,7 @@ export default function CompetitionPage() {
                       className="mt-auto"
                     >
                       <a 
-                        href="https://s.id/LinkPendaftaranNBPC" 
+                        href="https://s.id/Pendaftaran-NBPC-UNISNU-2025" 
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={closeCategoryDetail}
@@ -1210,7 +1234,7 @@ export default function CompetitionPage() {
                         Tutup
                       </button>
                       <a 
-                        href="https://s.id/LinkPendaftaranNBPC"
+                        href="https://s.id/Pendaftaran-NBPC-UNISNU-2025"
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={closeCategoryDetail}
