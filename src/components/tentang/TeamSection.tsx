@@ -694,7 +694,7 @@ const TeamSection = () => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.2 }}
-          className="fixed inset-0 bg-black/80 z-[100] flex items-center justify-center"
+          className="fixed inset-0 bg-black/80 z-[100] flex items-center justify-center p-4"
           onClick={() => setFullscreenImg(null)}
         >
           <motion.img
@@ -704,10 +704,17 @@ const TeamSection = () => {
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.8, opacity: 0 }}
             transition={{ type: 'spring', stiffness: 300, damping: 25 }}
-            className="max-w-3xl max-h-[90vh] rounded-2xl shadow-2xl border-4 border-white"
+            className="max-w-full max-h-[90vh] rounded-2xl shadow-2xl border-4 border-white"
             style={{ cursor: 'zoom-out' }}
             onClick={e => e.stopPropagation()}
           />
+          <button
+            onClick={() => setFullscreenImg(null)}
+            className="absolute top-4 right-4 p-2 rounded-full bg-white/30 backdrop-blur-sm text-white hover:bg-white/50 transition-colors z-[101]"
+            aria-label="Close fullscreen"
+          >
+            <FiX size={24} />
+          </button>
         </motion.div>
       )}
     </section>
