@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiInfo, FiAward, FiHelpCircle, FiPlus, FiMinus, FiX, FiCheck, FiArrowRight } from 'react-icons/fi';
 import AnimatedTitle from '@/components/animations/AnimatedTitle';
@@ -11,6 +11,11 @@ export default function CompetitionPage() {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
   const [activeCategory, setActiveCategory] = useState<number | null>(null);
   const [showCopyNotification, setShowCopyNotification] = useState(false);
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   const toggleFaq = (index: number) => {
     if (openFaqIndex === index) {
@@ -394,6 +399,7 @@ export default function CompetitionPage() {
       </section>
 
       {/* Pamflet Lomba */}
+      {isClient && (
       <section className="section py-24 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute top-20 right-10 w-64 h-64 bg-blue-50 rounded-full filter blur-3xl opacity-70"></div>
@@ -434,7 +440,7 @@ export default function CompetitionPage() {
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ delay: 0.15 }}
+                    transition={{ delay: 0.15, duration: 0.4 }}
                     className="p-8 bg-white rounded-2xl shadow-xl border border-gray-100"
                   >
                     <h3 className="text-2xl font-bold mb-4 text-blue-600">Informasi Penting</h3>
@@ -559,8 +565,10 @@ export default function CompetitionPage() {
           </div>
         </motion.div>
       </section>
+      )}
 
       {/* Kebutuhan Lomba */}
+      {isClient && (
       <section className="section py-24 bg-white relative overflow-hidden">
         <div className="absolute left-0 top-0 w-full h-64 bg-gradient-to-b from-gray-50 to-white"></div>
         <div className="absolute right-0 top-1/4 w-64 h-64 bg-blue-100 rounded-full filter blur-3xl opacity-30"></div>
@@ -624,6 +632,7 @@ export default function CompetitionPage() {
           </div>
         </motion.div>
       </section>
+      )}
 
       {/* Kategori Lomba */}
       <section id="kategori" className="section bg-gradient-to-b from-gray-50 to-white relative py-24 overflow-hidden">
@@ -724,7 +733,7 @@ export default function CompetitionPage() {
                   transform: 'md:transform md:-translate-y-4 md:scale-110 z-10',
                   className: 'bg-gradient-to-b from-yellow-50 to-yellow-100 border-yellow-300 shadow-[0_0_40px_rgba(251,191,36,0.3)]',
                   ribbon: true,
-                  ribbonText: 'BEST PRIZE'
+                  ribbonText: 'BEST TIM'
                 },
                 {
                   position: 'Juara 2',
