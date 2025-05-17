@@ -34,20 +34,8 @@ export default function CompetitionPage() {
       answer: 'NBPC terbuka untuk mahasiswa aktif S1 atau D3 dari perguruan tinggi di seluruh Indonesia. Peserta dapat mendaftar dalam tim yang terdiri dari 3-5 orang dari institusi yang sama.'
     },
     {
-      question: 'Berapa biaya pendaftaran untuk mengikuti NBPC?',
-      answer: 'Biaya pendaftaran untuk mengikuti NBPC adalah Rp 250.000 per tim. Biaya ini sudah termasuk akses ke semua workshop dan mentoring selama kompetisi berlangsung.'
-    },
-    {
-      question: 'Apa saja dokumen yang perlu disiapkan untuk pendaftaran?',
-      answer: 'Dokumen yang diperlukan meliputi: formulir pendaftaran, scan kartu mahasiswa setiap anggota tim, bukti pembayaran, dan proposal awal ide bisnis (format dapat diunduh dari website).'
-    },
-    {
       question: 'Bagaimana sistem penilaian di NBPC?',
       answer: 'Penilaian dilakukan berdasarkan beberapa kriteria: inovasi (30%), potensi pasar (25%), kelayakan implementasi (20%), presentasi (15%), dan dampak sosial/lingkungan (10%).'
-    },
-    {
-      question: 'Apakah peserta akan mendapatkan mentoring selama kompetisi?',
-      answer: 'Ya, semua peserta akan mendapatkan akses ke sesi workshop dan mentoring dari para praktisi bisnis dan investor berpengalaman.'
     },
     {
       question: 'Apakah boleh mengikutsertakan ide bisnis yang sudah berjalan?',
@@ -342,13 +330,6 @@ export default function CompetitionPage() {
                       </li>
                       <li className="flex items-start">
                         <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-blue-100 text-blue-600 font-bold flex-shrink-0 mr-4 mt-0.5">4</span>
-                        <div>
-                          <p className="font-medium">Ide yang di daftarkan belum pernah/sedang diikutkan dalam kompetisi lain</p>
-                          <p className="text-gray-500 text-sm mt-1">Jika terdeteksi demikian, maka peserta akan di diskualifikasi.</p>
-                        </div>
-                      </li>
-                      <li className="flex items-start">
-                        <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-blue-100 text-blue-600 font-bold flex-shrink-0 mr-4 mt-0.5">5</span>
                         <div>
                           <p className="font-medium">Pendaftaran GRATIS</p>
                           <p className="text-gray-500 text-sm mt-1">Tidak ada biaya pendaftaran untuk mengikuti kompetisi NBPC 2025</p>
@@ -883,7 +864,7 @@ export default function CompetitionPage() {
               <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-full -mt-20 -mr-20 opacity-50"></div>
               <div className="relative z-10">
                 <p className="text-lg text-gray-700">
-                  <span className="font-semibold text-blue-700">Bonus:</span> Semua finalis juga akan mendapatkan sertifikat, merchandise eksklusif, dan kesempatan mengikuti workshop eksklusif bersama pakar bisnis terkemuka!
+                  <span className="font-semibold text-blue-700">Bonus:</span> Semua finalis juga akan mendapatkan sertifikat, merchandise eksklusif, dan kesempatan pitching ke investor!
                 </p>
               </div>
             </motion.div>
@@ -1053,7 +1034,7 @@ export default function CompetitionPage() {
               viewport={{ once: true }}
               transition={{ delay: 0.8, duration: 0.4 }}
             >
-              <p>Untuk informasi lebih lanjut, hubungi panitia di <a href="mailto:info@nbpc.ac.id" className="text-white underline hover:text-blue-200 transition-colors">info@nbpc.ac.id</a></p>
+              <p>Untuk informasi lebih lanjut, hubungi panitia di <a href="mailto:unisnubisniscomunity@gmail.com" className="text-white underline hover:text-blue-200 transition-colors">unisnubisniscomunity@gmail.com</a></p>
             </motion.div>
           </FadeInSection>
         </div>
