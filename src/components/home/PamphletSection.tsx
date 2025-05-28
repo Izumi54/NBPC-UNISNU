@@ -166,7 +166,7 @@ const PamphletSection = () => {
               />
               
               <Image
-                src="/images/pamflet.png"
+                src="/images/pamflet-nbpc-new.jpg"
                 alt="NBPC 2025 Pamflet"
                 fill
                 sizes="(max-width: 768px) 100vw, 384px"

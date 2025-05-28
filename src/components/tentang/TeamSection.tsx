@@ -112,7 +112,7 @@ const TeamSection = () => {
         image: '/images/team/d_konsum/Farah.jpeg'
       },
       members: [
-        { name: 'Anisa Saili Rifqoh', image: '/images/team/d_konsum/anisa.jpeg' },
+        // { name: 'Anisa Saili Rifqoh', image: '/images/team/d_konsum/anisa.jpeg' },
         { name: 'Latifatul Asna', image: '/images/team/d_konsum/asna.jpeg' },
       ],
       description: 'Divisi Konsumsi bertanggung jawab untuk menyediakan dan mengelola kebutuhan makanan dan minuman selama rangkaian acara NBPC.',
@@ -168,6 +168,11 @@ const TeamSection = () => {
       name: 'Muhamad Rizal Nurdin',
       role: 'Sekretariat',
       image: '/images/team/rizal.jpeg'
+    },
+    {
+      name: 'Anisa Saili Rifqoh',
+      role: 'Sekretariat',
+      image: '/images/team/d_konsum/asna.jpeg'
     }
   ];
 
@@ -470,7 +475,7 @@ const TeamSection = () => {
             Sekretariat
           </motion.h3>
           
-          <div className="flex justify-center">
+          <div className="flex justify-center gap-6">
             {secretariat.map((member, idx) => (
               <motion.div 
                 key={idx}
@@ -478,7 +483,7 @@ const TeamSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="flex justify-center w-full max-w-md"
+                className="flex justify-center w-full max-w-md mx-6"
                 onClick={() => openPersonPopup({ ...member })}
                 style={{ cursor: 'pointer' }}
               >

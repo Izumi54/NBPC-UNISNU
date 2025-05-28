@@ -79,6 +79,14 @@
       {
         name: "UBC",
         logo: "/images/UBC.png"
+      },
+      {
+        name: "logo kpi",
+        logo: "/images/logokpi.png"
+      },
+      {
+        name: "hmpsif",
+        logo: "/images/HMPSIFSTROKE.png"
       }
     ];
 
